@@ -1,0 +1,58 @@
+name: Run Analyst Model
+
+on:
+  workflow_dispatch:
+    inputs:
+      script:
+        description: "Which script to run"
+        required: true
+        type: choice
+        options:
+          - master_pipeline.py
+          - export_to_excel.py
+          - smart_consensus.py
+          - export_smart_consensus.py
+        default: master_pipeline.py
+      args:
+        description: "Exact command-line flags, same as you'd type locally (e.g. --live --ticker CME-US --quarters 12)"
+        required: false
+        default: "--mock"
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run ${{ inputs.script }}
+        env:
+          FACTSET_USERNAME: ${{ secrets.FACTSET_USERNAME }}
+          FACTSET_API_KEY: ${{ secrets.FACTSET_API_KEY }}
+        run: python ${{ inputs.script }} ${{ inputs.args }}
+
+      - name: Save new/changed outputs back to the repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add outputs/*.csv outputs/**/*.csv 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "Update outputs from Actions run (${{ inputs.script }} ${{ inputs.args }})"
+          git push || true
+
+      - name: Upload this run's outputs as a downloadable artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: outputs-${{ github.run_id }}
+          path: outputs/
+          retention-days: 30
