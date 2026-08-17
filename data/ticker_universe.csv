@@ -1,0 +1,54 @@
+ticker,sic_code,sic_description,ff48_industry,source
+NVDA-US,3674,Semiconductors & Related Devices,Electronic Equipment,sec_edgar
+GOOGL-US,7370,"Services-Computer Programming, Data Processing, Etc.",Business Services,sec_edgar
+MSFT-US,7372,Services-Prepackaged Software,Business Services,sec_edgar
+MLM-US,1400,Mining & Quarrying of  Nonmetallic Minerals (No Fuels),Non-Metallic and Industrial Metal Mining,sec_edgar
+AMZN-US,5961,Retail-Catalog & Mail-Order Houses,Retail,sec_edgar
+AAPL-US,3571,Electronic Computers,Computers,sec_edgar
+UPS-US,4210,Trucking & Courier Services (No Air),Transportation,sec_edgar
+NRG-US,4911,Electric Services,Utilities,sec_edgar
+TFC-US,6021,National Commercial Banks,Banking,sec_edgar
+PWR-US,1731,Electrical Work,Construction,sec_edgar
+BJ-US,5331,Retail-Variety Stores,Retail,sec_edgar
+LH-US,8071,Services-Medical Laboratories,Healthcare,sec_edgar
+V-US,7389,"Services-Business Services, NEC",Business Services,sec_edgar
+FCX-US,1000,Metal Mining,Non-Metallic and Industrial Metal Mining,sec_edgar
+VRTX-US,2834,Pharmaceutical Preparations,Pharmaceutical Products,sec_edgar
+LLY-US,2834,Pharmaceutical Preparations,Pharmaceutical Products,sec_edgar
+CEG-US,4911,Electric Services,Utilities,sec_edgar
+AVGO-US,3674,Semiconductors & Related Devices,Electronic Equipment,sec_edgar
+EME-US,1731,Electrical Work,Construction,sec_edgar
+ACN-US,7389,"Services-Business Services, NEC",Business Services,sec_edgar
+META-US,7370,"Services-Computer Programming, Data Processing, Etc.",Business Services,sec_edgar
+TSM-US,3674,Semiconductors & Related Devices,Electronic Equipment,sec_edgar
+ABBNY-US,3613,Switchgear & Switchboard Apparatus,Electrical Equipment,sec_edgar
+AEP-US,4911,Electric Services,Utilities,sec_edgar
+SNPS-US,7372,Services-Prepackaged Software,Business Services,sec_edgar
+MTZ-US,1623,"Water, Sewer, Pipeline, Comm & Power Line Construction",Construction,sec_edgar
+AMAT-US,3674,Semiconductors & Related Devices,Electronic Equipment,sec_edgar
+RRX-US,3569,"General Industrial Machinery & Equipment, NEC",Machinery,sec_edgar
+KLAC-US,3827,Optical Instruments & Lenses,Measuring and Control Equipment,sec_edgar
+CME-US,6200,"Security & Commodity Brokers, Dealers, Exchanges & Services",Trading,sec_edgar
+APO-US,6282,Investment Advice,Trading,sec_edgar
+CSCO-US,3576,Computer Communications Equipment,Computers,sec_edgar
+GS-US,6211,"Security Brokers, Dealers & Flotation Companies",Trading,sec_edgar
+CCJ-US,1090,Miscellaneous Metal Ores,Non-Metallic and Industrial Metal Mining,sec_edgar
+GEV-US,3600,Electronic & Other Electrical Equipment (No Computer Equip),Electrical Equipment,sec_edgar
+IBM-US,3570,Computer & office Equipment,Computers,sec_edgar
+WMB-US,4922,Natural Gas Transmission,Utilities,sec_edgar
+HD-US,5211,Retail-Lumber & Other Building Materials Dealers,Retail,sec_edgar
+NOW-US,7372,Services-Prepackaged Software,Business Services,sec_edgar
+GLW-US,3357,Drawing & Insulating of  Nonferrous Wire,Steel Works Etc,sec_edgar
+AMD-US,3674,Semiconductors & Related Devices,Electronic Equipment,sec_edgar
+ZS-US,7371,Services-Computer Programming Services,Business Services,sec_edgar
+KKR-US,6282,Investment Advice,Trading,sec_edgar
+FLS-US,3561,Pumps & Pumping Equipment,Machinery,sec_edgar
+IONQ-US,7373,Services-Computer Integrated Systems Design,Computers,sec_edgar
+QCOM-US,3663,Radio & Tv Broadcasting & Communications Equipment,Electronic Equipment,sec_edgar
+RGTI-US,7371,Services-Computer Programming Services,Business Services,sec_edgar
+INTU-US,7372,Services-Prepackaged Software,Business Services,sec_edgar
+STT-US,6022,State Commercial Banks,Banking,sec_edgar
+LNG-US,4924,Natural Gas Distribution,Utilities,sec_edgar
+GFS-US,3674,Semiconductors & Related Devices,Electronic Equipment,sec_edgar
+FRVO-US,4911,Electric Services,Utilities,sec_edgar
+GNRC-US,3621,Motors & Generators,Electrical Equipment,sec_edgar

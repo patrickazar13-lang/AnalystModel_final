@@ -1,0 +1,373 @@
+[
+  {
+    "ticker": "NVDA-US",
+    "sic_code": 3674,
+    "sic_description": "Semiconductors & Related Devices",
+    "ff48_industry": "Electronic Equipment",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "GOOGL-US",
+    "sic_code": 7370,
+    "sic_description": "Services-Computer Programming, Data Processing, Etc.",
+    "ff48_industry": "Business Services",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "MSFT-US",
+    "sic_code": 7372,
+    "sic_description": "Services-Prepackaged Software",
+    "ff48_industry": "Business Services",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "MLM-US",
+    "sic_code": 1400,
+    "sic_description": "Mining & Quarrying of  Nonmetallic Minerals (No Fuels)",
+    "ff48_industry": "Non-Metallic and Industrial Metal Mining",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "AMZN-US",
+    "sic_code": 5961,
+    "sic_description": "Retail-Catalog & Mail-Order Houses",
+    "ff48_industry": "Retail",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "AAPL-US",
+    "sic_code": 3571,
+    "sic_description": "Electronic Computers",
+    "ff48_industry": "Computers",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "UPS-US",
+    "sic_code": 4210,
+    "sic_description": "Trucking & Courier Services (No Air)",
+    "ff48_industry": "Transportation",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "NRG-US",
+    "sic_code": 4911,
+    "sic_description": "Electric Services",
+    "ff48_industry": "Utilities",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "TFC-US",
+    "sic_code": 6021,
+    "sic_description": "National Commercial Banks",
+    "ff48_industry": "Banking",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "PWR-US",
+    "sic_code": 1731,
+    "sic_description": "Electrical Work",
+    "ff48_industry": "Construction",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "BJ-US",
+    "sic_code": 5331,
+    "sic_description": "Retail-Variety Stores",
+    "ff48_industry": "Retail",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "LH-US",
+    "sic_code": 8071,
+    "sic_description": "Services-Medical Laboratories",
+    "ff48_industry": "Healthcare",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "V-US",
+    "sic_code": 7389,
+    "sic_description": "Services-Business Services, NEC",
+    "ff48_industry": "Business Services",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "FCX-US",
+    "sic_code": 1000,
+    "sic_description": "Metal Mining",
+    "ff48_industry": "Non-Metallic and Industrial Metal Mining",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "VRTX-US",
+    "sic_code": 2834,
+    "sic_description": "Pharmaceutical Preparations",
+    "ff48_industry": "Pharmaceutical Products",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "LLY-US",
+    "sic_code": 2834,
+    "sic_description": "Pharmaceutical Preparations",
+    "ff48_industry": "Pharmaceutical Products",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "CEG-US",
+    "sic_code": 4911,
+    "sic_description": "Electric Services",
+    "ff48_industry": "Utilities",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "AVGO-US",
+    "sic_code": 3674,
+    "sic_description": "Semiconductors & Related Devices",
+    "ff48_industry": "Electronic Equipment",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "EME-US",
+    "sic_code": 1731,
+    "sic_description": "Electrical Work",
+    "ff48_industry": "Construction",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "ACN-US",
+    "sic_code": 7389,
+    "sic_description": "Services-Business Services, NEC",
+    "ff48_industry": "Business Services",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "META-US",
+    "sic_code": 7370,
+    "sic_description": "Services-Computer Programming, Data Processing, Etc.",
+    "ff48_industry": "Business Services",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "TSM-US",
+    "sic_code": 3674,
+    "sic_description": "Semiconductors & Related Devices",
+    "ff48_industry": "Electronic Equipment",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "ABBNY-US",
+    "sic_code": 3613,
+    "sic_description": "Switchgear & Switchboard Apparatus",
+    "ff48_industry": "Electrical Equipment",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "AEP-US",
+    "sic_code": 4911,
+    "sic_description": "Electric Services",
+    "ff48_industry": "Utilities",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "SNPS-US",
+    "sic_code": 7372,
+    "sic_description": "Services-Prepackaged Software",
+    "ff48_industry": "Business Services",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "MTZ-US",
+    "sic_code": 1623,
+    "sic_description": "Water, Sewer, Pipeline, Comm & Power Line Construction",
+    "ff48_industry": "Construction",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "AMAT-US",
+    "sic_code": 3674,
+    "sic_description": "Semiconductors & Related Devices",
+    "ff48_industry": "Electronic Equipment",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "RRX-US",
+    "sic_code": 3569,
+    "sic_description": "General Industrial Machinery & Equipment, NEC",
+    "ff48_industry": "Machinery",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "KLAC-US",
+    "sic_code": 3827,
+    "sic_description": "Optical Instruments & Lenses",
+    "ff48_industry": "Measuring and Control Equipment",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "CME-US",
+    "sic_code": 6200,
+    "sic_description": "Security & Commodity Brokers, Dealers, Exchanges & Services",
+    "ff48_industry": "Trading",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "APO-US",
+    "sic_code": 6282,
+    "sic_description": "Investment Advice",
+    "ff48_industry": "Trading",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "CSCO-US",
+    "sic_code": 3576,
+    "sic_description": "Computer Communications Equipment",
+    "ff48_industry": "Computers",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "GS-US",
+    "sic_code": 6211,
+    "sic_description": "Security Brokers, Dealers & Flotation Companies",
+    "ff48_industry": "Trading",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "CCJ-US",
+    "sic_code": 1090,
+    "sic_description": "Miscellaneous Metal Ores",
+    "ff48_industry": "Non-Metallic and Industrial Metal Mining",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "GEV-US",
+    "sic_code": 3600,
+    "sic_description": "Electronic & Other Electrical Equipment (No Computer Equip)",
+    "ff48_industry": "Electrical Equipment",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "IBM-US",
+    "sic_code": 3570,
+    "sic_description": "Computer & office Equipment",
+    "ff48_industry": "Computers",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "WMB-US",
+    "sic_code": 4922,
+    "sic_description": "Natural Gas Transmission",
+    "ff48_industry": "Utilities",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "HD-US",
+    "sic_code": 5211,
+    "sic_description": "Retail-Lumber & Other Building Materials Dealers",
+    "ff48_industry": "Retail",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "NOW-US",
+    "sic_code": 7372,
+    "sic_description": "Services-Prepackaged Software",
+    "ff48_industry": "Business Services",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "GLW-US",
+    "sic_code": 3357,
+    "sic_description": "Drawing & Insulating of  Nonferrous Wire",
+    "ff48_industry": "Steel Works Etc",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "AMD-US",
+    "sic_code": 3674,
+    "sic_description": "Semiconductors & Related Devices",
+    "ff48_industry": "Electronic Equipment",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "ZS-US",
+    "sic_code": 7371,
+    "sic_description": "Services-Computer Programming Services",
+    "ff48_industry": "Business Services",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "KKR-US",
+    "sic_code": 6282,
+    "sic_description": "Investment Advice",
+    "ff48_industry": "Trading",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "FLS-US",
+    "sic_code": 3561,
+    "sic_description": "Pumps & Pumping Equipment",
+    "ff48_industry": "Machinery",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "IONQ-US",
+    "sic_code": 7373,
+    "sic_description": "Services-Computer Integrated Systems Design",
+    "ff48_industry": "Computers",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "QCOM-US",
+    "sic_code": 3663,
+    "sic_description": "Radio & Tv Broadcasting & Communications Equipment",
+    "ff48_industry": "Electronic Equipment",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "RGTI-US",
+    "sic_code": 7371,
+    "sic_description": "Services-Computer Programming Services",
+    "ff48_industry": "Business Services",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "INTU-US",
+    "sic_code": 7372,
+    "sic_description": "Services-Prepackaged Software",
+    "ff48_industry": "Business Services",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "STT-US",
+    "sic_code": 6022,
+    "sic_description": "State Commercial Banks",
+    "ff48_industry": "Banking",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "LNG-US",
+    "sic_code": 4924,
+    "sic_description": "Natural Gas Distribution",
+    "ff48_industry": "Utilities",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "GFS-US",
+    "sic_code": 3674,
+    "sic_description": "Semiconductors & Related Devices",
+    "ff48_industry": "Electronic Equipment",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "FRVO-US",
+    "sic_code": 4911,
+    "sic_description": "Electric Services",
+    "ff48_industry": "Utilities",
+    "source": "sec_edgar"
+  },
+  {
+    "ticker": "GNRC-US",
+    "sic_code": 3621,
+    "sic_description": "Motors & Generators",
+    "ff48_industry": "Electrical Equipment",
+    "source": "sec_edgar"
+  }
+]

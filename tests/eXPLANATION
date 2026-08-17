@@ -1,0 +1,609 @@
+Analyst Model
+
+A beginner friendly guide to running the analyst forecast model,
+creating company Excel workbooks, combining companies without using more
+FactSet calls, and running the Fama French strategy when enough data is
+available.
+
+This project is based on the methodology in Chhaochharia, Kumar,
+Rantala, and Zhang (2022), "Artificially Intelligent Analyst Sentiment
+and Aggregate Market Behavior." The paper builds analyst sentiment at
+the firm, industry, and market level. This project also adds a separate
+analyst reliability ranking for practical use. That reliability ranking
+is our extension, not a score published by the paper.
+
+1. What this project does
+
+For each company, the model can:
+
+Pull quarterly actual EPS from FactSet.
+
+Pull analyst EPS estimates and their latest revision dates.
+
+Pull the stock price and market capitalization used in the forecast
+error calculation.
+
+Calculate analyst forecast errors.
+
+Rank analysts using accuracy, consistency, freshness, evidence, and,
+when enough history exists, the fuller model based measures.
+
+Save the raw data and model outputs as CSV files.
+
+Build an Excel workbook for the company.
+
+Combine already downloaded company CSVs into one master dataset with
+zero additional FactSet calls.
+
+Build an industry Long Short strategy and evaluate it with Fama
+French factors once there is enough company, industry, and analyst
+history.
+
+2. The files you will use most
+
+You normally only need these files:
+
+master_pipeline.py
+
+Runs mock tests, live FactSet pulls, and the zero API multi company
+analysis.
+
+export_to_excel.py
+
+Turns a company's existing CSV outputs into an Excel workbook.
+
+src/config.py
+
+Contains settings such as the default number of quarters and model
+controls.
+
+src/factset_data.py
+
+Contains the production FactSet formulas and raw data cleaning.
+
+src/factors.py
+
+Loads the Fama French data and runs the strategy factor regressions.
+
+outputs/
+
+Contains all generated CSV and Excel files.
+
+3. Before running anything
+
+Open PowerShell or the PyCharm Terminal.
+
+Go to the project folder. Because the path contains spaces, keep the
+quotation marks:
+
+cd "C:\Users\patri\Documents\Analyst Model code\analyst-model"
+
+Check Python:
+
+py -3.11 --version
+
+Use Python 3.11 for this project.
+
+If this is a new computer or environment, install the requirements:
+
+py -3.11 -m pip install -r requirements.txt
+
+4. Important PowerShell rule
+
+Only paste terminal commands into PowerShell.
+
+Do not paste Python source code such as:
+
+def example():
+    return True
+
+directly into PowerShell. PowerShell will try to interpret the Python
+code as PowerShell commands and produce a large number of misleading
+errors.
+
+When this README shows a powershell block, paste it into the terminal.
+
+When it shows Python code, edit that code inside the appropriate .py
+file.
+
+5. Safe test with zero API calls
+
+Before a live pull, test the project:
+
+py -3.11 master_pipeline.py --mock
+
+This creates synthetic data and does not contact FactSet.
+
+To test the pure Fama French 5 option:
+
+py -3.11 master_pipeline.py --mock --factor-model FF5 --factor-backtest
+
+The mock dataset may report that no Long Short strategy can be
+constructed. That is expected because the mock universe is intentionally
+small.
+
+6. FactSet credentials
+
+Live pulls require your FactSet Formula API credentials in .env.
+
+The project expects:
+
+FACTSET_USERNAME=your_username
+FACTSET_API_KEY=your_api_key
+
+Never put the API key directly into the Python source code.
+
+The project uses the FactSet Formula API because that is the API route
+confirmed to work with the account used for this project. The separate
+Estimates API was not entitled on that account.
+
+7. Pull one company
+
+Example:
+
+py -3.11 master_pipeline.py --live --ticker CME-US
+
+To explicitly choose the history length:
+
+py -3.11 master_pipeline.py --live --ticker CME-US --quarters 12
+
+A successful live run writes company files into outputs/.
+
+Typical files include:
+
+live_CME_US_raw_estimates.csv
+live_CME_US_raw_actuals.csv
+live_CME_US_raw_prices.csv
+live_CME_US_raw_forecast_errors.csv
+live_CME_US_consensus.csv
+live_CME_US_industry_sentiment.csv
+live_CME_US_partial_leaderboard.csv
+live_CME_US_run_info.csv
+
+Raw Estimates
+
+Contains the analyst estimate snapshot used by the model, including
+analyst, broker, estimate, revision date, snapshot date, actual EPS,
+price, and market cap.
+
+Raw Actuals
+
+Contains quarterly actual EPS and report dates.
+
+Raw Prices
+
+Contains the price date, price, market cap, direct market value, and
+shares outstanding when FactSet provides a valid value.
+
+Raw Forecast Errors
+
+Contains the normalized analyst forecast error observations used by the
+model.
+
+8. Choosing the number of quarters
+
+The default is controlled in:
+
+src/config.py
+
+Look for:
+
+LIVE_N_QUARTERS = 12
+
+You can change that default, or override it for one run:
+
+py -3.11 master_pipeline.py --live --ticker CME-US --quarters 20
+
+More quarters provide more analyst history but use more FactSet
+requests.
+
+The current single ticker pull is approximately:
+
+1 + 2 x number_of_quarters
+
+requests.
+
+Examples:
+
+Quarters   Approximate requests per new ticker
+
+      12                                    25
+      20                                    41
+      24                                    49
+      28                                    57
+
+9. FactSet limits
+
+The account has a separate FactSet daily request limit. The current
+known limit is 100 requests per day.
+
+This is different from the local SESSION_CALL_BUDGET in
+src/config.py.
+
+If you see:
+
+FactSet DAILY request limit would be exceeded
+
+stop live pulls and wait for the FactSet daily limit to reset.
+
+Do not repeatedly retry the same live command.
+
+You can still use all existing CSV files with zero FactSet calls.
+
+10. Build the Excel workbook
+
+After a company has been pulled, create its Excel workbook:
+
+py -3.11 export_to_excel.py --ticker CME-US
+
+The workbook is written to:
+
+outputs\live_CME_US_model.xlsx
+
+Open it from PowerShell with:
+
+ii .\outputs\live_CME_US_model.xlsx
+
+The company workbook includes the raw audit sheets and analyst analysis.
+The Analyst Charts sheet is intentionally kept to the Analyst Bubble
+Map.
+
+The raw sheets include:
+
+Raw Estimates
+Raw Actuals
+Raw Prices
+Raw Data
+
+11. What the analyst score means
+
+The analyst ranking is an extension of the paper.
+
+The paper itself does not publish a "best analyst" ranking.
+
+The project uses information such as:
+
+Accuracy
+
+How small the analyst's historical absolute forecast errors are.
+
+Consistency
+
+How stable the analyst's errors or unexplained residuals are.
+
+Freshness
+
+How recently the analyst revised the estimate before the scoring
+snapshot.
+
+Evidence
+
+How much history supports the score.
+
+Credibility weighting reduces the influence of analysts with very few
+observations. The model uses:
+
+n observations / (n observations + credibility prior)
+
+The credibility prior is configured in src/config.py.
+
+A great result from one or two observations should therefore not
+automatically outrank a strong analyst with a much longer history.
+
+12. Fama French models
+
+The project supports three factor specifications.
+
+FF3 + Momentum
+
+Mkt RF
+SMB
+HML
+MOM
+
+Pure Fama French 5
+
+Mkt RF
+SMB
+HML
+RMW
+CMA
+
+Fama French 5 + Momentum
+
+Mkt RF
+SMB
+HML
+RMW
+CMA
+MOM
+
+The factor data comes from the Ken French data files configured for the
+project. src/factors.py loads and aligns those factor series.
+
+The pure FF5 model deliberately does not include Momentum.
+
+13. What the Fama regression is testing
+
+The main strategy analysis is not intended to be an FF5 regression for
+one company.
+
+The intended flow is:
+
+many companies
+    |
+analyst forecast errors
+    |
+analyst models and sentiment
+    |
+company consensus
+    |
+Fama French industry aggregation
+    |
+Long Short industry strategy
+    |
+monthly strategy returns
+    |
+FF5 regression
+
+The pure FF5 regression is conceptually:
+
+Strategy excess return
+=
+alpha
++ market factor
++ size factor
++ value factor
++ profitability factor
++ investment factor
++ residual
+
+The strategy timing is designed conservatively so a quarterly signal is
+used for the next eligible monthly return rather than earning a return
+from information that was not yet available.
+
+14. Why a single company will usually not produce an FF5 strategy result
+
+This is expected.
+
+The strategy uses five Long industries and five Short industries. It
+therefore needs at least ten valid industries in a period.
+
+It also needs enough analyst history for the expanding window analyst
+models.
+
+A single ticker such as CME or TSM cannot provide that universe.
+
+A warning such as:
+
+No Long-Short returns could be constructed
+
+does not automatically mean the FF5 code is broken. It usually means the
+current dataset does not contain enough industry coverage or trainable
+analyst history.
+
+15. Combine companies without using FactSet again
+
+This is important when API usage is limited.
+
+If company CSVs already exist in outputs/, use --from-outputs.
+
+Example:
+
+py -3.11 master_pipeline.py --from-outputs --tickers AAPL-US,APO-US,CME-US,EME-US,GFS-US,GME-US,GS-US,KLAC-US,NBIS-US,NRG-US,TSM-US --factor-model FF5 --factor-backtest
+
+This mode reads the existing CSV files and makes zero FactSet API calls.
+
+Do not type ... in the ticker list. Every entry is interpreted as an
+actual ticker.
+
+The master analysis can create files such as:
+
+master_raw_forecast_errors.csv
+master_raw_estimates.csv
+master_raw_actuals.csv
+master_raw_prices.csv
+master_consensus.csv
+master_industry_sentiment.csv
+master_analyst_scores.csv
+master_ff_factors.csv
+master_strategy_returns.csv
+master_factor_regression.csv
+master_run_info.csv
+
+Factor output files are only produced when the strategy has enough data
+to construct valid returns and run the regression.
+
+16. How to know whether the multi company dataset is large enough
+
+Watch these lines in the terminal:
+
+input panel
+expanding-window NN/linear predictions
+industries seen
+analyst reliability scores computed
+
+For example, a run with many raw observations can still be too small if
+only one analyst has enough history to generate a valid model
+prediction.
+
+The current goal is not simply "more rows."
+
+You want:
+
+More companies.
+
+More distinct Fama French industries.
+
+Analysts who cover multiple companies.
+
+More quarters of analyst history.
+
+Many valid expanding window predictions.
+
+For the five Long and five Short strategy, ten industries is the
+mathematical minimum. A larger universe is preferable.
+
+17. Recommended workflow for adding companies
+
+When adding a larger universe:
+
+Check which company CSVs already exist.
+
+Never repull a company just because you want it in the master
+analysis.
+
+Pull only missing companies.
+
+Watch the FactSet daily request limit.
+
+After each batch, rerun the zero API master analysis.
+
+Check whether industry coverage and valid NN predictions improved.
+
+Continue until the strategy has enough data.
+
+List existing company forecast error files with:
+
+Get-ChildItem outputs\live_*_raw_forecast_errors.csv | Select-Object -ExpandProperty Name
+
+18. SIC codes and Fama French industries
+
+The project maps company SIC codes into the Fama French 48 industry
+classification.
+
+For US companies, the pipeline can use SEC EDGAR to resolve SIC codes
+without using a FactSet request.
+
+Manual overrides can be placed in TICKER_SIC_OVERRIDES in
+src/config.py when necessary.
+
+19. Common commands
+
+Test everything without FactSet
+
+py -3.11 master_pipeline.py --mock
+
+Check Python syntax
+
+py -3.11 -m py_compile master_pipeline.py
+py -3.11 -m py_compile src\factset_data.py
+py -3.11 -m py_compile src\factors.py
+py -3.11 -m py_compile export_to_excel.py
+
+No output means the syntax check passed.
+
+Pull one company
+
+py -3.11 master_pipeline.py --live --ticker CME-US --quarters 12
+
+Build its Excel workbook
+
+py -3.11 export_to_excel.py --ticker CME-US
+
+Open the workbook
+
+ii .\outputs\live_CME_US_model.xlsx
+
+Run pure FF5 using existing company CSVs only
+
+py -3.11 master_pipeline.py --from-outputs --tickers AAPL-US,APO-US,CME-US,EME-US,GFS-US,GME-US,GS-US,KLAC-US,NBIS-US,NRG-US,TSM-US --factor-model FF5 --factor-backtest
+
+20. Common problems
+
+"Python version 2.7 does not support an F prefix"
+
+The wrong Python interpreter is being used.
+
+Use:
+
+py -3.11 ...
+
+PowerShell says def, from, or Python variables are not recognized
+
+Python source code was pasted directly into PowerShell.
+
+Open a fresh terminal and run only the commands shown in the PowerShell
+examples.
+
+cd fails because of "Analyst Model code"
+
+The path contains spaces. Use quotation marks:
+
+cd "C:\Users\patri\Documents\Analyst Model code\analyst-model"
+
+py_compile returns nothing
+
+That is success.
+
+No Long-Short returns could be constructed
+
+Usually insufficient industry coverage or insufficient analyst model
+history.
+
+Factor CSV files do not appear
+
+The factor backtest did not produce a valid strategy result. The Excel
+exporter cannot create meaningful factor result sheets until those
+underlying strategy outputs exist.
+
+FactSet daily request limit exceeded
+
+Stop live pulls. Existing output analysis remains available with
+--from-outputs.
+
+Shares outstanding contains a FactSet error
+
+The data cleaning layer treats known FactSet FQL error strings as
+missing shares data. A valid direct market capitalization can still be
+used when FactSet provides it.
+
+21. Project structure
+
+analyst-model/
+    master_pipeline.py
+    export_to_excel.py
+    requirements.txt
+    .env
+
+    src/
+        config.py
+        factset_client.py
+        factset_data.py
+        factors.py
+        ff48_industries.py
+        sic_lookup.py
+        api_usage_tracker.py
+        universe.py
+
+    data/
+        factors/
+        siccodes48.csv
+        sic_code_cache.json
+
+    outputs/
+        live_<TICKER>_*.csv
+        live_<TICKER>_model.xlsx
+        master_*.csv
+
+22. The simplest way to use the project
+
+If you are new to the code, remember only this workflow:
+
+1. Open the terminal in analyst-model.
+2. Test with --mock.
+3. Pull a new company with --live only when you need new data.
+4. Never repull a company whose CSVs already exist unless you intentionally need newer or deeper data.
+5. Build its Excel workbook with export_to_excel.py.
+6. Combine existing companies with --from-outputs for zero API calls.
+7. Watch industries and valid NN predictions.
+8. Run FF5 only when the multi company dataset is large enough.
+
+The most important distinction is:
+
+--live          = can use FactSet requests
+--mock          = zero FactSet requests, synthetic test data
+--from-outputs  = zero FactSet requests, your already downloaded real data
+
+That distinction will prevent most accidental API usage.
+

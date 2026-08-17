@@ -1,0 +1,226 @@
+{
+  "NVDA-US": {
+    "sic_code": 3674,
+    "sic_description": "Semiconductors & Related Devices"
+  },
+  "GOOGL-US": {
+    "sic_code": 7370,
+    "sic_description": "Services-Computer Programming, Data Processing, Etc."
+  },
+  "MSFT-US": {
+    "sic_code": 7372,
+    "sic_description": "Services-Prepackaged Software"
+  },
+  "MLM-US": {
+    "sic_code": 1400,
+    "sic_description": "Mining & Quarrying of  Nonmetallic Minerals (No Fuels)"
+  },
+  "AMZN-US": {
+    "sic_code": 5961,
+    "sic_description": "Retail-Catalog & Mail-Order Houses"
+  },
+  "AAPL-US": {
+    "sic_code": 3571,
+    "sic_description": "Electronic Computers"
+  },
+  "UPS-US": {
+    "sic_code": 4210,
+    "sic_description": "Trucking & Courier Services (No Air)"
+  },
+  "NRG-US": {
+    "sic_code": 4911,
+    "sic_description": "Electric Services"
+  },
+  "TFC-US": {
+    "sic_code": 6021,
+    "sic_description": "National Commercial Banks"
+  },
+  "PWR-US": {
+    "sic_code": 1731,
+    "sic_description": "Electrical Work"
+  },
+  "BJ-US": {
+    "sic_code": 5331,
+    "sic_description": "Retail-Variety Stores"
+  },
+  "LH-US": {
+    "sic_code": 8071,
+    "sic_description": "Services-Medical Laboratories"
+  },
+  "V-US": {
+    "sic_code": 7389,
+    "sic_description": "Services-Business Services, NEC"
+  },
+  "FCX-US": {
+    "sic_code": 1000,
+    "sic_description": "Metal Mining"
+  },
+  "VRTX-US": {
+    "sic_code": 2834,
+    "sic_description": "Pharmaceutical Preparations"
+  },
+  "LLY-US": {
+    "sic_code": 2834,
+    "sic_description": "Pharmaceutical Preparations"
+  },
+  "CEG-US": {
+    "sic_code": 4911,
+    "sic_description": "Electric Services"
+  },
+  "AVGO-US": {
+    "sic_code": 3674,
+    "sic_description": "Semiconductors & Related Devices"
+  },
+  "EME-US": {
+    "sic_code": 1731,
+    "sic_description": "Electrical Work"
+  },
+  "ACN-US": {
+    "sic_code": 7389,
+    "sic_description": "Services-Business Services, NEC"
+  },
+  "META-US": {
+    "sic_code": 7370,
+    "sic_description": "Services-Computer Programming, Data Processing, Etc."
+  },
+  "TSM-US": {
+    "sic_code": 3674,
+    "sic_description": "Semiconductors & Related Devices"
+  },
+  "ABBNY-US": {
+    "sic_code": 3613,
+    "sic_description": "Switchgear & Switchboard Apparatus"
+  },
+  "AEP-US": {
+    "sic_code": 4911,
+    "sic_description": "Electric Services"
+  },
+  "SNPS-US": {
+    "sic_code": 7372,
+    "sic_description": "Services-Prepackaged Software"
+  },
+  "MTZ-US": {
+    "sic_code": 1623,
+    "sic_description": "Water, Sewer, Pipeline, Comm & Power Line Construction"
+  },
+  "AMAT-US": {
+    "sic_code": 3674,
+    "sic_description": "Semiconductors & Related Devices"
+  },
+  "RRX-US": {
+    "sic_code": 3569,
+    "sic_description": "General Industrial Machinery & Equipment, NEC"
+  },
+  "KLAC-US": {
+    "sic_code": 3827,
+    "sic_description": "Optical Instruments & Lenses"
+  },
+  "CME-US": {
+    "sic_code": 6200,
+    "sic_description": "Security & Commodity Brokers, Dealers, Exchanges & Services"
+  },
+  "APO-US": {
+    "sic_code": 6282,
+    "sic_description": "Investment Advice"
+  },
+  "CSCO-US": {
+    "sic_code": 3576,
+    "sic_description": "Computer Communications Equipment"
+  },
+  "GS-US": {
+    "sic_code": 6211,
+    "sic_description": "Security Brokers, Dealers & Flotation Companies"
+  },
+  "CCJ-US": {
+    "sic_code": 1090,
+    "sic_description": "Miscellaneous Metal Ores"
+  },
+  "GEV-US": {
+    "sic_code": 3600,
+    "sic_description": "Electronic & Other Electrical Equipment (No Computer Equip)"
+  },
+  "IBM-US": {
+    "sic_code": 3570,
+    "sic_description": "Computer & office Equipment"
+  },
+  "WMB-US": {
+    "sic_code": 4922,
+    "sic_description": "Natural Gas Transmission"
+  },
+  "HD-US": {
+    "sic_code": 5211,
+    "sic_description": "Retail-Lumber & Other Building Materials Dealers"
+  },
+  "NOW-US": {
+    "sic_code": 7372,
+    "sic_description": "Services-Prepackaged Software"
+  },
+  "GLW-US": {
+    "sic_code": 3357,
+    "sic_description": "Drawing & Insulating of  Nonferrous Wire"
+  },
+  "AMD-US": {
+    "sic_code": 3674,
+    "sic_description": "Semiconductors & Related Devices"
+  },
+  "ZS-US": {
+    "sic_code": 7371,
+    "sic_description": "Services-Computer Programming Services"
+  },
+  "KKR-US": {
+    "sic_code": 6282,
+    "sic_description": "Investment Advice"
+  },
+  "FLS-US": {
+    "sic_code": 3561,
+    "sic_description": "Pumps & Pumping Equipment"
+  },
+  "IONQ-US": {
+    "sic_code": 7373,
+    "sic_description": "Services-Computer Integrated Systems Design"
+  },
+  "QCOM-US": {
+    "sic_code": 3663,
+    "sic_description": "Radio & Tv Broadcasting & Communications Equipment"
+  },
+  "RGTI-US": {
+    "sic_code": 7371,
+    "sic_description": "Services-Computer Programming Services"
+  },
+  "INTU-US": {
+    "sic_code": 7372,
+    "sic_description": "Services-Prepackaged Software"
+  },
+  "STT-US": {
+    "sic_code": 6022,
+    "sic_description": "State Commercial Banks"
+  },
+  "LNG-US": {
+    "sic_code": 4924,
+    "sic_description": "Natural Gas Distribution"
+  },
+  "GFS-US": {
+    "sic_code": 3674,
+    "sic_description": "Semiconductors & Related Devices"
+  },
+  "FRVO-US": {
+    "sic_code": 4911,
+    "sic_description": "Electric Services"
+  },
+  "GNRC-US": {
+    "sic_code": 3621,
+    "sic_description": "Motors & Generators"
+  },
+  "klac-US": {
+    "sic_code": 3827,
+    "sic_description": "Optical Instruments & Lenses"
+  },
+  "GME-US": {
+    "sic_code": 5734,
+    "sic_description": "Retail-Computer & Computer Software Stores"
+  },
+  "NBIS-US": {
+    "sic_code": 7370,
+    "sic_description": "Services-Computer Programming, Data Processing, Etc."
+  }
+}

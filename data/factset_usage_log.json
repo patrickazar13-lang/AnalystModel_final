@@ -1,0 +1,2594 @@
+[
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x28 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x1 (AAPL-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x20 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x20 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x20 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-12-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-12-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-09-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-09-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-06-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-06-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-03-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-03-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-12-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-12-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-09-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-09-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-06-28 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-06-28 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-03-29 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-03-29 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-12-29 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-12-29 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-09-29 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-09-29 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-06-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-06-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-03-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-03-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2022-12-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2022-12-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2022-09-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2022-09-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2022-06-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2022-06-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2022-03-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2022-03-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2021-12-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2021-12-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2021-09-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2021-09-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2021-06-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2021-06-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2021-03-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2021-03-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x28 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-12-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-12-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-09-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-09-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-06-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-06-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-03-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-03-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-12-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-12-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-09-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-09-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-06-28 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-06-28 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-03-29 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-03-29 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-12-29 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-12-29 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-09-29 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-09-29 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-06-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-06-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-03-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-03-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2022-12-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2022-12-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2022-09-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2022-09-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2022-06-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2022-06-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2022-03-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2022-03-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2021-12-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2021-12-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2021-09-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2021-09-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2021-06-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2021-06-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2021-03-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2021-03-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2020-12-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2020-12-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2020-09-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2020-09-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2020-06-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2020-06-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2020-03-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2020-03-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2019-12-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2019-12-31 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2019-09-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2019-09-30 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2019-06-28 (APO-US)"
+  },
+  {
+    "date": "2026-07-30",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2019-06-28 (APO-US)"
+  },
+  {
+    "date": "2026-07-31",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x5 (APO-US)"
+  },
+  {
+    "date": "2026-08-03",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x5 (LNG-US)"
+  },
+  {
+    "date": "2026-08-03",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x5 (LNG-US)"
+  },
+  {
+    "date": "2026-08-03",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-12-31 (LNG-US)"
+  },
+  {
+    "date": "2026-08-03",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-12-31 (LNG-US)"
+  },
+  {
+    "date": "2026-08-03",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-09-30 (LNG-US)"
+  },
+  {
+    "date": "2026-08-03",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-09-30 (LNG-US)"
+  },
+  {
+    "date": "2026-08-03",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-06-30 (LNG-US)"
+  },
+  {
+    "date": "2026-08-03",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-06-30 (LNG-US)"
+  },
+  {
+    "date": "2026-08-03",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-03-31 (LNG-US)"
+  },
+  {
+    "date": "2026-08-03",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-03-31 (LNG-US)"
+  },
+  {
+    "date": "2026-08-03",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-12-31 (LNG-US)"
+  },
+  {
+    "date": "2026-08-03",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-12-31 (LNG-US)"
+  },
+  {
+    "date": "2026-08-03",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x5 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-07",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x28 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-07",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x5 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-10",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x5 (GFS-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x12 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2026-03-31 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2026-03-31 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-12-31 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-12-31 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-09-30 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-09-30 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-06-30 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-06-30 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-03-31 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-03-31 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-12-31 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-12-31 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-09-30 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-09-30 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-06-28 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-06-28 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-03-29 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-03-29 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-12-29 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-12-29 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-09-29 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-09-29 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-06-30 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-06-30 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x5 (GFS-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2026-03-31 (GFS-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2026-03-31 (GFS-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-12-31 (GFS-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-12-31 (GFS-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-09-30 (GFS-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-09-30 (GFS-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-06-30 (GFS-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-06-30 (GFS-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-03-31 (GFS-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-03-31 (GFS-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x5 (EME-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2026-03-31 (EME-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2026-03-31 (EME-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-12-31 (EME-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-12-31 (EME-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-09-30 (EME-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-09-30 (EME-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-06-30 (EME-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-06-30 (EME-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-03-31 (EME-US)"
+  },
+  {
+    "date": "2026-08-11",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-03-31 (EME-US)"
+  },
+  {
+    "date": "2026-08-12",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x6 (GMC-US)"
+  },
+  {
+    "date": "2026-08-12",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x6 (klac-US)"
+  },
+  {
+    "date": "2026-08-12",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x6 (GMC-US)"
+  },
+  {
+    "date": "2026-08-12",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x6 (GMC-US)"
+  },
+  {
+    "date": "2026-08-12",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x6 (GME-US)"
+  },
+  {
+    "date": "2026-08-12",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2026-01-30 (GME-US)"
+  },
+  {
+    "date": "2026-08-12",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2026-01-30 (GME-US)"
+  },
+  {
+    "date": "2026-08-12",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-10-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-12",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-10-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-12",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-07-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-12",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-07-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-12",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-04-30 (GME-US)"
+  },
+  {
+    "date": "2026-08-12",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-04-30 (GME-US)"
+  },
+  {
+    "date": "2026-08-12",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-01-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-12",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-01-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-12",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-10-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-12",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-10-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x12 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x12 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2026-03-31 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2026-03-31 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-12-31 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-12-31 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-09-30 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-09-30 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-06-30 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-06-30 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-03-31 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-03-31 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-12-31 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-12-31 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-09-30 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-09-30 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-06-28 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-06-28 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-03-29 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-03-29 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-12-29 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-12-29 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-09-29 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-09-29 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-06-30 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-06-30 (NBIS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x12 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2026-03-31 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2026-03-31 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-12-31 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-12-31 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-09-30 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-09-30 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-06-30 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-06-30 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-03-31 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-03-31 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-12-31 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-12-31 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-09-30 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-09-30 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-06-28 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-06-28 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-03-29 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-03-29 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-12-29 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-12-29 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-09-29 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-09-29 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-06-30 (GS-US)"
+  },
+  {
+    "date": "2026-08-13",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-06-30 (GS-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x12 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x12 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2026-03-31 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2026-03-31 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-12-31 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-12-31 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-09-30 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-09-30 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-06-30 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-06-30 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-03-31 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-03-31 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-12-31 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-12-31 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-09-30 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-09-30 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-06-28 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-06-28 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-03-29 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-03-29 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-12-29 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-12-29 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-09-29 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-09-29 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-06-30 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-06-30 (AAPL-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x12 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2026-03-31 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2026-03-31 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-12-31 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-12-31 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-09-30 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-09-30 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-06-30 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-06-30 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-03-31 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-03-31 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-12-31 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-12-31 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-09-30 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-09-30 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-06-28 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-06-28 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-03-29 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-03-29 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-12-29 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-12-29 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-09-29 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-09-29 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-06-30 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-06-30 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x12 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2026-03-31 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2026-03-31 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-12-31 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-12-31 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-09-30 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-09-30 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-06-30 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-06-30 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-03-31 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-03-31 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-12-31 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-12-31 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-09-30 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-09-30 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-06-28 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-06-28 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-03-29 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-03-29 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-12-29 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-12-29 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-09-29 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-09-29 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-06-30 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-06-30 (NRG-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x12 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2026-01-30 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2026-01-30 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-10-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-10-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-07-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-07-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-04-30 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-04-30 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-01-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-01-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-10-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-10-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-07-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-07-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-04-30 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-04-30 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-01-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-01-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-10-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-10-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-07-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-07-31 (GME-US)"
+  },
+  {
+    "date": "2026-08-14",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-04-28 (GME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x12 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x12 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2026-03-31 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2026-03-31 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-12-31 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-12-31 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-09-30 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-09-30 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-06-30 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-06-30 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-03-31 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-03-31 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-12-31 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-12-31 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-09-30 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-09-30 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-06-28 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-06-28 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-03-29 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-03-29 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-12-29 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-12-29 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-09-29 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-09-29 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-06-30 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-06-30 (CME-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x12 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2026-03-31 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2026-03-31 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-12-31 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-12-31 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-09-30 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-09-30 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-06-30 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-06-30 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-03-31 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-03-31 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-12-31 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-12-31 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-09-30 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-09-30 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-06-28 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-06-28 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-03-29 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-03-29 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-12-29 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-12-29 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-09-29 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-09-29 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-06-30 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-06-30 (TSM-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x12 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2026-03-31 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2026-03-31 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-12-31 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-12-31 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-09-30 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-09-30 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-06-30 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-06-30 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-03-31 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-03-31 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-12-31 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-12-31 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-09-30 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-09-30 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-06-28 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-06-28 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-03-29 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-03-29 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-12-29 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-12-29 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-09-29 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-09-29 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-06-30 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-06-30 (MSFT-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "quarterly EPS history x12 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2026-03-31 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2026-03-31 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-12-31 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-12-31 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-09-30 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-09-30 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-06-30 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-06-30 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2025-03-31 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2025-03-31 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-12-31 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-12-31 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-09-30 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-09-30 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-06-28 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-06-28 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2024-03-29 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2024-03-29 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-12-29 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-12-29 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-09-29 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "analyst EPS snapshot 2023-09-29 (AMZN-US)"
+  },
+  {
+    "date": "2026-08-17",
+    "requests": 1,
+    "points": 1,
+    "label": "price+mktcap 2023-06-30 (AMZN-US)"
+  }
+]
