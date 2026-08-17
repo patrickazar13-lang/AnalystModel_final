@@ -1,0 +1,6 @@
+firm,quarter,consensus_fe,consensus_nn_predicted_fe,consensus_linear_predicted_fe,market_cap,sic_code,industry
+GFS-US,2025Q1,0.061838536739198986,,,17532.865,3674,Electronic Equipment
+GFS-US,2025Q2,0.04141935483870968,,,22282.387,3674,Electronic Equipment
+GFS-US,2025Q3,0.04458951965065502,,,18992.555,3674,Electronic Equipment
+GFS-US,2025Q4,0.03367765887748417,,,25454.13,3674,Electronic Equipment
+GFS-US,2026Q1,0.02750274284749768,,,32490.932,3674,Electronic Equipment

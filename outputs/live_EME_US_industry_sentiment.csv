@@ -1,0 +1,6 @@
+industry,industry_code,quarter,industry_fe,industry_nn_predicted_fe,industry_linear_predicted_fe,n_firms,industry_sentiment
+Construction,Cnstr,2025Q1,0.05116175339656498,,,1,
+Construction,Cnstr,2025Q2,0.03373965131873044,,,1,
+Construction,Cnstr,2025Q3,0.030894764413142806,,,1,
+Construction,Cnstr,2025Q4,0.022671086319278673,,,1,
+Construction,Cnstr,2026Q1,0.026484371111442938,,,1,

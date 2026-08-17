@@ -1,0 +1,17 @@
+metric,value
+alpha_monthly_pct,10.245934027916272
+alpha_tstat,16.784145116198268
+alpha_annualized_pct,122.95120833499527
+mean_monthly_return_pct,10.11338775510204
+std_monthly_return_pct,5.678948591581711
+sharpe_annualized,6.169064976023263
+r_squared,0.006796941431417292
+n_obs,98.0
+loading_Mkt-RF,-0.10135450339929732
+loading_tstat_Mkt-RF,-0.7798982106547296
+loading_SMB,0.07799664252057896
+loading_tstat_SMB,0.33927206539683546
+loading_HML,-0.006979711646452551
+loading_tstat_HML,-0.046426712153155435
+loading_MOM,-0.012798174651412959
+loading_tstat_MOM,-0.07880610418803227

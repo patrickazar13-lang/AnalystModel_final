@@ -1,0 +1,2 @@
+ticker,quarters_requested,quarters_pulled,earliest_quarter,latest_quarter,n_analysts,n_observations,run_timestamp
+TSM-US,12,9,2024Q1,2026Q1,48,204,2026-08-17T11:35:00

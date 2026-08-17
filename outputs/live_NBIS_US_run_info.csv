@@ -1,0 +1,2 @@
+ticker,quarters_requested,quarters_pulled,earliest_quarter,latest_quarter,n_analysts,n_observations,run_timestamp
+NBIS-US,12,8,2024Q1,2026Q1,6,28,2026-08-13T11:23:31

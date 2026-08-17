@@ -1,0 +1,2 @@
+analyst,n_predictions,accuracy_score,predictability_r2,consistency_score,avg_staleness_days,current_broker,current_broker_code,n_brokers,freshness_score,accuracy_score_z,predictability_r2_z,consistency_score_z,freshness_score_z,reliability_composite_raw,credibility_weight,reliability_composite
+Brian Bedell,1,-0.0305534823816914,,-0.0,14.0,Deutsche Bank Research,77,1,-14.0,0.0,0.0,0.0,0.0,0.0,0.09090909090909091,0.0

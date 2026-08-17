@@ -1,0 +1,10 @@
+industry,quarter,industry_fe,industry_nn_predicted_fe,industry_linear_predicted_fe,n_firms,industry_sentiment
+Trading,2024Q1,0.0737979734468332,,,1,
+Trading,2024Q2,0.0836863282631765,,,1,
+Trading,2024Q3,0.07935226554052675,,,1,
+Trading,2024Q4,0.06634853107837155,,,1,
+Trading,2025Q1,0.06549030734591517,,,1,
+Trading,2025Q2,0.056038416895507176,,,1,
+Trading,2025Q3,0.0525598041062347,,,1,
+Trading,2025Q4,0.04836643913538111,,,1,
+Trading,2026Q1,0.05144490527967717,,,1,

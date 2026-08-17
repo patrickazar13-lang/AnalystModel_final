@@ -1,0 +1,2 @@
+ticker,quarters_requested,quarters_pulled,earliest_quarter,latest_quarter,n_analysts,n_observations,run_timestamp
+AAPL-US,12,12,2023Q2,2026Q1,54,253,2026-08-14T09:51:38

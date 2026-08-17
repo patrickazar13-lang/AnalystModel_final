@@ -1,0 +1,10 @@
+industry,quarter,industry_fe,industry_nn_predicted_fe,industry_linear_predicted_fe,n_firms,industry_sentiment
+Measuring and Control Equipment,2024Q1,0.042494397739113,,,1,
+Measuring and Control Equipment,2024Q2,0.0387628172802151,,,1,
+Measuring and Control Equipment,2024Q3,0.04462816104383445,,,1,
+Measuring and Control Equipment,2024Q4,0.0427460258289703,,,1,
+Measuring and Control Equipment,2025Q1,0.042730060188403,,,1,
+Measuring and Control Equipment,2025Q2,0.0307212745976864,,,1,
+Measuring and Control Equipment,2025Q3,0.02832264548356885,,,1,
+Measuring and Control Equipment,2025Q4,0.0243282502614151,,,1,
+Measuring and Control Equipment,2026Q1,0.02267534392282585,,,1,

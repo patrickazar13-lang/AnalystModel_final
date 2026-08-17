@@ -1,0 +1,6 @@
+industry,quarter,industry_fe,industry_nn_predicted_fe,industry_linear_predicted_fe,n_firms,industry_sentiment
+Electronic Equipment,2025Q1,0.061838536739198986,,,1,
+Electronic Equipment,2025Q2,0.04141935483870968,,,1,
+Electronic Equipment,2025Q3,0.04458951965065502,,,1,
+Electronic Equipment,2025Q4,0.03367765887748417,,,1,
+Electronic Equipment,2026Q1,0.02750274284749768,,,1,

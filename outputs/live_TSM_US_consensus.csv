@@ -1,0 +1,10 @@
+firm,quarter,consensus_fe,consensus_nn_predicted_fe,consensus_linear_predicted_fe,market_cap,sic_code,industry
+TSM-US,2024Q1,0.05234010371650821,,,720163.94,3674,Electronic Equipment
+TSM-US,2024Q2,0.039761778727601504,,,946525.7,3674,Electronic Equipment
+TSM-US,2024Q3,0.04474033039893025,,,930881.44,3674,Electronic Equipment
+TSM-US,2024Q4,0.04344099954428072,,,1024291.2,3674,Electronic Equipment
+TSM-US,2025Q1,0.05542861545304359,,,816258.75,3674,Electronic Equipment
+TSM-US,2025Q2,0.03672040025684932,,,1211571.8,3674,Electronic Equipment
+TSM-US,2025Q3,0.030297237166360062,,,1494289.0,3674,Electronic Equipment
+TSM-US,2025Q4,0.03127425055118628,,,1576127.0,3674,Electronic Equipment
+TSM-US,2026Q1,0.031862599197633894,,,1771139.5,3674,Electronic Equipment

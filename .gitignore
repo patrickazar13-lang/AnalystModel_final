@@ -3,7 +3,8 @@ __pycache__/
 *.pyc
 .venv/
 venv/
-outputs/*.csv
+
+
 outputs/*.xlsx
 .idea/
 .vscode/

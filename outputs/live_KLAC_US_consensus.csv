@@ -1,0 +1,10 @@
+firm,quarter,consensus_fe,consensus_nn_predicted_fe,consensus_linear_predicted_fe,market_cap,sic_code,industry
+KLAC-US,2024Q1,0.042494397739113,,,94746.05,3827,Measuring and Control Equipment
+KLAC-US,2024Q2,0.0387628172802151,,,120145.96,3827,Measuring and Control Equipment
+KLAC-US,2024Q3,0.04462816104383445,,,91450.56,3827,Measuring and Control Equipment
+KLAC-US,2024Q4,0.0427460258289703,,,95805.44,3827,Measuring and Control Equipment
+KLAC-US,2025Q1,0.042730060188403,,,89859.34,3827,Measuring and Control Equipment
+KLAC-US,2025Q2,0.0307212745976864,,,123920.8,3827,Measuring and Control Equipment
+KLAC-US,2025Q3,0.02832264548356885,,,143142.4,3827,Measuring and Control Equipment
+KLAC-US,2025Q4,0.0243282502614151,,,188482.3,3827,Measuring and Control Equipment
+KLAC-US,2026Q1,0.02267534392282585,,,229136.36,3827,Measuring and Control Equipment

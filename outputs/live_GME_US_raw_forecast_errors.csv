@@ -1,0 +1,5 @@
+analyst,broker,broker_code,firm,quarter,year,fe,market_cap,sic_code,revision_date,staleness_days
+Alicia Reese,Wedbush Securities,590,GME-US,2025Q3,2025,0.002270723104056437,10145.588,5734,20250611,89
+Michael Pachter,Wedbush Securities,590,GME-US,2025Q2,2025,0.010854041702370752,15659.99,5734,20250326,75
+Michael Pachter,Wedbush Securities,590,GME-US,2025Q1,2025,-0.0072224679345422385,10102.156,5734,20241211,103
+Michael Pachter,Wedbush Securities,590,GME-US,2024Q4,2024,-0.0010010111223458036,13247.939,5734,20240911,89

@@ -1,0 +1,6 @@
+firm,quarter,consensus_fe,consensus_nn_predicted_fe,consensus_linear_predicted_fe,market_cap,sic_code,industry,industry_code
+EME-US,2025Q1,0.05116175339656498,,,17578.02,1731,Construction,Cnstr
+EME-US,2025Q2,0.03373965131873044,,,25030.914,1731,Construction,Cnstr
+EME-US,2025Q3,0.030894764413142806,,,30762.889,1731,Construction,Cnstr
+EME-US,2025Q4,0.022671086319278673,,,36193.65,1731,Construction,Cnstr
+EME-US,2026Q1,0.026484371111442938,,,35788.152,1731,Construction,Cnstr
