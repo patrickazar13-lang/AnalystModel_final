@@ -205,39 +205,53 @@ def _resolve_zip(fname: str, download_missing: bool) -> Optional[str]:
 # =============================================================================
 
 def _load_raw(key: str, cols: set, frequency: str = "M",
-              download_missing: bool = False, use_cache: bool = True) -> pd.DataFrame:
+              download_missing: bool = True, use_cache: bool = True) -> pd.DataFrame:
+    # Check the already-parsed cache (data/factors/<key>.csv) FIRST -- if it's
+    # already there (e.g. committed to the repo, so it travels with `git clone`/
+    # GitHub Actions checkout with zero network calls), there's no reason to
+    # also require the raw F-F_*.zip in config.FF_DATA_DIR, which is a
+    # machine-local path that only exists on whoever first ran this. This
+    # ordering bug is exactly what broke the GitHub Actions run: the cache
+    # files were already committed and present after checkout, but the old
+    # code demanded the raw zip before ever looking at them.
+    cache_file = os.path.join(_CACHE_DIR, f"{key}.csv")
+    if use_cache and os.path.exists(cache_file):
+        return _as_frequency(_cached_parse(key, cache_file, cols, use_cache=True), frequency)
+
     fname = _FF_ZIPS[key]
     path = _resolve_zip(fname, download_missing)
     if path is None:
         raise FileNotFoundError(
-            f"Factor file not found: '{fname}' in config.FF_DATA_DIR ({FF_DATA_DIR}). "
-            "Either point config.FF_DATA_DIR at your downloaded Fama-French zips "
-            "or pass download_missing=True."
+            f"Factor file not found: '{fname}' in config.FF_DATA_DIR ({FF_DATA_DIR}), "
+            f"and no cached copy at {cache_file}. Either point config.FF_DATA_DIR at "
+            "your downloaded Fama-French zips, pass download_missing=True to auto-fetch "
+            "from Ken French's data library (0 FactSet calls), or commit a pre-built "
+            f"{key}.csv to data/factors/."
         )
     return _as_frequency(_cached_parse(key, path, cols, use_cache=use_cache), frequency)
 
 
-def load_raw_ff3(frequency: str = "M", download_missing: bool = False, use_cache: bool = True) -> pd.DataFrame:
+def load_raw_ff3(frequency: str = "M", download_missing: bool = True, use_cache: bool = True) -> pd.DataFrame:
     """Mkt-RF, SMB, HML, RF (monthly from 192607)."""
     return _load_raw("ff3", {"Mkt-RF", "SMB", "HML", "RF"}, frequency, download_missing, use_cache)
 
 
-def load_raw_ff5(frequency: str = "M", download_missing: bool = False, use_cache: bool = True) -> pd.DataFrame:
+def load_raw_ff5(frequency: str = "M", download_missing: bool = True, use_cache: bool = True) -> pd.DataFrame:
     """Mkt-RF, SMB, HML, RMW, CMA, RF (monthly from 196307)."""
     return _load_raw("ff5", {"Mkt-RF", "SMB", "HML", "RMW", "CMA", "RF"}, frequency, download_missing, use_cache)
 
 
-def load_raw_momentum(frequency: str = "M", download_missing: bool = False, use_cache: bool = True) -> pd.DataFrame:
+def load_raw_momentum(frequency: str = "M", download_missing: bool = True, use_cache: bool = True) -> pd.DataFrame:
     """MOM (monthly from 192701)."""
     return _load_raw("mom", {"MOM"}, frequency, download_missing, use_cache)
 
 
-def load_raw_st_reversal(frequency: str = "M", download_missing: bool = False, use_cache: bool = True) -> pd.DataFrame:
+def load_raw_st_reversal(frequency: str = "M", download_missing: bool = True, use_cache: bool = True) -> pd.DataFrame:
     """ST_Rev (short-term reversal, monthly)."""
     return _load_raw("st_rev", {"ST_Rev"}, frequency, download_missing, use_cache)
 
 
-def load_raw_lt_reversal(frequency: str = "M", download_missing: bool = False, use_cache: bool = True) -> pd.DataFrame:
+def load_raw_lt_reversal(frequency: str = "M", download_missing: bool = True, use_cache: bool = True) -> pd.DataFrame:
     """LT_Rev (long-term reversal, monthly)."""
     return _load_raw("lt_rev", {"LT_Rev"}, frequency, download_missing, use_cache)
 
@@ -251,7 +265,7 @@ class FactorModel:
 
 
 def load_factors(model: str = FACTOR_MODEL, use_cache: bool = True,
-                 download_missing: bool = False) -> FactorModel:
+                 download_missing: bool = True) -> FactorModel:
     """
     Load the requested factor model, inner-joined on the monthly date index.
     model: 'FF3+MOM' (Carhart 4-factor), 'FF5' (pure Fama-French 5-factor),
@@ -468,7 +482,7 @@ def run_factor_backtest(
     weight_scheme: str = "equal",
     newey_west_lags: int = 0,
     use_cache: bool = True,
-    download_missing: bool = False,
+    download_missing: bool = True,
 ) -> Optional[FactorBacktestResult]:
     """
     Orchestrate the complete factor-model risk-adjustment backtest for the
