@@ -16,7 +16,7 @@ on:
       args:
         description: "Exact command-line flags, same as you'd type locally (e.g. --live --ticker CME-US --quarters 12)"
         required: false
-        default: "--mock"
+        default: ""
 
 permissions:
   contents: write
