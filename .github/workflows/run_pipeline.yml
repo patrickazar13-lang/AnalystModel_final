@@ -13,6 +13,7 @@ on:
           - smart_consensus.py
           - export_smart_consensus.py
         default: master_pipeline.py
+
       args:
         description: "Exact command-line flags, same as you'd type locally (e.g. --live --ticker CME-US --quarters 12)"
         required: false
@@ -24,6 +25,7 @@ permissions:
 jobs:
   run:
     runs-on: ubuntu-latest
+
     steps:
       - name: Check out repo
         uses: actions/checkout@v4
@@ -38,16 +40,19 @@ jobs:
 
       - name: Run ${{ inputs.script }}
         env:
-          FACTSET_USERNAME: ${{ secrets.FACTSET_USERNAME }}
-          FACTSET_API_KEY: ${{ secrets.FACTSET_API_KEY }}
+          FACTSET_CLIENT_ID: ${{ secrets.FACTSET_CLIENT_ID }}
+          FACTSET_CLIENT_SECRET: ${{ secrets.FACTSET_CLIENT_SECRET }}
         run: python ${{ inputs.script }} ${{ inputs.args }}
 
       - name: Save new/changed outputs back to the repo
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
           git add outputs/*.csv outputs/**/*.csv 2>/dev/null || true
+
           git diff --cached --quiet || git commit -m "Update outputs from Actions run (${{ inputs.script }} ${{ inputs.args }})"
+
           git push || true
 
       - name: Upload this run's outputs as a downloadable artifact
