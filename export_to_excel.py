@@ -6,9 +6,12 @@ workbook, ready for modelling and with the requested charts built
 in. Run this AFTER a --live run (it just reads the CSVs already in
 outputs/, no new API calls):
 
+
     py -3.11 export_to_excel.py --ticker AAPL-US
 
+
 Produces outputs/live_AAPL_US_model.xlsx with the raw, scoring, chart, rollup, trend, heatmap, and decision sheets:
+
 
   Raw Estimates -- every analyst estimate snapshot exported by the live pipeline,
                   including estimate value, revision date, snapshot date, broker,
@@ -45,6 +48,7 @@ Produces outputs/live_AAPL_US_model.xlsx with the raw, scoring, chart, rollup, t
                   coverage gaps and over/under-estimation patterns across
                   every analyst at a glance.
 
+
 This mirrors exactly what simple_accuracy_leaderboard() in
 master_pipeline.py computes in Python -- see that function's docstring for
 what accuracy/consistency do and don't capture (no NN/predictability
@@ -52,10 +56,13 @@ component yet; see fetch_live_ticker_data()'s KNOWN LIMITATION note for
 why a single ticker can't support that yet).
 """
 
+
 from __future__ import annotations
+
 
 import argparse
 import os
+
 
 import pandas as pd
 from openpyxl import Workbook
@@ -65,9 +72,12 @@ from openpyxl.formatting.rule import CellIsRule, ColorScaleRule
 from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.utils import get_column_letter
 
+
 HEADER_FONT = Font(name="Arial", bold=True, color="FFFFFF")
 HEADER_FILL = PatternFill(start_color="1F4E78", end_color="1F4E78", fill_type="solid")
 BODY_FONT = Font(name="Arial")
+
+
 
 
 def _style_header(ws, ncols, row=1):
@@ -77,10 +87,14 @@ def _style_header(ws, ncols, row=1):
         cell.fill = HEADER_FILL
 
 
+
+
 def _autofit(ws, ncols, widths=None):
     for c in range(1, ncols + 1):
         letter = get_column_letter(c)
         ws.column_dimensions[letter].width = (widths or {}).get(c, 16)
+
+
 
 
 def _apply_decision_theme(ws, title_range, header_row, ncols, widths):
@@ -103,12 +117,16 @@ def _apply_decision_theme(ws, title_range, header_row, ncols, widths):
         ws.column_dimensions[get_column_letter(c)].width = width
 
 
+
+
 def _style_decision_note(ws, row, text, end_col):
     ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=end_col)
     cell = ws.cell(row=row, column=1, value=text)
     cell.font = Font(name="Arial", italic=True, size=10, color="404040")
     cell.alignment = Alignment(wrap_text=True, vertical="top")
     ws.row_dimensions[row].height = 30
+
+
 
 
 def _add_scoring_weights(ws, start_col=18, start_row=4):
@@ -149,18 +167,17 @@ def _add_scoring_weights(ws, start_col=18, start_row=4):
     }
 
 
+
+
 def build_workbook(ticker: str) -> str:
     safe = ticker.replace("-", "_")
-    
-    csv_dir = "outputs/csv"
-    xlsx_dir = "outputs/xlsx"
-    
-    raw_path = f"{csv_dir}/live_{safe}_raw_forecast_errors.csv"
-    raw_estimates_path = f"{csv_dir}/live_{safe}_raw_estimates.csv"
-    raw_actuals_path = f"{csv_dir}/live_{safe}_raw_actuals.csv"
-    raw_prices_path = f"{csv_dir}/live_{safe}_raw_prices.csv"
-    consensus_path = f"{csv_dir}/live_{safe}_consensus.csv"
-    run_info_path = f"{csv_dir}/live_{safe}_run_info.csv"
+    outdir = "outputs"
+    raw_path = f"{outdir}/live_{safe}_raw_forecast_errors.csv"
+    raw_estimates_path = f"{outdir}/live_{safe}_raw_estimates.csv"
+    raw_actuals_path = f"{outdir}/live_{safe}_raw_actuals.csv"
+    raw_prices_path = f"{outdir}/live_{safe}_raw_prices.csv"
+    consensus_path = f"{outdir}/live_{safe}_consensus.csv"
+    run_info_path = f"{outdir}/live_{safe}_run_info.csv"
 
 
     if not os.path.exists(raw_path):
@@ -168,12 +185,14 @@ def build_workbook(ticker: str) -> str:
             f"{raw_path} not found -- run `py -3.11 master_pipeline.py --live --ticker {ticker}` first."
         )
 
+
     raw = pd.read_csv(raw_path)
     raw_estimates = pd.read_csv(raw_estimates_path) if os.path.exists(raw_estimates_path) else pd.DataFrame()
     raw_actuals = pd.read_csv(raw_actuals_path) if os.path.exists(raw_actuals_path) else pd.DataFrame()
     raw_prices = pd.read_csv(raw_prices_path) if os.path.exists(raw_prices_path) else pd.DataFrame()
     consensus = pd.read_csv(consensus_path) if os.path.exists(consensus_path) else pd.DataFrame()
     run_info = pd.read_csv(run_info_path) if os.path.exists(run_info_path) else pd.DataFrame()
+
 
     # Order analysts by the SAME logic as simple_accuracy_leaderboard() in
     # master_pipeline.py, just to decide ROW ORDER -- the actual numbers in
@@ -183,10 +202,13 @@ def build_workbook(ticker: str) -> str:
     from master_pipeline import simple_accuracy_leaderboard
     from src.config import CREDIBILITY_PRIOR_OBS
 
+
     ordered = simple_accuracy_leaderboard(raw)
     analyst_order = ordered["analyst"].tolist()
 
+
     wb = Workbook()
+
 
     # ---------------------------------------------------------------
     # Sheet 0: Run Info
@@ -231,6 +253,7 @@ def build_workbook(ticker: str) -> str:
         value="This workbook is formula driven. Edit Raw Data or the scoring weights and the decision sheets recalculate in Excel. The Raw Estimates, Raw Actuals and Raw Prices sheets are the audit layer from the live FactSet pull."
     ).font = Font(name="Arial", italic=True)
 
+
     # ---------------------------------------------------------------
     # Raw audit sheets: preserve the underlying data exported by the live
     # pipeline BEFORE the normalized modelling table. These are intentionally
@@ -258,6 +281,7 @@ def build_workbook(ticker: str) -> str:
         _autofit(ws, len(headers), widths or {})
         return ws
 
+
     _write_raw_input_sheet(
         "Raw Estimates", raw_estimates,
         "Raw Estimates | analyst estimate snapshots and audit fields",
@@ -273,6 +297,7 @@ def build_workbook(ticker: str) -> str:
         "Raw Prices | point-in-time price and market data used in the model",
         {1: 14, 2: 14, 3: 10, 4: 8, 5: 14, 6: 14, 7: 16, 8: 16, 9: 18, 10: 20},
     )
+
 
     # ---------------------------------------------------------------
     # Sheet 1: Raw Data (the actual normalized FactSet modelling input)
@@ -310,6 +335,7 @@ def build_workbook(ticker: str) -> str:
     # would over-count distinct brokers.
     dedup_field = "broker_code" if has_broker_code else ("broker" if has_broker else None)
 
+
     # ---------------------------------------------------------------
     # Sheet 2: Leaderboard (FORMULAS referencing Raw Data, not hardcoded)
     #
@@ -338,13 +364,16 @@ def build_workbook(ticker: str) -> str:
     ws_lb.append(headers)
     _style_header(ws_lb, len(headers))
 
+
     # lb_col/lb_letter: Leaderboard sheet's OWN column index/letter for each
     # header name (NOT to be confused with `col`, which is Raw Data's).
     lb_col = {name: i + 1 for i, name in enumerate(headers)}
     lb_letter = {name: get_column_letter(i + 1) for i, name in enumerate(headers)}
 
+
     # Column letters in Raw Data (depends on which optional columns exist there).
     col = {name: chr(ord("A") + raw_cols.index(name)) for name in raw_cols}
+
 
     first_data_row = 2
     for i, analyst in enumerate(analyst_order):
@@ -354,8 +383,10 @@ def build_workbook(ticker: str) -> str:
         rd_analyst = f"'Raw Data'!${col['analyst']}$2:${col['analyst']}${n_raw}"
         rd_fe = f"'Raw Data'!${col['fe']}$2:${col['fe']}${n_raw}"
 
+
         n_obs_ref = f"{lb_letter['n_observations']}{row}"
         mean_fe_ref = f"{lb_letter['mean_fe']}{row}"
+
 
         ws_lb.cell(row=row, column=lb_col["analyst"], value=analyst)
         ws_lb.cell(row=row, column=lb_col["n_observations"],
@@ -374,6 +405,7 @@ def build_workbook(ticker: str) -> str:
             ),
         )  # consistency_score = -stdev(fe), blank if only 1 observation or malformed row
 
+
         if has_staleness:
             rd_stale = f"'Raw Data'!${col['staleness_days']}$2:${col['staleness_days']}${n_raw}"
             avg_stale_ref = f"{lb_letter['avg_staleness_days']}{row}"
@@ -387,7 +419,9 @@ def build_workbook(ticker: str) -> str:
                 value=f'=IF(ISNUMBER({avg_stale_ref}),-{avg_stale_ref},"")',
             )  # higher = fresher = better, same sign convention as accuracy/consistency
 
+
     last_row = first_data_row + len(analyst_order) - 1
+
 
     def _z_formula(source_col_name: str) -> str:
         letter = lb_letter[source_col_name]
@@ -397,10 +431,12 @@ def build_workbook(ticker: str) -> str:
             f'/STDEV({rng}),""),"")'
         )
 
+
     z_pairs = [("accuracy_score", "accuracy_score_z"), ("consistency_score", "consistency_score_z")]
     if has_staleness:
         z_pairs.append(("freshness_score", "freshness_score_z"))
     z_score_col_names = [z_col for _, z_col in z_pairs]
+
 
     for row in range(first_data_row, last_row + 1):
         n_obs_ref = f"{lb_letter['n_observations']}{row}"  # fresh per row -- NOT the
@@ -412,8 +448,10 @@ def build_workbook(ticker: str) -> str:
                                                             # stale-variable bug caught
                                                             # once before in this file).
 
+
         for source_col, z_col in z_pairs:
             ws_lb.cell(row=row, column=lb_col[z_col], value=_z_formula(source_col).format(row=row))
+
 
         # partial_reliability_score_raw: AVERAGE() over whichever z-scores are
         # actually numbers -- it silently skips blank/"" arguments on its own,
@@ -441,6 +479,7 @@ def build_workbook(ticker: str) -> str:
         )  # partial_reliability_score = raw score shrunk toward 0 by how little
            # history backs it -- THIS is what the sheet is meant to be read/sorted by.
 
+
         # rank: classic RANK() (NOT RANK.EQ -- that's a post-2007 function and
         # needs an "_xlfn." prefix openpyxl doesn't add automatically; without
         # it, LibreOffice's recalc engine throws #NAME? -- caught by running
@@ -461,8 +500,10 @@ def build_workbook(ticker: str) -> str:
             value=f"=RANK({score_ref},{score_range},0)",
         )
 
+
         if has_broker or has_broker_code or dedup_field:
             this_row_a_col = f"$A${row}"
+
 
             if has_broker:
                 rd_broker = f"'Raw Data'!${col['broker']}$2:${col['broker']}${n_raw}"
@@ -476,12 +517,14 @@ def build_workbook(ticker: str) -> str:
                     value=f'=IFERROR(LOOKUP(2,1/({rd_analyst}={this_row_a_col}),{rd_broker}),"")',
                 )
 
+
             if has_broker_code:
                 rd_code = f"'Raw Data'!${col['broker_code']}$2:${col['broker_code']}${n_raw}"
                 ws_lb.cell(
                     row=row, column=lb_col["current_broker_code"],
                     value=f'=IFERROR(LOOKUP(2,1/({rd_analyst}={this_row_a_col}),{rd_code}),"")',
                 )
+
 
             if dedup_field:
                 # n_brokers: standard SUMPRODUCT "count distinct values matching a
@@ -499,6 +542,7 @@ def build_workbook(ticker: str) -> str:
                         f"/COUNTIFS({rd_analyst},{rd_analyst},{rd_dedup},{rd_dedup})))"
                     ),
                 )
+
 
     _style_header(ws_lb, len(headers))
     widths = {lb_col["analyst"]: 22, lb_col["rank"]: 8, lb_col["n_observations"]: 14, lb_col["mean_fe"]: 10,
@@ -521,6 +565,7 @@ def build_workbook(ticker: str) -> str:
         widths[lb_col["n_brokers"]] = 10
     _autofit(ws_lb, len(headers), widths)
 
+
     # Bar chart: partial_reliability_score (credibility-weighted) per analyst
     chart = BarChart()
     chart.type = "col"
@@ -534,6 +579,7 @@ def build_workbook(ticker: str) -> str:
     chart.width, chart.height = 32, 14
     chart_anchor_col = get_column_letter(len(headers) + 2)  # 2-column gap past the last data column
     ws_lb.add_chart(chart, f"{chart_anchor_col}{first_data_row}")
+
 
     # ---------------------------------------------------------------
     # Sheet 3: Quarterly (firm-level consensus forecast error trend)
@@ -549,6 +595,7 @@ def build_workbook(ticker: str) -> str:
         _autofit(ws_q, len(q_cols), {1: 12, 2: 16, 3: 14, 4: 14})
         n_q = len(consensus_sorted) + 1
 
+
         line = LineChart()
         line.title = f"{ticker} -- consensus forecast error by quarter"
         line.y_axis.title = "consensus FE (fraction of price)"
@@ -560,6 +607,7 @@ def build_workbook(ticker: str) -> str:
         line.width, line.height = 24, 12
         ws_q.add_chart(line, "F2")
 
+
     # ---------------------------------------------------------------
     # Sheet 4: Analyst Charts -- keep ONLY the analyst bubble map.
     # This is the clearest view of accuracy vs. consistency, while bubble
@@ -568,6 +616,7 @@ def build_workbook(ticker: str) -> str:
     ws_charts = wb.create_sheet("Analyst Charts")
     ws_charts["A1"] = f"{ticker} -- analyst bubble map (accuracy vs. consistency; bubble size = observations)"
     ws_charts["A1"].font = Font(name="Arial", bold=True, size=12)
+
 
     bubble = BubbleChart()
     bx = Reference(ws_lb, min_col=lb_col["accuracy_score"], min_row=first_data_row, max_row=last_row)
@@ -579,6 +628,7 @@ def build_workbook(ticker: str) -> str:
     bubble.y_axis.title = "Consistency score (higher = steadier)"
     bubble.width, bubble.height = 24, 14
     ws_charts.add_chart(bubble, "A3")
+
 
     # ---------------------------------------------------------------
     # Sheet 5: Broker Rollup -- REAL FORMULAS (COUNTIF/AVERAGEIF) averaging
@@ -596,6 +646,7 @@ def build_workbook(ticker: str) -> str:
         ws_broker.append(broker_headers)
         _style_header(ws_broker, len(broker_headers))
 
+
         # Row order only (not the cell VALUES, which are live formulas below)
         # comes from the same Python leaderboard (`ordered`) used to order
         # analysts above -- ranks brokers by their analysts' average score.
@@ -607,10 +658,12 @@ def build_workbook(ticker: str) -> str:
         )
         broker_order = broker_avg.index.tolist()
 
+
         lb_broker_rng = f"Leaderboard!${lb_letter['current_broker']}${first_data_row}:${lb_letter['current_broker']}${last_row}"
         lb_acc_rng = f"Leaderboard!${lb_letter['accuracy_score']}${first_data_row}:${lb_letter['accuracy_score']}${last_row}"
         lb_cons_rng = f"Leaderboard!${lb_letter['consistency_score']}${first_data_row}:${lb_letter['consistency_score']}${last_row}"
         lb_score_rng = f"Leaderboard!${lb_letter['partial_reliability_score']}${first_data_row}:${lb_letter['partial_reliability_score']}${last_row}"
+
 
         first_broker_row = 2
         for i, broker in enumerate(broker_order):
@@ -624,6 +677,7 @@ def build_workbook(ticker: str) -> str:
         last_broker_row = first_broker_row + len(broker_order) - 1
         _autofit(ws_broker, len(broker_headers), {1: 24, 2: 12, 3: 18, 4: 20, 5: 26})
 
+
         broker_chart = BarChart()
         broker_chart.type = "col"
         broker_chart.title = f"{ticker} -- avg analyst reliability score by broker"
@@ -636,6 +690,7 @@ def build_workbook(ticker: str) -> str:
         broker_chart.width, broker_chart.height = 28, 14
         ws_broker.add_chart(broker_chart, f"G{first_broker_row}")
 
+
     # ---------------------------------------------------------------
     # Sheet 6: Analyst Trends -- forecast error over time, top analysts by
     # score (capped so the chart stays legible -- the cap is PRINTED, never
@@ -647,10 +702,12 @@ def build_workbook(ticker: str) -> str:
         print(f"[export_to_excel] Analyst Trends: showing top {TREND_TOP_N} of "
               f"{len(analyst_order)} analysts (by partial_reliability_score) to keep the chart readable.")
 
+
     quarters_sorted = sorted(raw["quarter"].unique())
     rd_analyst2 = f"'Raw Data'!${col['analyst']}$2:${col['analyst']}${n_raw}"
     rd_quarter2 = f"'Raw Data'!${col['quarter']}$2:${col['quarter']}${n_raw}"
     rd_fe2 = f"'Raw Data'!${col['fe']}$2:${col['fe']}${n_raw}"
+
 
     ws_trend = wb.create_sheet("Analyst Trends")
     trend_headers = ["quarter"] + trend_analysts
@@ -669,6 +726,7 @@ def build_workbook(ticker: str) -> str:
     n_trend_rows = len(quarters_sorted) + 1
     _autofit(ws_trend, len(trend_headers), {1: 12})
 
+
     trend_chart = LineChart()
     trend_chart.title = f"{ticker} -- forecast error over time (top {len(trend_analysts)} analysts)"
     trend_chart.y_axis.title = "forecast error (fraction of price)"
@@ -679,6 +737,7 @@ def build_workbook(ticker: str) -> str:
     trend_chart.set_categories(tcats)
     trend_chart.width, trend_chart.height = 32, 16
     ws_trend.add_chart(trend_chart, f"{get_column_letter(len(trend_headers) + 2)}1")
+
 
     # ---------------------------------------------------------------
     # Sheet 7: FE Heatmap -- analyst x quarter grid (REAL FORMULAS,
@@ -703,6 +762,7 @@ def build_workbook(ticker: str) -> str:
     n_heat_rows = len(analyst_order) + 1
     _autofit(ws_heat, len(heat_headers), {1: 22})
 
+
     heat_range = f"B2:{get_column_letter(len(heat_headers))}{n_heat_rows}"
     color_rule = ColorScaleRule(
         start_type="min", start_color="F8696B",           # red = most negative (too pessimistic)
@@ -710,6 +770,7 @@ def build_workbook(ticker: str) -> str:
         end_type="max", end_color="5A8AC6",                # blue = most positive (too optimistic)
     )
     ws_heat.conditional_formatting.add(heat_range, color_rule)
+
 
     # ---------------------------------------------------------------
     # Sheet 8: Analyst Decision -- decision-oriented view built from
@@ -752,6 +813,7 @@ def build_workbook(ticker: str) -> str:
         ws_ad.column_dimensions[get_column_letter(idx)].width = width
     ws_ad.column_dimensions["R"].width = 18
     ws_ad.column_dimensions["S"].width = 12
+
 
     rd_analyst = f"'Raw Data'!${col['analyst']}$2:${col['analyst']}${n_raw}"
     rd_fe = f"'Raw Data'!${col['fe']}$2:${col['fe']}${n_raw}"
@@ -813,6 +875,7 @@ def build_workbook(ticker: str) -> str:
     # Conditional formatting for decision score and evidence flag.
     ws_ad.conditional_formatting.add(f"M{ad_first}:M{ad_last}", ColorScaleRule(start_type="min", start_color="F8696B", mid_type="num", mid_value=50, mid_color="FFEB84", end_type="max", end_color="63BE7B"))
     ws_ad.conditional_formatting.add(f"O{ad_first}:O{ad_last}", CellIsRule(operator="equal", formula=['"Limited history"'], fill=PatternFill("solid", fgColor="FCE4D6")))
+
 
     # ---------------------------------------------------------------
     # Sheet 9: Broker Decision -- direct aggregation from Raw Data, not
@@ -896,18 +959,21 @@ def build_workbook(ticker: str) -> str:
         _style_decision_note(ws_bd, last_bd + 3, "Broker metrics are computed directly from Raw Data. When a broker has multiple analysts, this sheet aggregates the house's observations rather than averaging analyst scores.", 15)
         ws_bd.conditional_formatting.add(f"M{first_bd}:M{last_bd}", ColorScaleRule(start_type="min", start_color="F8696B", mid_type="num", mid_value=50, mid_color="FFEB84", end_type="max", end_color="63BE7B"))
 
+
     # ---------------------------------------------------------------
     # FF5 strategy outputs -- populated when master_pipeline.py was run
     # with --factor-model FF5 --factor-backtest. These are separate from
     # the analyst bubble map and do not add any chart to Analyst Charts.
     # ---------------------------------------------------------------
-    ff_factors_path = f"{csv_dir}/live_{safe}_ff_factors.csv"
-    strategy_returns_path = f"{csv_dir}/live_{safe}_strategy_returns.csv"
-    factor_regression_path = f"{csv_dir}/live_{safe}_factor_regression.csv"
+    ff_factors_path = f"{outdir}/live_{safe}_ff_factors.csv"
+    strategy_returns_path = f"{outdir}/live_{safe}_strategy_returns.csv"
+    factor_regression_path = f"{outdir}/live_{safe}_factor_regression.csv"
+
 
     ff_factors = pd.read_csv(ff_factors_path) if os.path.exists(ff_factors_path) else pd.DataFrame()
     strategy_returns = pd.read_csv(strategy_returns_path) if os.path.exists(strategy_returns_path) else pd.DataFrame()
     factor_regression = pd.read_csv(factor_regression_path) if os.path.exists(factor_regression_path) else pd.DataFrame()
+
 
     if not ff_factors.empty or not strategy_returns.empty or not factor_regression.empty:
         # FF5 Factors: show the pure five-factor panel only, even if an older
@@ -938,6 +1004,7 @@ def build_workbook(ticker: str) -> str:
             ws_ff.freeze_panes = "A5"
             ws_ff.auto_filter.ref = f"A4:{get_column_letter(len(ff_cols))}{4 + len(ff_factors)}"
 
+
         # Strategy Returns: the dependent variable used in the FF5 regression.
         ws_sr = wb.create_sheet("Strategy Returns")
         ws_sr.sheet_view.showGridLines = False
@@ -966,6 +1033,7 @@ def build_workbook(ticker: str) -> str:
             _autofit(ws_sr, 3, {1: 14, 2: 22, 3: 18})
             ws_sr.freeze_panes = "A5"
             ws_sr.auto_filter.ref = f"A4:C{4 + len(strategy_returns)}"
+
 
         # FF5 Regression: direct summary plus t-stats where supplied by the
         # regression summary. The table remains auditable because it comes from
@@ -1029,6 +1097,7 @@ def build_workbook(ticker: str) -> str:
         _autofit(ws_reg, 3, {1: 30, 2: 16, 3: 64})
         ws_reg.freeze_panes = "A5"
 
+
         # FF5 Diagnostics: data coverage and factor completeness. This stays
         # descriptive and avoids pretending a single regression is sufficient
         # evidence when the strategy history is short.
@@ -1060,13 +1129,13 @@ def build_workbook(ticker: str) -> str:
         ws_diag.cell(10, 3, "Pure FF5 excludes MOM. FF5+MOM remains available as a separate model.")
         _autofit(ws_diag, 3, {1: 28, 2: 18, 3: 70})
 
-    os.makedirs(csv_dir, exist_ok=True)
-    os.makedirs(xlsx_dir, exist_ok=True)
-    
-    out_path = f"{xlsx_dir}/live_{safe}_model.xlsx"
-    
+
+    out_path = f"{outdir}/live_{safe}_model.xlsx"
+    os.makedirs(outdir, exist_ok=True)
     wb.save(out_path)
     return out_path
+
+
 
 
 def main():
@@ -1079,5 +1148,7 @@ def main():
           "or just open it in Excel -- Excel recalculates on open automatically.")
 
 
+
+
 if __name__ == "__main__":
-    main()
+    
