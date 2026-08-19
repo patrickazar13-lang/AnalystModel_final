@@ -8,6 +8,7 @@ FACTSET_CLIENT_SECRET
 """
 
 import os
+
 import requests
 from dotenv import load_dotenv
 
@@ -31,6 +32,10 @@ def _get_access_token():
         data={"grant_type": "client_credentials"},
         auth=(FACTSET_CLIENT_ID, FACTSET_CLIENT_SECRET),
         timeout=30,
+    )
+
+    print(
+        f"[factset_client] OAuth token endpoint status: {resp.status_code}"
     )
 
     if not resp.ok:
@@ -65,6 +70,21 @@ def fetch_time_series(
     formulas=None,
     flatten="Y",
 ):
+    """
+    Calls the FactSet Formula API time-series endpoint.
+
+    Pass exactly one of:
+      - ids=[...]
+      - universe="..."
+
+    Example:
+
+        fetch_time_series(
+            ids=["AAPL-US"],
+            formulas=["P_PRICE()"]
+        )
+    """
+
     if bool(ids) == bool(universe):
         raise ValueError(
             "Pass exactly one of ids= or universe=, not both/neither."
@@ -98,4 +118,3 @@ def fetch_time_series(
     resp.raise_for_status()
 
     return resp.json()
-  
