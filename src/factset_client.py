@@ -24,8 +24,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-FACTSET_USERNAME = os.getenv("FACTSET_USERNAME")
-FACTSET_API_KEY = os.getenv("FACTSET_API_KEY")
+FACTSET_CLIENT_ID = os.getenv("FACTSET_CLIENT_ID")
+FACTSET_CLIENT_SECRET = os.getenv("FACTSET_CLIENT_SECRET")
 
 BASE_URL = "https://api.factset.com/formula-api/v1/time-series"
 
