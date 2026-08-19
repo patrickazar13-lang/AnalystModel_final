@@ -151,13 +151,17 @@ def _add_scoring_weights(ws, start_col=18, start_row=4):
 
 def build_workbook(ticker: str) -> str:
     safe = ticker.replace("-", "_")
-    outdir = "outputs"
-    raw_path = f"{outdir}/live_{safe}_raw_forecast_errors.csv"
-    raw_estimates_path = f"{outdir}/live_{safe}_raw_estimates.csv"
-    raw_actuals_path = f"{outdir}/live_{safe}_raw_actuals.csv"
-    raw_prices_path = f"{outdir}/live_{safe}_raw_prices.csv"
-    consensus_path = f"{outdir}/live_{safe}_consensus.csv"
-    run_info_path = f"{outdir}/live_{safe}_run_info.csv"
+    
+    csv_dir = "outputs/csv"
+    xlsx_dir = "outputs/xlsx"
+    
+    raw_path = f"{csv_dir}/live_{safe}_raw_forecast_errors.csv"
+    raw_estimates_path = f"{csv_dir}/live_{safe}_raw_estimates.csv"
+    raw_actuals_path = f"{csv_dir}/live_{safe}_raw_actuals.csv"
+    raw_prices_path = f"{csv_dir}/live_{safe}_raw_prices.csv"
+    consensus_path = f"{csv_dir}/live_{safe}_consensus.csv"
+    run_info_path = f"{csv_dir}/live_{safe}_run_info.csv"
+
 
     if not os.path.exists(raw_path):
         raise FileNotFoundError(
@@ -897,9 +901,9 @@ def build_workbook(ticker: str) -> str:
     # with --factor-model FF5 --factor-backtest. These are separate from
     # the analyst bubble map and do not add any chart to Analyst Charts.
     # ---------------------------------------------------------------
-    ff_factors_path = f"{outdir}/live_{safe}_ff_factors.csv"
-    strategy_returns_path = f"{outdir}/live_{safe}_strategy_returns.csv"
-    factor_regression_path = f"{outdir}/live_{safe}_factor_regression.csv"
+    ff_factors_path = f"{csv_dir}/live_{safe}_ff_factors.csv"
+    strategy_returns_path = f"{csv_dir}/live_{safe}_strategy_returns.csv"
+    factor_regression_path = f"{csv_dir}/live_{safe}_factor_regression.csv"
 
     ff_factors = pd.read_csv(ff_factors_path) if os.path.exists(ff_factors_path) else pd.DataFrame()
     strategy_returns = pd.read_csv(strategy_returns_path) if os.path.exists(strategy_returns_path) else pd.DataFrame()
@@ -1056,8 +1060,11 @@ def build_workbook(ticker: str) -> str:
         ws_diag.cell(10, 3, "Pure FF5 excludes MOM. FF5+MOM remains available as a separate model.")
         _autofit(ws_diag, 3, {1: 28, 2: 18, 3: 70})
 
-    out_path = f"{outdir}/live_{safe}_model.xlsx"
-    os.makedirs(outdir, exist_ok=True)
+    os.makedirs(csv_dir, exist_ok=True)
+    os.makedirs(xlsx_dir, exist_ok=True)
+    
+    out_path = f"{xlsx_dir}/live_{safe}_model.xlsx"
+    
     wb.save(out_path)
     return out_path
 
