@@ -18,8 +18,7 @@ FACTSET_CLIENT_ID = os.getenv("FACTSET_CLIENT_ID")
 FACTSET_CLIENT_SECRET = os.getenv("FACTSET_CLIENT_SECRET")
 
 BASE_URL = "https://api.factset.com/formula-api/v1/time-series"
-TOKEN_URL = "https://auth.factset.com/oauth2/default/v1/token"
-
+TOKEN_URL = "https://auth.factset.com/as/token.oauth2"
 
 def _get_access_token():
     if not FACTSET_CLIENT_ID or not FACTSET_CLIENT_SECRET:
