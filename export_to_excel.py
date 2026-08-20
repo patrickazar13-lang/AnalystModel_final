@@ -1133,6 +1133,19 @@ def build_workbook(ticker: str) -> str:
         _autofit(ws_diag, 3, {1: 28, 2: 18, 3: 70})
 
 
+    # ---------------------------------------------------------------
+    # Leaderboard and Broker Rollup are still needed -- Analyst Decision
+    # and Broker Decision pull their numbers directly from these sheets'
+    # cells (e.g. Analyst Decision!A7 = Leaderboard!A2) -- but they're
+    # redundant to look at directly: Decision restates the same analysts/
+    # brokers with a more complete 0-100 score (evidence/confidence-
+    # adjusted). Hide rather than delete, so the formulas keep working;
+    # unhide any time via Excel's right-click "Unhide" on the sheet tabs.
+    # ---------------------------------------------------------------
+    for _redundant_sheet in ("Leaderboard", "Broker Rollup"):
+        if _redundant_sheet in wb.sheetnames:
+            wb[_redundant_sheet].sheet_state = "hidden"
+
     out_path = f"{outdir}/live_{safe}_model.xlsx"
     os.makedirs(outdir, exist_ok=True)
     wb.save(out_path)
