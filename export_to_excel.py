@@ -179,6 +179,7 @@ def build_workbook(ticker: str) -> str:
     raw_prices_path = f"{outdir}/live_{safe}_raw_prices.csv"
     consensus_path = f"{outdir}/live_{safe}_consensus.csv"
     run_info_path = f"{outdir}/live_{safe}_run_info.csv"
+    factor_adjusted_path = f"{outdir}/live_{safe}_partial_leaderboard_factor_adjusted.csv"
 
 
     if not os.path.exists(raw_path):
@@ -193,6 +194,7 @@ def build_workbook(ticker: str) -> str:
     raw_prices = pd.read_csv(raw_prices_path) if os.path.exists(raw_prices_path) else pd.DataFrame()
     consensus = pd.read_csv(consensus_path) if os.path.exists(consensus_path) else pd.DataFrame()
     run_info = pd.read_csv(run_info_path) if os.path.exists(run_info_path) else pd.DataFrame()
+    factor_adjusted = pd.read_csv(factor_adjusted_path) if os.path.exists(factor_adjusted_path) else pd.DataFrame()
 
 
     # Order analysts by the SAME logic as simple_accuracy_leaderboard() in
@@ -300,6 +302,68 @@ def build_workbook(ticker: str) -> str:
         "Raw Prices | point-in-time price and market data used in the model",
         {1: 14, 2: 14, 3: 10, 4: 8, 5: 14, 6: 14, 7: 16, 8: 16, 9: 18, 10: 20},
     )
+
+
+    # ---------------------------------------------------------------
+    # Factor-Adjusted Score -- separates "this analyst is genuinely
+    # skilled" from "this analyst just rode a Fama-French factor (broad
+    # market, size, value, or momentum) in her favor". Computed by
+    # master_pipeline.py --factor-adjusted (factor_adjusted_partial_
+    # leaderboard() in that file) and read here as pasted values, same
+    # audit-sheet convention as Raw Estimates/Actuals/Prices above --
+    # NOT a live formula sheet, since the underlying OLS regression isn't
+    # something Excel formulas reasonably reproduce.
+    #
+    # NOTE: a single ticker often doesn't give any one analyst the
+    # MIN_FACTOR_OBS quarters of history the regression needs (see
+    # src/config.py's comment on MIN_FACTOR_OBS) -- if that's the case for
+    # this ticker, every analyst's factor_alpha will show as blank/"n/a"
+    # below, and that's expected, not a bug: run master_pipeline.py
+    # --from-outputs across your full multi-ticker universe with
+    # --factor-adjusted for a real, populated version of this sheet.
+    # ---------------------------------------------------------------
+    if not factor_adjusted.empty:
+        _fa = factor_adjusted.copy()
+        _fa_display = pd.DataFrame({
+            "Analyst": _fa.get("analyst"),
+            "Quarterly obs (accuracy)": _fa.get("n_observations"),
+            "Quarterly obs (factor regression)": _fa.get("n_factor_obs"),
+            "Factor alpha (%/quarter)": _fa.get("factor_alpha"),
+            "Factor alpha t-stat": _fa.get("factor_alpha_tstat"),
+            "Factor alpha (annualized %)": _fa.get("factor_alpha_annualized"),
+            "Score, factor-adjusted": _fa.get("partial_reliability_score_with_factor"),
+            "Score, original (no factors)": _fa.get("partial_reliability_score"),
+        })
+        _fa_display = _fa_display.sort_values(
+            "Score, factor-adjusted", ascending=False, na_position="last"
+        ).reset_index(drop=True)
+        ws_fa = _write_raw_input_sheet(
+            "Factor-Adjusted Score", _fa_display,
+            f"{ticker} -- factor-adjusted analyst score (Fama-French: is she skilled, or just riding the market?)",
+            {1: 22, 2: 14, 3: 16, 4: 16, 5: 14, 6: 16, 7: 16, 8: 16},
+        )
+        n_with_alpha = int(_fa["factor_alpha"].notna().sum()) if "factor_alpha" in _fa.columns else 0
+        note_row = len(_fa_display) + 5
+        if n_with_alpha == 0:
+            ws_fa.cell(
+                row=note_row, column=1,
+                value=(
+                    "No analyst covering this single ticker had enough quarterly history "
+                    "for a factor regression this run -- blanks above are expected, not an "
+                    "error. Run master_pipeline.py --from-outputs across multiple tickers "
+                    "with --factor-adjusted to populate real factor_alpha values."
+                ),
+            ).font = Font(name="Arial", italic=True)
+        else:
+            ws_fa.cell(
+                row=note_row, column=1,
+                value=(
+                    f"{n_with_alpha} of {len(_fa_display)} analyst(s) had enough history for a real "
+                    "factor alpha this run. A positive alpha means her forecast errors beat what "
+                    "the market/size/value/momentum factors alone would predict -- genuine skill, "
+                    "not just a factor tailwind."
+                ),
+            ).font = Font(name="Arial", italic=True)
 
 
     # ---------------------------------------------------------------
