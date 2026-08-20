@@ -691,6 +691,99 @@ def simple_accuracy_leaderboard(raw_fe: pd.DataFrame, min_obs: int = 1) -> pd.Da
     return out.sort_values("partial_reliability_score", ascending=False).reset_index(drop=True)
 
 
+def factor_adjusted_partial_leaderboard(
+    raw_fe: pd.DataFrame,
+    factor_model: str = "FF3+MOM",
+    min_factor_obs: "int | None" = None,
+    min_obs: int = 1,
+) -> pd.DataFrame:
+    """
+    Same idea as compute_factor_adjusted_scores(), but built on top of
+    simple_accuracy_leaderboard() instead of analyst_reliability_scores().
+
+    Why this exists: compute_factor_adjusted_scores()'s base score requires
+    an analyst to have cleared the paper's NN-training bar (>=10 LAGGED
+    observations, p.14) -- a much stricter requirement than factor-alpha's
+    own bar (config.MIN_FACTOR_OBS quarterly observations, default 10, no
+    lag needed). On a real multi-ticker pull spanning 2-3 years, almost no
+    analyst clears the NN bar (most cover one firm, so there simply aren't
+    10 PRIOR quarters before any of their target quarters yet) -- so
+    compute_factor_adjusted_scores() ends up with 1 analyst even when 6+
+    analysts have enough history for a real factor-alpha. This function
+    starts from the same NN-independent base simple_accuracy_leaderboard()
+    already uses for exactly this reason, and adds factor_alpha on top for
+    whoever clears that separate bar -- so today's real data actually
+    surfaces a factor-adjusted view, not just a placeholder for once you
+    have 5+ years of history.
+
+    Adds columns (same names/meaning as compute_factor_adjusted_scores(),
+    so a caller doesn't need to branch on which one ran):
+    factor_alpha, factor_alpha_tstat, factor_alpha_annualized, factor_alpha_z,
+    loading_Mkt-RF, loading_SMB, loading_HML, loading_MOM (+RMW, CMA for FF5),
+    partial_reliability_score_with_factor_raw, partial_reliability_score_with_factor.
+
+    Analysts without enough quarterly history for factor_alpha keep their
+    ordinary partial_reliability_score components; factor_alpha_z is simply
+    excluded from their composite mean (same NaN-skipping pattern used
+    everywhere else in this file for freshness_score_z).
+    """
+    base = simple_accuracy_leaderboard(raw_fe, min_obs=min_obs)
+    if base.empty:
+        return base
+
+    # compute_analyst_factor_alpha() expects [analyst, firm, quarter, fe,
+    # nn_predicted_fe] -- raw_fe has no NN predictions (this is the whole
+    # point of using the partial base), so pass NaN and let the residual
+    # fallback (fe - NaN.fillna(0) = fe itself) do the right thing: without
+    # a trained model to net out a systematic bias, an analyst's raw
+    # forecast error IS her un-explained residual.
+    fe_for_factors = raw_fe[["analyst", "firm", "quarter", "fe"]].copy()
+    fe_for_factors["nn_predicted_fe"] = np.nan
+
+    factor_results = compute_analyst_factor_alpha(
+        fe_for_factors, factor_model=factor_model, min_obs=min_factor_obs,
+    )
+
+    factor_cols_all = [
+        "factor_alpha", "factor_alpha_tstat", "factor_alpha_annualized",
+        "loading_Mkt-RF", "loading_SMB", "loading_HML", "loading_MOM",
+        "loading_RMW", "loading_CMA", "n_obs", "r_squared",
+    ]
+    if factor_results.empty:
+        for c in factor_cols_all:
+            base[c] = np.nan
+        base["factor_alpha_z"] = np.nan
+        base["partial_reliability_score_with_factor_raw"] = base["partial_reliability_score_raw"]
+        base["partial_reliability_score_with_factor"] = base["partial_reliability_score"]
+        return base
+
+    merged = base.set_index("analyst").join(
+        factor_results.rename(columns={"n_obs": "n_factor_obs"}), how="left",
+    ).reset_index()
+
+    valid = merged["factor_alpha"].notna()
+    merged["factor_alpha_z"] = np.nan
+    if valid.any():
+        mu, sigma = merged.loc[valid, "factor_alpha"].mean(), merged.loc[valid, "factor_alpha"].std()
+        if sigma and sigma > 0:
+            merged.loc[valid, "factor_alpha_z"] = (merged.loc[valid, "factor_alpha"] - mu) / sigma
+        else:
+            merged.loc[valid, "factor_alpha_z"] = 0.0
+
+    z_source_cols = ["accuracy_score_z", "consistency_score_z"]
+    if "freshness_score_z" in merged.columns:
+        z_source_cols.append("freshness_score_z")
+    if merged["factor_alpha_z"].notna().any():
+        z_source_cols.append("factor_alpha_z")
+
+    merged["partial_reliability_score_with_factor_raw"] = merged[z_source_cols].mean(axis=1)
+    merged["partial_reliability_score_with_factor"] = (
+        merged["partial_reliability_score_with_factor_raw"] * merged["credibility_weight"]
+    )
+
+    return merged.sort_values("partial_reliability_score_with_factor", ascending=False).reset_index(drop=True)
+
+
 # =============================================================================
 # Factor-Adjusted Analyst Scoring (NEW -- non-breaking augmentation)
 # =============================================================================
@@ -698,7 +791,7 @@ def simple_accuracy_leaderboard(raw_fe: pd.DataFrame, min_obs: int = 1) -> pd.Da
 def compute_factor_adjusted_scores(
     predicted: pd.DataFrame,
     factor_model: str = "FF3+MOM",
-    min_factor_obs: int = 60,
+    min_factor_obs: "int | None" = None,
 ) -> pd.DataFrame:
     """
     Compute factor-adjusted analyst scores by augmenting analyst_reliability_scores()
@@ -1259,6 +1352,39 @@ def load_existing_output_panel(tickers: list[str], outputs_dir: str = "outputs")
     )
     return out
 
+
+def _run_and_write_factor_adjusted(prefix: str, raw_fe: pd.DataFrame, predicted: pd.DataFrame,
+                                    factor_model: str, min_factor_obs: "int | None", label: str) -> None:
+    """
+    Shared by --mock/--live/--from-outputs's `if args.factor_adjusted:` blocks
+    so the two-tier logic (full NN-gated score + practical partial-leaderboard
+    fallback) only has to be written, and kept correct, once.
+
+    Writes BOTH outputs/<prefix>_factor_adjusted_scores.csv (NN-gated, meant
+    for a large multi-year universe -- see compute_factor_adjusted_scores()'s
+    docstring) and outputs/<prefix>_partial_leaderboard_factor_adjusted.csv
+    (NN-independent, meant to actually surface something on today's data --
+    see factor_adjusted_partial_leaderboard()'s docstring for why these two
+    can disagree sharply on analyst COUNT even though they're asking the same
+    "does she just ride a risk factor" question).
+    """
+    print(f"\n--- Computing factor-adjusted analyst scores {label} ---")
+
+    full = compute_factor_adjusted_scores(predicted, factor_model=factor_model, min_factor_obs=min_factor_obs)
+    n_full_alpha = int(full["factor_alpha"].notna().sum()) if "factor_alpha" in full.columns else 0
+    print(f"Full (NN-gated) score: {len(full)} analysts total, {n_full_alpha} with a real factor_alpha")
+    full.to_csv(f"outputs/{prefix}_factor_adjusted_scores.csv", index=False)
+
+    partial = factor_adjusted_partial_leaderboard(raw_fe, factor_model=factor_model, min_factor_obs=min_factor_obs)
+    n_partial_alpha = int(partial["factor_alpha"].notna().sum()) if "factor_alpha" in partial.columns else 0
+    print(f"Partial (NN-independent) leaderboard: {len(partial)} analysts total, "
+          f"{n_partial_alpha} with a real factor_alpha")
+    partial.to_csv(f"outputs/{prefix}_partial_leaderboard_factor_adjusted.csv", index=False)
+
+    print(f"Wrote outputs/{prefix}_factor_adjusted_scores.csv "
+          f"and outputs/{prefix}_partial_leaderboard_factor_adjusted.csv")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--mock", action="store_true", help="Run on synthetic data (0 API calls).")
@@ -1317,10 +1443,22 @@ def main():
     # Factor-adjusted analyst scoring (NEW)
     parser.add_argument(
         "--factor-adjusted", action="store_true",
-        help="Compute factor-adjusted analyst scores (adds factor-alpha component "
-             "to reliability composite). Uses --factor-model. Requires sufficient "
-             "analyst history (default 60 monthly obs ~ 5 years). "
-             "Writes outputs/live_<TICKER>_factor_adjusted_scores.csv.",
+        help="Compute factor-adjusted analyst scores (adds a factor-alpha component "
+             "to the reliability composite -- the part of an analyst's forecast-error "
+             "residual that ISN'T explained by market/size/value/momentum risk factors, "
+             "so an analyst who just happens to be tilted toward a factor that did well "
+             "doesn't get mistaken for one who's actually good at forecasting). Uses "
+             "--factor-model. Works with --mock, --live, and --from-outputs. Requires "
+             "config.MIN_FACTOR_OBS (default 10) real QUARTERLY observations per analyst "
+             "-- override per-run with --min-factor-obs. Writes "
+             "outputs/<prefix>_factor_adjusted_scores.csv.",
+    )
+    parser.add_argument(
+        "--min-factor-obs", type=int, default=None,
+        help="Minimum quarterly observations required before an analyst gets a real "
+             "factor-alpha (overrides config.MIN_FACTOR_OBS for this run). Lower = more "
+             "analysts covered but noisier per-analyst regressions (fewer degrees of "
+             "freedom); higher = fewer analysts covered but more statistically stable.",
     )
     args = parser.parse_args()
 
@@ -1391,6 +1529,16 @@ def main():
         else:
             print("No factor backtest result was produced. Need enough industry coverage and overlapping returns.")
 
+        # Factor-adjusted analyst scoring (NEW -- non-breaking; previously only
+        # wired for --mock and --live, not --from-outputs, even though this is
+        # the mode that actually pools enough analyst history across tickers
+        # to make it meaningful)
+        if args.factor_adjusted:
+            _run_and_write_factor_adjusted(
+                "master", raw_fe, results["predicted"], args.factor_model, args.min_factor_obs,
+                label=f"for {', '.join(tickers)}",
+            )
+
         print(
             f"\nMaster panel complete: {raw_fe['firm'].nunique()} companies, "
             f"{raw_fe['sic_code'].nunique()} SIC codes, {len(raw_fe):,} observations, "
@@ -1418,16 +1566,10 @@ def main():
 
         # Factor-adjusted analyst scoring (NEW -- non-breaking)
         if args.factor_adjusted:
-            print("\n--- Computing factor-adjusted analyst scores (mock data) ---")
-            factor_scores = compute_factor_adjusted_scores(
-                results["predicted"],
-                factor_model=args.factor_model,
-                min_factor_obs=60,
+            _run_and_write_factor_adjusted(
+                "mock", raw_fe, results["predicted"], args.factor_model, args.min_factor_obs,
+                label="(mock data)",
             )
-            print(f"Factor-adjusted scores computed for {len(factor_scores)} analysts")
-            print(f"Columns: {', '.join(factor_scores.columns)}")
-            factor_scores.to_csv("outputs/mock_factor_adjusted_scores.csv", index=False)
-            print("Wrote outputs/mock_factor_adjusted_scores.csv")
 
         if args.broker:
             broker_values = _parse_broker_arg(args.broker, args.broker_by)
@@ -1546,16 +1688,10 @@ def main():
 
         # Factor-adjusted analyst scoring (NEW -- non-breaking)
         if args.factor_adjusted:
-            print(f"\n--- Computing factor-adjusted analyst scores for {args.ticker} ---")
-            factor_scores = compute_factor_adjusted_scores(
-                results["predicted"],
-                factor_model=args.factor_model,
-                min_factor_obs=60,
+            _run_and_write_factor_adjusted(
+                f"live_{safe_ticker}", raw_fe, results["predicted"], args.factor_model, args.min_factor_obs,
+                label=f"for {args.ticker}",
             )
-            print(f"Factor-adjusted scores computed for {len(factor_scores)} analysts")
-            print(f"Columns: {', '.join(factor_scores.columns)}")
-            factor_scores.to_csv(f"outputs/live_{safe_ticker}_factor_adjusted_scores.csv", index=False)
-            print(f"Wrote outputs/live_{safe_ticker}_factor_adjusted_scores.csv")
 
         print(f"\nWrote outputs/live_{safe_ticker}_*.csv "
               f"(budget used: {budget.spent}/{budget.budget})")
