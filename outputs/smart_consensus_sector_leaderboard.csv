@@ -1,64 +1,59 @@
 industry,analyst,n_observations,avg_abs_fe,n_firms_covered_in_sector,n_tickers_in_sector
-Business Services,Jay Goldberg,6,0.016525198441942432,1,2
-Business Services,Michael Donovan,2,0.016743041291876152,1,2
-Business Services,James Kisner,4,0.0186635014018932,1,2
-Business Services,Ye Tao,10,0.02532844928031412,2,2
-Business Services,Brent A. Bracelin,2,0.026668849983151353,1,2
-Business Services,Brent Thill,2,0.0275445775642936,1,2
-Business Services,Brian Schwartz,3,0.027576352244501137,1,2
-Business Services,Nehal Chokshi,8,0.027601010290990286,1,2
-Business Services,Hannah Rudoff,1,0.0276303992181358,1,2
-Business Services,Kadambari Daptardar,2,0.02792789584481,1,2
-Business Services,Shi Feng Cui,2,0.02834852802400815,1,2
-Business Services,Saiyi He,1,0.0289941062457972,1,2
-Business Services,Phillip Securities Research Team,3,0.029067312707920834,1,2
-Business Services,Joseph Bonner,3,0.0291688785082852,1,2
-Business Services,Keith Bachman,3,0.029203669938154233,1,2
-Business Services,Brad R. Reback,3,0.02960119473013023,1,2
-Business Services,Derrick Wood,4,0.029623918742823073,1,2
-Business Services,Paul Meeks,2,0.02965177536613625,1,2
-Business Services,Gil Luria,3,0.0299189316739729,1,2
-Business Services,Curtis A Shauger,2,0.03030392400257695,1,2
-Business Services,Hui Ting Tang,2,0.03036418360250665,1,2
-Business Services,Liang Wei Zhang,4,0.030442508240576052,1,2
-Business Services,Tommy Wong,2,0.03044471791047255,1,2
-Business Services,Steve Wong,1,0.0305894934153609,1,2
-Business Services,Dan Ives,3,0.03061175313485236,1,2
-Business Services,Jackson Ader,8,0.03062862307837006,1,2
-Business Services,Yun Kim,5,0.030685963120407122,1,2
-Business Services,Rishi N. Jaluria,3,0.030750733869437965,1,2
-Business Services,Michael Turrin,5,0.03089208487388694,1,2
-Business Services,Kirk Materne,6,0.031350784314878734,1,2
-Business Services,Satoshi Tanaka,6,0.03138936897818022,1,2
-Business Services,Irene Weng,3,0.03141872825925147,1,2
-Business Services,Jason Ader,5,0.03150455661874648,1,2
-Business Services,Ari Terjanian,3,0.03161088335641763,1,2
-Business Services,Terry Tillman,3,0.031941919594102065,1,2
-Business Services,Xiao Yu Han,4,0.031975012822739776,1,2
-Business Services,Thomas Blakey,2,0.032027276604131405,1,2
-Business Services,Barney Yao,2,0.0320405817676766,1,2
-Business Services,Soo-Jin Kim,3,0.032077208368032496,1,2
-Business Services,John DiFucci,7,0.03210690064719991,1,2
-Business Services,Ella Ji,2,0.03211546077084895,1,2
-Business Services,Brad Zelnick,7,0.0323308807818584,1,2
-Business Services,Ben Reitzes,6,0.032400675036622854,1,2
-Business Services,Rong Jin,7,0.03263059169339475,1,2
-Business Services,Lun Ke Zhang,7,0.0327683845127744,1,2
-Business Services,Joel P. Fishbein Jr.,3,0.0327787132792664,1,2
-Business Services,Colin Liu,5,0.03302627737458602,1,2
-Business Services,Gregg Moskowitz,7,0.033242667921348716,1,2
-Business Services,Chun Sheng Xie,6,0.03365718251072702,1,2
-Business Services,Tian Zi Fu,4,0.03368913050130658,1,2
-Business Services,Bo Tao Yu,1,0.0342677885316862,1,2
-Business Services,Pierre Ferragu,4,0.03447369411129325,1,2
-Business Services,Dan Zhao,1,0.034575023456107,1,2
-Business Services,Peng Rui Huang,1,0.0353134575166577,1,2
-Business Services,Je-Min Park,1,0.0353377754000291,1,2
-Business Services,Billy Fitzsimmons,1,0.0355080005836292,1,2
-Business Services,Thiago Alves Kapulskis,2,0.0360267272290716,1,2
-Business Services,Timothy Horan,8,0.03679468641193036,1,2
-Business Services,Ya Li Guo,1,0.0368698020524293,1,2
-Business Services,Patrick Colville,1,0.0370225183600019,1,2
+Business Services,Brent A. Bracelin,2,0.026668849983151353,1,1
+Business Services,Brent Thill,2,0.0275445775642936,1,1
+Business Services,Brian Schwartz,3,0.027576352244501137,1,1
+Business Services,Hannah Rudoff,1,0.0276303992181358,1,1
+Business Services,Kadambari Daptardar,2,0.02792789584481,1,1
+Business Services,Shi Feng Cui,2,0.02834852802400815,1,1
+Business Services,Saiyi He,1,0.0289941062457972,1,1
+Business Services,Phillip Securities Research Team,3,0.029067312707920834,1,1
+Business Services,Joseph Bonner,3,0.0291688785082852,1,1
+Business Services,Keith Bachman,3,0.029203669938154233,1,1
+Business Services,Brad R. Reback,3,0.02960119473013023,1,1
+Business Services,Derrick Wood,4,0.029623918742823073,1,1
+Business Services,Gil Luria,3,0.0299189316739729,1,1
+Business Services,Curtis A Shauger,2,0.03030392400257695,1,1
+Business Services,Hui Ting Tang,2,0.03036418360250665,1,1
+Business Services,Liang Wei Zhang,4,0.030442508240576052,1,1
+Business Services,Tommy Wong,2,0.03044471791047255,1,1
+Business Services,Steve Wong,1,0.0305894934153609,1,1
+Business Services,Dan Ives,3,0.03061175313485236,1,1
+Business Services,Jackson Ader,8,0.03062862307837006,1,1
+Business Services,Yun Kim,5,0.030685963120407122,1,1
+Business Services,Rishi N. Jaluria,3,0.030750733869437965,1,1
+Business Services,Michael Turrin,5,0.03089208487388694,1,1
+Business Services,Kirk Materne,6,0.031350784314878734,1,1
+Business Services,Satoshi Tanaka,6,0.03138936897818022,1,1
+Business Services,Irene Weng,3,0.03141872825925147,1,1
+Business Services,Ye Tao,4,0.031465508274551204,1,1
+Business Services,Jason Ader,5,0.03150455661874648,1,1
+Business Services,Ari Terjanian,3,0.03161088335641763,1,1
+Business Services,Terry Tillman,3,0.031941919594102065,1,1
+Business Services,Xiao Yu Han,4,0.031975012822739776,1,1
+Business Services,Thomas Blakey,2,0.032027276604131405,1,1
+Business Services,Barney Yao,2,0.0320405817676766,1,1
+Business Services,Soo-Jin Kim,3,0.032077208368032496,1,1
+Business Services,John DiFucci,7,0.03210690064719991,1,1
+Business Services,Ella Ji,2,0.03211546077084895,1,1
+Business Services,Brad Zelnick,7,0.0323308807818584,1,1
+Business Services,Ben Reitzes,6,0.032400675036622854,1,1
+Business Services,Rong Jin,7,0.03263059169339475,1,1
+Business Services,Lun Ke Zhang,7,0.0327683845127744,1,1
+Business Services,Joel P. Fishbein Jr.,3,0.0327787132792664,1,1
+Business Services,Colin Liu,5,0.03302627737458602,1,1
+Business Services,Gregg Moskowitz,7,0.033242667921348716,1,1
+Business Services,Chun Sheng Xie,6,0.03365718251072702,1,1
+Business Services,Tian Zi Fu,4,0.03368913050130658,1,1
+Business Services,Bo Tao Yu,1,0.0342677885316862,1,1
+Business Services,Pierre Ferragu,4,0.03447369411129325,1,1
+Business Services,Dan Zhao,1,0.034575023456107,1,1
+Business Services,Peng Rui Huang,1,0.0353134575166577,1,1
+Business Services,Je-Min Park,1,0.0353377754000291,1,1
+Business Services,Billy Fitzsimmons,1,0.0355080005836292,1,1
+Business Services,Thiago Alves Kapulskis,2,0.0360267272290716,1,1
+Business Services,Timothy Horan,8,0.03679468641193036,1,1
+Business Services,Ya Li Guo,1,0.0368698020524293,1,1
+Business Services,Patrick Colville,1,0.0370225183600019,1,1
 Computers,Qian Li,1,0.0213786736420987,1,1
 Computers,Jay Goldberg,2,0.02177503232493095,1,1
 Computers,Peng Rui Huang,2,0.0219023838490192,1,1
@@ -185,8 +180,6 @@ Measuring and Control Equipment,Joe Quatrochi,6,0.0310463862600336,1,1
 Measuring and Control Equipment,Edward H. Yang,7,0.031498776973330915,1,1
 Measuring and Control Equipment,Melissa Weathers,6,0.03202042036295651,1,1
 Measuring and Control Equipment,Steve Barger,8,0.03414835627929923,1,1
-Retail,Alicia Reese,1,0.0022707231040564,1,1
-Retail,Michael Pachter,3,0.0063591735864195675,1,1
 Trading,Chris Allen,1,0.0303883623394207,1,3
 Trading,Patrick Moley,6,0.03254226141166745,1,3
 Trading,Kevin Heal,5,0.032975781932137314,1,3

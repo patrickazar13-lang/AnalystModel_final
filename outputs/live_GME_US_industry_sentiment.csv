@@ -1,5 +1,0 @@
-industry,industry_code,quarter,industry_fe,industry_nn_predicted_fe,industry_linear_predicted_fe,n_firms,industry_sentiment
-Retail,Rtail,2024Q4,-0.0010010111223458036,,,1,
-Retail,Rtail,2025Q1,-0.007035824230176345,,,1,
-Retail,Rtail,2025Q2,0.01059654214442132,,,1,
-Retail,Rtail,2025Q3,0.002270723104056437,,,1,

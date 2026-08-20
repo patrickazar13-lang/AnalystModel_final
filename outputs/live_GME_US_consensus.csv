@@ -1,5 +1,0 @@
-firm,quarter,consensus_fe,consensus_nn_predicted_fe,consensus_linear_predicted_fe,market_cap,sic_code,industry,industry_code
-GME-US,2024Q4,-0.0010010111223458036,,,13247.939,5734,Retail,Rtail
-GME-US,2025Q1,-0.007035824230176345,,,10102.156,5734,Retail,Rtail
-GME-US,2025Q2,0.01059654214442132,,,15659.99,5734,Retail,Rtail
-GME-US,2025Q3,0.002270723104056437,,,10145.588,5734,Retail,Rtail

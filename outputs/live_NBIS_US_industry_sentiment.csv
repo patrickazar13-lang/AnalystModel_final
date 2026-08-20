@@ -1,9 +1,0 @@
-industry,quarter,industry_fe,industry_nn_predicted_fe,industry_linear_predicted_fe,n_firms,industry_sentiment
-Business Services,2024Q1,-0.0029712460063897727,,,1,
-Business Services,2024Q3,-0.013932528933760157,,,1,
-Business Services,2024Q4,-0.024075439890422507,,,1,
-Business Services,2025Q1,-0.01772717614561938,,,1,
-Business Services,2025Q2,-0.06724863370216004,,,1,
-Business Services,2025Q3,-0.013912829352376263,,,1,
-Business Services,2025Q4,-0.019634390475187023,,,1,
-Business Services,2026Q1,-0.03814009490757136,,,1,

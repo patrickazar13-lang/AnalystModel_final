@@ -1,3 +1,0 @@
-analyst,n_observations,mean_fe,accuracy_score,consistency_score,avg_staleness_days,current_broker,current_broker_code,n_brokers,freshness_score,accuracy_score_z,consistency_score_z,freshness_score_z,partial_reliability_score_raw,credibility_weight,partial_reliability_score
-Alicia Reese,1,0.002270723104056437,-0.002270723104056437,,89.0,Wedbush Securities,590,1,-89.0,0.7071067811865475,0.0,0.0,0.2357022603955158,0.09090909090909091,0.021427478217774167
-Michael Pachter,3,0.0008768542151609032,-0.006359173586419599,-0.007498214624504909,89.0,Wedbush Securities,590,1,-89.0,-0.7071067811865477,0.0,0.0,-0.2357022603955159,0.23076923076923078,-0.05439282932204213
