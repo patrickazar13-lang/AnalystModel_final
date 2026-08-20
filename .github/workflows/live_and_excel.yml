@@ -33,7 +33,12 @@ jobs:
           FACTSET_CLIENT_ID: ${{ secrets.FACTSET_CLIENT_ID }}
           FACTSET_CLIENT_SECRET: ${{ secrets.FACTSET_CLIENT_SECRET }}
         run: |
-          python master_pipeline.py --live --ticker "${{ inputs.ticker }}" --quarters "${{ inputs.quarters }}" --factor-adjusted
+          # --min-factor-obs 6 is the lowest this can go: the FF3+MOM factor
+          # regression needs at least 6 quarterly observations (4 factors +
+          # intercept) to run at all. Even at 6, treat any resulting
+          # factor_alpha as noisy -- the Factor-Adjusted Score sheet's
+          # t-stat column shows how much to trust each one.
+          python master_pipeline.py --live --ticker "${{ inputs.ticker }}" --quarters "${{ inputs.quarters }}" --factor-adjusted --min-factor-obs 6
 
       - name: Build Excel workbook
         run: |
