@@ -585,6 +585,141 @@ def build_summary(predictions: pd.DataFrame) -> pd.DataFrame:
     )
 
 
+def analyst_aggregate_scores(
+    forecast_errors: pd.DataFrame,
+    weights: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    One row per analyst, combining EVERY observation she has across every
+    ticker in your pull -- not per-firm, not per-run. An analyst who covers
+    CME-US and TSM-US and GS-US gets all of that pooled into one score here.
+
+    This is deliberately a separate, simpler view from the out-of-sample
+    Smart Consensus weighting above: it's a plain in-sample summary (mean
+    absolute forecast error across her full history, most-recent-first
+    doesn't matter here) meant for "who's actually good, full stop" rather
+    than "whose estimate should I trust for THIS specific upcoming quarter".
+    `historical_mae` in the out-of-sample weights table is the more rigorous
+    number if you need something forward-looking; this one is easier to read
+    at a glance across your whole analyst universe.
+
+    Columns:
+      analyst, n_observations, n_firms_covered, firms_covered,
+      avg_abs_fe (lower is better), n_times_smart_weighted,
+      avg_weight_when_smart_weighted (higher means Smart Consensus leaned
+      on her more, i.e. she had a strong enough track record to earn real
+      influence over the blended estimate).
+    """
+    if forecast_errors.empty:
+        return pd.DataFrame(
+            columns=[
+                "analyst", "n_observations", "n_firms_covered", "firms_covered",
+                "avg_abs_fe", "n_times_smart_weighted", "avg_weight_when_smart_weighted",
+            ]
+        )
+
+    agg = (
+        forecast_errors.groupby("analyst", as_index=False)
+        .agg(
+            n_observations=("fe", "count"),
+            n_firms_covered=("firm", "nunique"),
+            firms_covered=("firm", lambda s: ", ".join(sorted(set(map(str, s))))),
+            avg_abs_fe=("fe", lambda s: float(np.mean(np.abs(s)))),
+        )
+    )
+
+    if not weights.empty and {"analyst", "final_weight"}.issubset(weights.columns):
+        w = weights.copy()
+        w["final_weight"] = pd.to_numeric(w["final_weight"], errors="coerce")
+        w_agg = (
+            w.groupby("analyst", as_index=False)
+            .agg(
+                n_times_smart_weighted=("final_weight", "count"),
+                avg_weight_when_smart_weighted=("final_weight", "mean"),
+            )
+        )
+        agg = agg.merge(w_agg, on="analyst", how="left")
+    else:
+        agg["n_times_smart_weighted"] = 0
+        agg["avg_weight_when_smart_weighted"] = np.nan
+
+    agg["n_times_smart_weighted"] = agg["n_times_smart_weighted"].fillna(0).astype(int)
+
+    return agg.sort_values(
+        ["avg_abs_fe", "n_observations"], ascending=[True, False]
+    ).reset_index(drop=True)
+
+
+def sector_leaderboard(forecast_errors: pd.DataFrame) -> pd.DataFrame:
+    """
+    Rank analysts WITHIN their industry (Fama-French 48 grouping, resolved
+    from each firm's SIC code) instead of across your whole ticker universe.
+    Answers "who's the best semiconductor-covering analyst", not just
+    "who's the best analyst overall".
+
+    Honesty check baked into the output: `n_tickers_in_sector` tells you, at
+    a glance, whether a given sector ranking actually means anything yet. A
+    sector with only 1 ticker in your current pull can't really compare
+    analysts against SECTOR peers -- it's just that one ticker's leaderboard
+    wearing a sector label. As you pull more tickers per industry, these
+    rankings become genuinely comparative.
+
+    Requires forecast_errors to have a `sic_code` column (present in every
+    live_<TICKER>_raw_forecast_errors.csv / master_raw_forecast_errors.csv
+    this project produces). Rows with no resolvable industry are dropped
+    with a printed warning rather than silently mis-bucketed.
+    """
+    if forecast_errors.empty or "sic_code" not in forecast_errors.columns:
+        return pd.DataFrame(
+            columns=[
+                "industry", "analyst", "n_observations", "avg_abs_fe",
+                "n_firms_covered_in_sector", "n_tickers_in_sector",
+            ]
+        )
+
+    from src.ff48_industries import sic_to_industry
+
+    df = forecast_errors.dropna(subset=["sic_code"]).copy()
+
+    def _industry_name(sic):
+        try:
+            result = sic_to_industry(int(sic))
+        except Exception:
+            return None
+        return result.industry_name if result else None
+
+    df["industry"] = df["sic_code"].map(_industry_name)
+    unresolved = df["industry"].isna().sum()
+    if unresolved:
+        print(f"sector_leaderboard(): {unresolved} row(s) had a SIC code with no FF48 "
+              f"industry match -- dropped from the sector view (they still count "
+              f"normally everywhere else).")
+    df = df.dropna(subset=["industry"])
+    if df.empty:
+        return pd.DataFrame(
+            columns=[
+                "industry", "analyst", "n_observations", "avg_abs_fe",
+                "n_firms_covered_in_sector", "n_tickers_in_sector",
+            ]
+        )
+
+    sector_ticker_counts = df.groupby("industry")["firm"].nunique().rename("n_tickers_in_sector")
+
+    agg = (
+        df.groupby(["industry", "analyst"], as_index=False)
+        .agg(
+            n_observations=("fe", "count"),
+            avg_abs_fe=("fe", lambda s: float(np.mean(np.abs(s)))),
+            n_firms_covered_in_sector=("firm", "nunique"),
+        )
+    )
+    agg = agg.merge(sector_ticker_counts, on="industry", how="left")
+
+    return agg.sort_values(
+        ["industry", "avg_abs_fe"], ascending=[True, True]
+    ).reset_index(drop=True)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description=(
@@ -689,6 +824,14 @@ def main() -> None:
         index=False,
     )
 
+    analyst_aggregate = analyst_aggregate_scores(fe, weights)
+    analyst_aggregate_path = output_dir / "smart_consensus_analyst_aggregate.csv"
+    analyst_aggregate.to_csv(analyst_aggregate_path, index=False)
+
+    sector_lb = sector_leaderboard(fe)
+    sector_leaderboard_path = output_dir / "smart_consensus_sector_leaderboard.csv"
+    sector_lb.to_csv(sector_leaderboard_path, index=False)
+
     print("=== SMART CONSENSUS ===")
     print("FactSet/API calls: 0")
     print(
@@ -709,10 +852,22 @@ def main() -> None:
             )
         )
 
+    if not analyst_aggregate.empty:
+        print(f"\nAnalyst aggregate: {len(analyst_aggregate)} analyst(s), pooled across every "
+              f"ticker they cover -- see {analyst_aggregate_path}")
+
+    if not sector_lb.empty:
+        n_sectors = sector_lb["industry"].nunique()
+        print(f"Sector leaderboard: {n_sectors} industry sector(s) -- see {sector_leaderboard_path}")
+    else:
+        print("Sector leaderboard: no rows produced (no resolvable SIC codes in this data).")
+
     print("\nWrote:")
     print(predictions_path)
     print(weights_path)
     print(summary_path)
+    print(analyst_aggregate_path)
+    print(sector_leaderboard_path)
 
 
 if __name__ == "__main__":
