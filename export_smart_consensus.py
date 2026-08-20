@@ -782,6 +782,28 @@ def build_workbook(output_path: Path) -> Path:
         ws.sheet_view.showGridLines = False
         ws.freeze_panes = ws.freeze_panes or "A2"
 
+    # Patrick only wants Analyst Aggregate and Sector Leaderboard visible day
+    # to day -- those are the two views built for "rank analysts per sector
+    # and per accuracy, and map analysts covering multiple companies".
+    # Everything else here (Read Me, Dashboard, Predictions, Analyst Weights,
+    # Consensus Detail, Diagnostics, Threshold Guide) is hidden rather than
+    # deleted -- it's the out-of-sample Standard-vs-Smart comparison and its
+    # supporting methodology/notes, which only covers tickers with the
+    # newer raw_estimates/raw_actuals/raw_prices files (fewer tickers than
+    # Analyst Aggregate/Sector Leaderboard, which is why it can look
+    # confusingly limited if you're on the wrong tab). Unhide any of these
+    # from Excel any time: right-click a visible sheet tab -> Unhide.
+    for _hidden_sheet in (
+        "Read Me", "Dashboard", "Predictions", "Analyst Weights",
+        "Consensus Detail", "Diagnostics", "Threshold Guide",
+    ):
+        if _hidden_sheet in wb.sheetnames:
+            wb[_hidden_sheet].sheet_state = "hidden"
+    # Excel requires at least one visible sheet with an active tab; make
+    # sure the workbook opens straight to Analyst Aggregate.
+    if "Analyst Aggregate" in wb.sheetnames:
+        wb.active = wb.sheetnames.index("Analyst Aggregate")
+
     output_path.parent.mkdir(parents=True, exist_ok=True)
     wb.save(output_path)
     return output_path
