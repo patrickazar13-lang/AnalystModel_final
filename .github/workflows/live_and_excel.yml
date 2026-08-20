@@ -48,9 +48,23 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add outputs/*.csv outputs/**/*.csv 2>/dev/null || true
-          git diff --cached --quiet || git commit -m "Update outputs from Live Model + Excel run (${{ inputs.ticker }})"
-          git push || true
+
+          echo "--- New/changed files git can see under outputs/ before staging ---"
+          git status --porcelain outputs/ || echo "(git status itself failed -- see above)"
+
+          echo "--- Running git add (errors NOT hidden this time) ---"
+          git add outputs/*.csv outputs/**/*.csv
+
+          echo "--- What actually got staged ---"
+          git status --porcelain --untracked-files=no outputs/
+
+          if git diff --cached --quiet; then
+            echo "Nothing staged -- nothing to commit. If you expected new files here, "
+            echo "that means git add (above) didn't find/accept them; check its output for errors."
+          else
+            git commit -m "Update outputs from Live Model + Excel run (${{ inputs.ticker }})"
+            git push
+          fi
 
       - name: Work out this ticker's Excel filename
         id: xlsx
