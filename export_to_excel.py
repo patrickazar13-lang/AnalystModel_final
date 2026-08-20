@@ -62,6 +62,7 @@ from __future__ import annotations
 
 import argparse
 import os
+from datetime import datetime
 
 
 import pandas as pd
@@ -229,6 +230,7 @@ def build_workbook(ticker: str) -> str:
             ("Number of analysts covered", r.get("n_analysts", "")),
             ("Total (analyst, quarter) observations", r.get("n_observations", "")),
             ("Pipeline run on", r.get("run_timestamp", "")),
+            ("Excel file generated on", datetime.now().strftime("%Y-%m-%d %H:%M:%S")),
         ]
     else:
         fallback_quarters = sorted(raw["quarter"].dropna().astype(str).unique().tolist()) if "quarter" in raw.columns else []
@@ -241,6 +243,7 @@ def build_workbook(ticker: str) -> str:
             ("Number of analysts covered", raw["analyst"].nunique() if "analyst" in raw.columns else ""),
             ("Total (analyst, quarter) observations", len(raw)),
             ("Pipeline run on", ""),
+            ("Excel file generated on", datetime.now().strftime("%Y-%m-%d %H:%M:%S")),
         ]
     for i, (label, value) in enumerate(rows, start=3):
         ws_info.cell(row=i, column=1, value=label).font = Font(name="Arial", bold=True)
