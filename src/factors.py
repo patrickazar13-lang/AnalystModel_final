@@ -741,8 +741,10 @@ def compute_analyst_factor_alpha(
     factor_model : str
         'FF3+MOM' or 'FF5+MOM' (passed to load_factors).
     min_obs : int
-        Minimum monthly observations required for regression (default 60).
-        Quarterly data is forward-filled to monthly within each quarter.
+        Minimum QUARTERLY observations required for regression (default 10,
+        see config.MIN_FACTOR_OBS). Regression runs at the natural quarterly
+        frequency the data actually has -- see "Quarterly, not monthly"
+        below for why this changed from a monthly forward-fill.
     use_cache, download_missing : bool
         Passed to load_factors().
 
@@ -754,6 +756,26 @@ def compute_analyst_factor_alpha(
      (+ 'loading_RMW', 'loading_CMA' for FF5+MOM),
      'n_obs', 'r_squared']
     Analysts with < min_obs get all-NaN rows (index preserved for alignment).
+
+    Quarterly, not monthly
+    -----------------------
+    An earlier version forward-filled each quarterly residual into 3
+    identical monthly copies before regressing, to reach a 60-observation
+    (5-year) monthly bar. That's a real statistical problem, not just a
+    naming detail: forward-filling manufactures 3 fully-correlated,
+    non-independent rows out of 1 real observation, which understates the
+    regression's true standard errors and can make a factor-alpha look more
+    statistically significant than the data supports -- and no analyst here
+    has 5 years of quarterly coverage to ever clear that bar anyway. This
+    version regresses directly at the natural quarterly frequency instead
+    (quarter-compounded factor returns, one independent observation per
+    analyst per quarter), so results are both honest and actually reachable
+    with a 2-3 year multi-ticker pull. If an analyst covers more than one
+    firm in the same quarter, her per-firm residuals are averaged into one
+    observation for that quarter first -- otherwise the same problem
+    resurfaces one level down (two firm-quarters at the identical date would
+    both get compared against the same factor-quarter, again inflating N
+    with correlated copies).
     """
     from src.config import MIN_FACTOR_OBS as DEFAULT_MIN_OBS
     min_obs = min_obs or DEFAULT_MIN_OBS
@@ -765,47 +787,50 @@ def compute_analyst_factor_alpha(
             "loading_RMW", "loading_CMA", "n_obs", "r_squared"
         ]).astype(float)
 
-    # 1. Compute residuals = fe - nn_predicted_fe (paper's "sentiment")
+    # 1. Compute residuals = fe - nn_predicted_fe (paper's "sentiment") --
+    # NaN nn_predicted_fe (no trained NN for that analyst-quarter, e.g. she
+    # hasn't cleared the paper's 10-lagged-observation training bar yet)
+    # falls back to treating her raw fe AS the residual, i.e. nothing
+    # systematic has been netted out of it yet. Without this fallback,
+    # fe - NaN = NaN silently drops every row for any analyst who never got
+    # an NN prediction -- which, on a 2-3 year multi-ticker pull, was nearly
+    # everyone (the NN training bar is much stricter than the quarterly-
+    # observation bar this function itself needs).
     panel = analyst_fe_panel.copy()
-    panel["residual"] = panel["fe"] - panel["nn_predicted_fe"]
+    panel["residual"] = panel["fe"] - panel["nn_predicted_fe"].fillna(0.0)
 
-    # 2. Convert quarterly to monthly via forward-fill within quarter
-    # Quarter label like "2020Q1" -> month-ends Jan, Feb, Mar all get same residual
-    def quarter_to_month_ends(q_str: str) -> list[pd.Timestamp]:
+    # 2. One row per (analyst, quarter) -- average across firms first if an
+    # analyst covers more than one firm in the same quarter, so each quarter
+    # contributes exactly one independent observation (see "Quarterly, not
+    # monthly" above).
+    per_quarter = (
+        panel.groupby(["analyst", "quarter"], as_index=False)["residual"].mean()
+    )
+
+    def quarter_end(q_str: str) -> pd.Timestamp:
         year = int(q_str[:4])
         quarter = int(q_str[5])
-        start_month = (quarter - 1) * 3 + 1
-        return [
-            pd.Timestamp(year, m, 1) + pd.offsets.MonthEnd(0)
-            for m in range(start_month, start_month + 3)
-        ]
+        return pd.Timestamp(year, quarter * 3, 1) + pd.offsets.MonthEnd(0)
 
-    monthly_rows = []
-    for _, row in panel.iterrows():
-        for dt in quarter_to_month_ends(row["quarter"]):
-            monthly_rows.append({
-                "analyst": row["analyst"],
-                "date": dt,
-                "residual": row["residual"],
-            })
-
-    monthly = pd.DataFrame(monthly_rows)
-    if monthly.empty:
+    per_quarter["date"] = per_quarter["quarter"].map(quarter_end)
+    quarterly = per_quarter[["analyst", "date", "residual"]]
+    if quarterly.empty:
         return pd.DataFrame()  # no data
 
-    # 3. Load factor panel
+    # 3. Load factor panel, compounded up to quarterly (source is monthly %/mo)
     factor_model_obj = load_factors(
         model=factor_model,
         use_cache=use_cache,
         download_missing=download_missing,
     )
-    factor_panel = factor_model_obj.factors  # monthly, DatetimeIndex, %/mo
+    monthly_factors = factor_model_obj.factors  # monthly, DatetimeIndex, %/mo
+    factor_panel = (1.0 + monthly_factors / 100.0).resample("QE").prod() * 100.0 - 100.0
 
     # 4. Per-analyst regression
     results = []
     factor_cols = [c for c in ("Mkt-RF", "SMB", "HML", "MOM", "RMW", "CMA") if c in factor_panel.columns]
 
-    for analyst, g in monthly.groupby("analyst"):
+    for analyst, g in quarterly.groupby("analyst"):
         # Align residual series with factor panel on date
         g = g.set_index("date")["residual"]
         df = pd.concat([g.rename("y"), factor_panel[factor_cols]], axis=1, join="inner").dropna()
@@ -856,7 +881,7 @@ def compute_analyst_factor_alpha(
             "analyst": analyst,
             "factor_alpha": float(beta[0]),
             "factor_alpha_tstat": float(tstats[0]),
-            "factor_alpha_annualized": float(beta[0]) * 12.0,
+            "factor_alpha_annualized": float(beta[0]) * 4.0,  # quarterly alpha -> annualized (x4, not x12)
             **{f"loading_{c}": float(b) for c, b in zip(factor_cols, beta[1:])},
             "n_obs": n,
             "r_squared": r_squared,
