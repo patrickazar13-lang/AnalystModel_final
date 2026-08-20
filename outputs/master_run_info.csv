@@ -1,2 +1,2 @@
 mode,tickers,n_companies,n_observations,n_analysts,n_industries,factor_model,run_timestamp,factset_api_calls
-from_outputs,"AAPL-US,APO-US,CME-US,EME-US,GFS-US,GS-US,KLAC-US,MSFT-US,NRG-US,TSM-US",10,1107,199,9,FF3+MOM,2026-08-20T12:30:30,0
+from_outputs,"AAPL-US,APO-US,CME-US,EME-US,GFS-US,GS-US,KLAC-US,MSFT-US,NRG-US,TSM-US",10,1107,199,9,FF3+MOM,2026-08-20T12:56:20,0
