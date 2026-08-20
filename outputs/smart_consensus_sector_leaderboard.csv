@@ -113,59 +113,82 @@ Construction,Brian Brophy,5,0.03109685572538622,1,1
 Construction,Adam R. Thalhimer,5,0.03276301813466676,1,1
 Construction,Brent Thielman,4,0.03584096807044983,1,1
 Construction,Alexander Dwyer,1,0.0517128941297103,1,1
-Electronic Equipment,Pei Wen Chen,2,0.02711796834577435,1,2
-Electronic Equipment,Stephano Gabriel,3,0.028170568481125164,1,2
-Electronic Equipment,Jim Hin Kwong Au,3,0.02883626619578693,1,2
-Electronic Equipment,Jun Yun Chen,1,0.0291500213893185,1,2
-Electronic Equipment,Yen Chun Wang,2,0.029851620103236297,1,2
-Electronic Equipment,Sarena Hsu,3,0.030248022120427803,1,2
-Electronic Equipment,Gil Luria,1,0.0318621335910275,1,2
-Electronic Equipment,Cheng Chieh Tsai,4,0.03233311315573788,1,2
-Electronic Equipment,Wayne Lin,1,0.0327598421622887,1,2
-Electronic Equipment,Egor Tolmachev,2,0.03322756632572525,1,2
-Electronic Equipment,Ian Chi,1,0.0333738733198629,1,2
-Electronic Equipment,Dawei Wang,3,0.033595094828145496,1,2
-Electronic Equipment,Kevin Garrigan,3,0.033598748724602,1,2
-Electronic Equipment,Anthony Lau,3,0.033684549538316795,1,2
-Electronic Equipment,Charles Shi,7,0.03492540833284519,2,2
-Electronic Equipment,James Kelleher,9,0.035452079627442235,2,2
-Electronic Equipment,Jack Zhou,1,0.03574700869718,1,2
-Electronic Equipment,Li Yen Chen,6,0.036311889632266135,1,2
-Electronic Equipment,Jun Xia,2,0.0365782678705899,1,2
-Electronic Equipment,Seung-Woo Lee,1,0.0367127354452054,1,2
-Electronic Equipment,Ling Ji Cao,8,0.036802030618470524,1,2
-Electronic Equipment,Krish Sankar,11,0.036877136318684244,2,2
-Electronic Equipment,Rong Jin,4,0.03785094294647383,1,2
-Electronic Equipment,Felix Hsu,8,0.03791283013038603,1,2
-Electronic Equipment,Matthew Bryson,13,0.03808982473976692,2,2
-Electronic Equipment,Sherman Shang,6,0.03826757193418582,1,2
-Electronic Equipment,Rick Hsu,8,0.038365792925733076,1,2
-Electronic Equipment,Felix Pan,6,0.038653291508433316,1,2
-Electronic Equipment,Robert Sanders,8,0.03865955662518651,1,2
-Electronic Equipment,Stefan Chang,2,0.0387955608043446,1,2
-Electronic Equipment,Tony Shen,7,0.039003051911766784,1,2
-Electronic Equipment,Leping Huang,8,0.039434811439806046,1,2
-Electronic Equipment,Chun Sheng Xie,1,0.0397452418096723,1,2
-Electronic Equipment,Szeho Ng,1,0.0397617787276015,1,2
-Electronic Equipment,Mark Lipacis,5,0.04032997505482936,1,2
-Electronic Equipment,C.J. Muse,5,0.04041065565414676,1,2
-Electronic Equipment,Kevin Wang,8,0.040784784315067484,1,2
-Electronic Equipment,Barney Yao,5,0.04240923531320302,1,2
-Electronic Equipment,Mehdi Hosseini,10,0.042464651391961775,2,2
-Electronic Equipment,Heping Qin,7,0.0430376101471225,1,2
-Electronic Equipment,Melissa Fairbanks,5,0.04307422143895556,1,2
-Electronic Equipment,N. Quinn Bolton,4,0.043266773421311855,1,2
-Electronic Equipment,Jeff Pu,3,0.04372687280235913,1,2
-Electronic Equipment,Colin Liu,5,0.044078885622469914,1,2
-Electronic Equipment,Pierre Ferragu,5,0.04427333633390914,1,2
-Electronic Equipment,Parth Talsania,2,0.045187151243010995,1,2
-Electronic Equipment,Ishan Majumdar,2,0.0456020755307841,1,2
-Electronic Equipment,Ross Seymore,5,0.046842627442259865,1,2
-Electronic Equipment,Jorge Chang,5,0.04704963815224841,1,2
-Electronic Equipment,Warren Lau,5,0.04863011255738262,1,2
-Electronic Equipment,Alex Bai,3,0.05052297394313913,1,2
-Electronic Equipment,Blayne Curtis,2,0.05298083750615255,1,2
-Electronic Equipment,Chih Sheng Tsai,1,0.0531525416190113,1,2
+Electronic Equipment,Pei Wen Chen,2,0.02711796834577435,1,3
+Electronic Equipment,Stephano Gabriel,3,0.028170568481125164,1,3
+Electronic Equipment,Jim Hin Kwong Au,3,0.02883626619578693,1,3
+Electronic Equipment,Jun Yun Chen,1,0.0291500213893185,1,3
+Electronic Equipment,Tian Zi Fu,1,0.0293498684704998,1,3
+Electronic Equipment,Yen Chun Wang,2,0.029851620103236297,1,3
+Electronic Equipment,Sarena Hsu,3,0.030248022120427803,1,3
+Electronic Equipment,Gil Luria,1,0.0318621335910275,1,3
+Electronic Equipment,Cheng Chieh Tsai,4,0.03233311315573788,1,3
+Electronic Equipment,Wayne Lin,1,0.0327598421622887,1,3
+Electronic Equipment,Egor Tolmachev,2,0.03322756632572525,1,3
+Electronic Equipment,Ian Chi,1,0.0333738733198629,1,3
+Electronic Equipment,Dawei Wang,3,0.033595094828145496,1,3
+Electronic Equipment,Anthony Lau,3,0.033684549538316795,1,3
+Electronic Equipment,Charles Shi,7,0.03492540833284519,2,3
+Electronic Equipment,Jack Zhou,1,0.03574700869718,1,3
+Electronic Equipment,Li Yen Chen,6,0.036311889632266135,1,3
+Electronic Equipment,Jun Xia,2,0.0365782678705899,1,3
+Electronic Equipment,Seung-Woo Lee,1,0.0367127354452054,1,3
+Electronic Equipment,Krish Sankar,11,0.036877136318684244,2,3
+Electronic Equipment,Rong Jin,4,0.03785094294647383,1,3
+Electronic Equipment,Felix Hsu,8,0.03791283013038603,1,3
+Electronic Equipment,Matthew Bryson,13,0.03808982473976692,2,3
+Electronic Equipment,Sherman Shang,6,0.03826757193418582,1,3
+Electronic Equipment,Rick Hsu,8,0.038365792925733076,1,3
+Electronic Equipment,Felix Pan,6,0.038653291508433316,1,3
+Electronic Equipment,Robert Sanders,8,0.03865955662518651,1,3
+Electronic Equipment,Tony Shen,7,0.039003051911766784,1,3
+Electronic Equipment,Leping Huang,8,0.039434811439806046,1,3
+Electronic Equipment,Chun Sheng Xie,1,0.0397452418096723,1,3
+Electronic Equipment,Szeho Ng,1,0.0397617787276015,1,3
+Electronic Equipment,Ling Ji Cao,9,0.04009384569984568,2,3
+Electronic Equipment,Kevin Wang,8,0.040784784315067484,1,3
+Electronic Equipment,Barney Yao,5,0.04240923531320302,1,3
+Electronic Equipment,Mehdi Hosseini,10,0.042464651391961775,2,3
+Electronic Equipment,N. Quinn Bolton,4,0.043266773421311855,1,3
+Electronic Equipment,Stefan Chang,3,0.04361199651670337,2,3
+Electronic Equipment,Jeff Pu,3,0.04372687280235913,1,3
+Electronic Equipment,Colin Liu,5,0.044078885622469914,1,3
+Electronic Equipment,Pierre Ferragu,5,0.04427333633390914,1,3
+Electronic Equipment,Mark Lipacis,8,0.044751699478637476,2,3
+Electronic Equipment,Parth Talsania,2,0.045187151243010995,1,3
+Electronic Equipment,Ishan Majumdar,2,0.0456020755307841,1,3
+Electronic Equipment,Jorge Chang,5,0.04704963815224841,1,3
+Electronic Equipment,James Kelleher,15,0.04769899226046369,3,3
+Electronic Equipment,C.J. Muse,11,0.04842143990459616,2,3
+Electronic Equipment,Warren Lau,5,0.04863011255738262,1,3
+Electronic Equipment,Melissa Fairbanks,8,0.049373854218589974,2,3
+Electronic Equipment,Alex Bai,3,0.05052297394313913,1,3
+Electronic Equipment,Kevin Garrigan,9,0.05230627889543443,2,3
+Electronic Equipment,Blayne Curtis,2,0.05298083750615255,1,3
+Electronic Equipment,Chih Sheng Tsai,1,0.0531525416190113,1,3
+Electronic Equipment,Ross Seymore,15,0.053355246037622275,2,3
+Electronic Equipment,Xiao Yu Han,1,0.0549565319548872,1,3
+Electronic Equipment,Srini Pajjuri,5,0.05554170156735786,1,3
+Electronic Equipment,Sun-Woo Kim,1,0.0557025052192066,1,3
+Electronic Equipment,Heping Qin,11,0.05886081572947286,2,3
+Electronic Equipment,John N. Vinh,6,0.05961684084673136,1,3
+Electronic Equipment,Aaron Rakers,8,0.059852459688081054,1,3
+Electronic Equipment,Gary Mobley,8,0.060516841846841016,1,3
+Electronic Equipment,Vijay Rakesh,8,0.060660821541787396,1,3
+Electronic Equipment,Christopher Rolland,11,0.06120955243413037,1,3
+Electronic Equipment,Ben Reitzes,6,0.06123762315245886,1,3
+Electronic Equipment,Rick Schafer,7,0.06129514225479501,1,3
+Electronic Equipment,Louis Miscioscia,6,0.06139301727338566,1,3
+Electronic Equipment,Jay Goldberg,4,0.06158301113162462,1,3
+Electronic Equipment,Chandler B. Converse,6,0.0618082748370502,1,3
+Electronic Equipment,Joshua Buchalter,6,0.06191710910560058,1,3
+Electronic Equipment,Kevin Cassidy,9,0.06195939372559061,1,3
+Electronic Equipment,Han Jing Wen,3,0.06234507720761346,1,3
+Electronic Equipment,Cody Acree,5,0.06300538680321392,1,3
+Electronic Equipment,Edward Snyder,5,0.06328906530203474,1,3
+Electronic Equipment,Harsh V. Kumar,6,0.06588248199866835,1,3
+Electronic Equipment,sean Hao,4,0.07120918805891513,1,3
+Electronic Equipment,Angustt Lin,6,0.07184010067747616,1,3
+Electronic Equipment,Qi Li,1,0.1108584553545793,1,3
 Measuring and Control Equipment,Srini Pajjuri,2,0.02308042594941465,1,1
 Measuring and Control Equipment,James Kelleher,3,0.023326047994297935,1,1
 Measuring and Control Equipment,C.J. Muse,2,0.023604402167953648,1,1
