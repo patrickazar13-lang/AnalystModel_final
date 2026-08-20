@@ -38,6 +38,9 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Mark the time before we run anything
+        run: echo "RUN_START=$(date +%s)" >> "$GITHUB_ENV"
+
       - name: Run ${{ inputs.script }}
         env:
           FACTSET_CLIENT_ID: ${{ secrets.FACTSET_CLIENT_ID }}
@@ -55,9 +58,42 @@ jobs:
 
           git push || true
 
-      - name: Upload this run's outputs as a downloadable artifact
+      - name: Figure out which file(s) this run actually produced
+        id: newfiles
+        run: |
+          # Anything under outputs/ whose contents changed after RUN_START.
+          # A marker file's timestamp is used instead of raw "date" math,
+          # since checking out the repo can leave stale mtimes on files
+          # that weren't touched by this run.
+          touch -d "@$RUN_START" /tmp/run_marker
+          NEW_FILES=$(find outputs -type f -newer /tmp/run_marker)
+          if [ -z "$NEW_FILES" ]; then
+            echo "No new/changed files detected under outputs/ -- nothing will be uploaded."
+          fi
+          echo "files<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$NEW_FILES" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Work out a name for this download
+        id: label
+        run: |
+          # Pull the ticker out of the --ticker flag if there is one, so
+          # running the SAME ticker again reuses the SAME download name
+          # (and, combined with overwrite: true below, replaces the old
+          # one instead of piling up a new zip every time).
+          TICKER=$(echo "${{ inputs.args }}" | grep -oP '(?<=--ticker[= ])\S+' || true)
+          SCRIPT_NAME=$(basename "${{ inputs.script }}" .py)
+          if [ -n "$TICKER" ]; then
+            echo "name=${SCRIPT_NAME}-${TICKER}" >> "$GITHUB_OUTPUT"
+          else
+            echo "name=${SCRIPT_NAME}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload just this run's file(s)
+        if: steps.newfiles.outputs.files != ''
         uses: actions/upload-artifact@v4
         with:
-          name: outputs-${{ github.run_id }}
-          path: outputs/
+          name: ${{ steps.label.outputs.name }}
+          path: ${{ steps.newfiles.outputs.files }}
           retention-days: 30
+          overwrite: true
