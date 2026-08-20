@@ -650,6 +650,55 @@ def analyst_aggregate_scores(
     ).reset_index(drop=True)
 
 
+def broker_aggregate_scores(forecast_errors: pd.DataFrame) -> pd.DataFrame:
+    """
+    Rank BROKERAGE FIRMS (Needham, Wedbush, TD Cowen, etc.), not individual
+    analysts -- every observation from every analyst at that broker, pooled
+    across every ticker in your pull, not sector-specific. Answers "which
+    house's research is actually most accurate", independent of which
+    specific person there wrote it or which stock it was about.
+
+    A broker's score is genuinely a team effort here: if Needham has 3
+    analysts each covering different tickers, all 3 analysts' observations
+    get pooled into ONE Needham row. n_analysts tells you how many different
+    people are behind that number -- a broker with n_analysts=1 is really
+    just that one analyst's track record wearing the firm's name, while a
+    broker with n_analysts=5+ is a much more genuine "is this whole house
+    reliable" signal.
+
+    Requires forecast_errors to have a `broker` column (present in every
+    live_<TICKER>_raw_forecast_errors.csv / master_raw_forecast_errors.csv
+    this project produces).
+
+    Columns: broker, n_observations, n_analysts, n_firms_covered,
+    avg_abs_fe (lower is better).
+    """
+    if forecast_errors.empty or "broker" not in forecast_errors.columns:
+        return pd.DataFrame(
+            columns=["broker", "n_observations", "n_analysts", "n_firms_covered", "avg_abs_fe"]
+        )
+
+    df = forecast_errors.dropna(subset=["broker"])
+    if df.empty:
+        return pd.DataFrame(
+            columns=["broker", "n_observations", "n_analysts", "n_firms_covered", "avg_abs_fe"]
+        )
+
+    agg = (
+        df.groupby("broker", as_index=False)
+        .agg(
+            n_observations=("fe", "count"),
+            n_analysts=("analyst", "nunique"),
+            n_firms_covered=("firm", "nunique"),
+            avg_abs_fe=("fe", lambda s: float(np.mean(np.abs(s)))),
+        )
+    )
+
+    return agg.sort_values(
+        ["avg_abs_fe", "n_observations"], ascending=[True, False]
+    ).reset_index(drop=True)
+
+
 def sector_leaderboard(forecast_errors: pd.DataFrame) -> pd.DataFrame:
     """
     Rank analysts WITHIN their industry (Fama-French 48 grouping, resolved
@@ -832,6 +881,10 @@ def main() -> None:
     sector_leaderboard_path = output_dir / "smart_consensus_sector_leaderboard.csv"
     sector_lb.to_csv(sector_leaderboard_path, index=False)
 
+    broker_aggregate = broker_aggregate_scores(fe)
+    broker_aggregate_path = output_dir / "smart_consensus_broker_aggregate.csv"
+    broker_aggregate.to_csv(broker_aggregate_path, index=False)
+
     print("=== SMART CONSENSUS ===")
     print("FactSet/API calls: 0")
     print(
@@ -862,12 +915,17 @@ def main() -> None:
     else:
         print("Sector leaderboard: no rows produced (no resolvable SIC codes in this data).")
 
+    if not broker_aggregate.empty:
+        print(f"Broker aggregate: {len(broker_aggregate)} broker(s), pooled across every "
+              f"analyst and ticker -- see {broker_aggregate_path}")
+
     print("\nWrote:")
     print(predictions_path)
     print(weights_path)
     print(summary_path)
     print(analyst_aggregate_path)
     print(sector_leaderboard_path)
+    print(broker_aggregate_path)
 
 
 if __name__ == "__main__":
