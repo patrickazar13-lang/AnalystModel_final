@@ -1,12 +1,12 @@
 metric,standard,smart
-All target firm quarters,21.0,21.0
-Smart Consensus available,14.0,14.0
-Smart Consensus unavailable,7.0,7.0
+All target firm quarters,33.0,33.0
+Smart Consensus available,22.0,22.0
+Smart Consensus unavailable,11.0,11.0
 Smart coverage,,0.6666666666666666
-Evaluated Smart vs Standard quarters,14.0,14.0
-Mean absolute forecast error,0.03600111292110354,0.036095446565865774
-Median absolute forecast error,0.034495094636133865,0.03417511692297333
-Wins,8.0,6.0
-Win rate,0.5714285714285714,0.42857142857142855
-Ties,0.0,0.0
-Smart improvement vs Standard,,-9.433364476223172e-05
+Evaluated Smart vs Standard quarters,22.0,22.0
+Mean absolute forecast error,0.034787048732085164,0.03486343905133596
+Median absolute forecast error,0.034908864360731866,0.03417511692297334
+Wins,13.0,8.0
+Win rate,0.5909090909090909,0.36363636363636365
+Ties,1.0,1.0
+Smart improvement vs Standard,,-7.639031925079504e-05

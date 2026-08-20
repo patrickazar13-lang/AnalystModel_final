@@ -1,0 +1,233 @@
+industry,analyst,n_observations,avg_abs_fe,n_firms_covered_in_sector,n_tickers_in_sector
+Business Services,Jay Goldberg,6,0.016525198441942432,1,2
+Business Services,Michael Donovan,2,0.016743041291876152,1,2
+Business Services,James Kisner,4,0.0186635014018932,1,2
+Business Services,Ye Tao,10,0.02532844928031412,2,2
+Business Services,Brent A. Bracelin,2,0.026668849983151353,1,2
+Business Services,Brent Thill,2,0.0275445775642936,1,2
+Business Services,Brian Schwartz,3,0.027576352244501137,1,2
+Business Services,Nehal Chokshi,8,0.027601010290990286,1,2
+Business Services,Hannah Rudoff,1,0.0276303992181358,1,2
+Business Services,Kadambari Daptardar,2,0.02792789584481,1,2
+Business Services,Shi Feng Cui,2,0.02834852802400815,1,2
+Business Services,Saiyi He,1,0.0289941062457972,1,2
+Business Services,Phillip Securities Research Team,3,0.029067312707920834,1,2
+Business Services,Joseph Bonner,3,0.0291688785082852,1,2
+Business Services,Keith Bachman,3,0.029203669938154233,1,2
+Business Services,Brad R. Reback,3,0.02960119473013023,1,2
+Business Services,Derrick Wood,4,0.029623918742823073,1,2
+Business Services,Paul Meeks,2,0.02965177536613625,1,2
+Business Services,Gil Luria,3,0.0299189316739729,1,2
+Business Services,Curtis A Shauger,2,0.03030392400257695,1,2
+Business Services,Hui Ting Tang,2,0.03036418360250665,1,2
+Business Services,Liang Wei Zhang,4,0.030442508240576052,1,2
+Business Services,Tommy Wong,2,0.03044471791047255,1,2
+Business Services,Steve Wong,1,0.0305894934153609,1,2
+Business Services,Dan Ives,3,0.03061175313485236,1,2
+Business Services,Jackson Ader,8,0.03062862307837006,1,2
+Business Services,Yun Kim,5,0.030685963120407122,1,2
+Business Services,Rishi N. Jaluria,3,0.030750733869437965,1,2
+Business Services,Michael Turrin,5,0.03089208487388694,1,2
+Business Services,Kirk Materne,6,0.031350784314878734,1,2
+Business Services,Satoshi Tanaka,6,0.03138936897818022,1,2
+Business Services,Irene Weng,3,0.03141872825925147,1,2
+Business Services,Jason Ader,5,0.03150455661874648,1,2
+Business Services,Ari Terjanian,3,0.03161088335641763,1,2
+Business Services,Terry Tillman,3,0.031941919594102065,1,2
+Business Services,Xiao Yu Han,4,0.031975012822739776,1,2
+Business Services,Thomas Blakey,2,0.032027276604131405,1,2
+Business Services,Barney Yao,2,0.0320405817676766,1,2
+Business Services,Soo-Jin Kim,3,0.032077208368032496,1,2
+Business Services,John DiFucci,7,0.03210690064719991,1,2
+Business Services,Ella Ji,2,0.03211546077084895,1,2
+Business Services,Brad Zelnick,7,0.0323308807818584,1,2
+Business Services,Ben Reitzes,6,0.032400675036622854,1,2
+Business Services,Rong Jin,7,0.03263059169339475,1,2
+Business Services,Lun Ke Zhang,7,0.0327683845127744,1,2
+Business Services,Joel P. Fishbein Jr.,3,0.0327787132792664,1,2
+Business Services,Colin Liu,5,0.03302627737458602,1,2
+Business Services,Gregg Moskowitz,7,0.033242667921348716,1,2
+Business Services,Chun Sheng Xie,6,0.03365718251072702,1,2
+Business Services,Tian Zi Fu,4,0.03368913050130658,1,2
+Business Services,Bo Tao Yu,1,0.0342677885316862,1,2
+Business Services,Pierre Ferragu,4,0.03447369411129325,1,2
+Business Services,Dan Zhao,1,0.034575023456107,1,2
+Business Services,Peng Rui Huang,1,0.0353134575166577,1,2
+Business Services,Je-Min Park,1,0.0353377754000291,1,2
+Business Services,Billy Fitzsimmons,1,0.0355080005836292,1,2
+Business Services,Thiago Alves Kapulskis,2,0.0360267272290716,1,2
+Business Services,Timothy Horan,8,0.03679468641193036,1,2
+Business Services,Ya Li Guo,1,0.0368698020524293,1,2
+Business Services,Patrick Colville,1,0.0370225183600019,1,2
+Computers,Qian Li,1,0.0213786736420987,1,1
+Computers,Jay Goldberg,2,0.02177503232493095,1,1
+Computers,Peng Rui Huang,2,0.0219023838490192,1,1
+Computers,Melissa Fairbanks,2,0.022858179367119452,1,1
+Computers,Eui-Young Ko,3,0.023500104791699464,1,1
+Computers,Leping Huang,1,0.0238094153378891,1,1
+Computers,Ananda Baruah,3,0.0239891513959949,1,1
+Computers,Warren Lau,8,0.024968785760434462,1,1
+Computers,Craig Moffett,7,0.025145925994927997,1,1
+Computers,Dan Ives,6,0.025320691419357746,1,1
+Computers,Pierre Ferragu,7,0.025470875380031042,1,1
+Computers,Gil Luria,7,0.02581103780974403,1,1
+Computers,Brandon Nispel,5,0.025817644735777755,1,1
+Computers,Amman Saeed,4,0.0258465113007474,1,1
+Computers,Laura Martin,6,0.025859618838087416,1,1
+Computers,Sophie Huang,6,0.02596458830168683,1,1
+Computers,Edison Lee,7,0.02596793637900977,1,1
+Computers,Tian Zi Fu,6,0.026064849548305898,1,1
+Computers,Martin Yang,8,0.02666607208483214,1,1
+Computers,Cheng Ning Li,6,0.026702995188482802,1,1
+Computers,Ben Bollin,6,0.02676142119102205,1,1
+Computers,Jack Zhou,1,0.026960516324981,1,1
+Computers,Louis Miscioscia,6,0.02698336961018445,1,1
+Computers,Tom Forte,10,0.02702802034255398,1,1
+Computers,Aaron Rakers,8,0.027093190513538014,1,1
+Computers,Ivan Feinseth,1,0.0272867245908264,1,1
+Computers,Matthew F. Farrell,3,0.0273208643346225,1,1
+Computers,Krish Sankar,8,0.02747257052247415,1,1
+Computers,James Kelleher,6,0.02747674547085008,1,1
+Computers,sean Hao,4,0.027739083455290248,1,1
+Computers,Colin Liu,3,0.027949711031357433,1,1
+Computers,Chun Sheng Xie,4,0.028117025701700802,1,1
+Computers,Heping Qin,6,0.028121862862781618,1,1
+Computers,Srini Pajjuri,3,0.0281562331790937,1,1
+Computers,Helena Wang,6,0.028183440389043118,1,1
+Computers,Barton Crockett,7,0.028204957203080805,1,1
+Computers,Xiao Yu Han,8,0.028449287316931176,1,1
+Computers,Amit Daryanani,6,0.02846189869941705,1,1
+Computers,Ben Reitzes,10,0.028742491849881962,1,1
+Computers,Jun Xia,2,0.0289755235446091,1,1
+Computers,Barney Yao,5,0.029133462106675702,1,1
+Computers,Brian J. White,9,0.03000339526132331,1,1
+Computers,Jeff Pu,3,0.030078549673797767,1,1
+Computers,Tony Shen,2,0.0310906854239885,1,1
+Computers,Ishan Majumdar,3,0.03163583016670387,1,1
+Computers,Thiago Alves Kapulskis,7,0.0317192854069744,1,1
+Computers,Hui Ting Tang,1,0.0320079040091419,1,1
+Computers,Parth Talsania,2,0.03204857596813445,1,1
+Computers,Mark Rosen,1,0.0339434807227055,1,1
+Computers,Yan Hui Hao,1,0.0343552787357801,1,1
+Computers,Andrew Uerkwitz,1,0.0357465277777777,1,1
+Computers,Rob Wilson,1,0.0365876436781609,1,1
+Construction,Tim Mulrooney,3,0.02643292968960183,1,1
+Construction,Manish A. Somaiya,1,0.027367851276691,1,1
+Construction,Sangita Jain,4,0.02865853716032067,1,1
+Construction,Brian Brophy,5,0.03109685572538622,1,1
+Construction,Adam R. Thalhimer,5,0.03276301813466676,1,1
+Construction,Brent Thielman,4,0.03584096807044983,1,1
+Construction,Alexander Dwyer,1,0.0517128941297103,1,1
+Electronic Equipment,Pei Wen Chen,2,0.02711796834577435,1,2
+Electronic Equipment,Stephano Gabriel,3,0.028170568481125164,1,2
+Electronic Equipment,Jim Hin Kwong Au,3,0.02883626619578693,1,2
+Electronic Equipment,Jun Yun Chen,1,0.0291500213893185,1,2
+Electronic Equipment,Yen Chun Wang,2,0.029851620103236297,1,2
+Electronic Equipment,Sarena Hsu,3,0.030248022120427803,1,2
+Electronic Equipment,Gil Luria,1,0.0318621335910275,1,2
+Electronic Equipment,Cheng Chieh Tsai,4,0.03233311315573788,1,2
+Electronic Equipment,Wayne Lin,1,0.0327598421622887,1,2
+Electronic Equipment,Egor Tolmachev,2,0.03322756632572525,1,2
+Electronic Equipment,Ian Chi,1,0.0333738733198629,1,2
+Electronic Equipment,Dawei Wang,3,0.033595094828145496,1,2
+Electronic Equipment,Kevin Garrigan,3,0.033598748724602,1,2
+Electronic Equipment,Anthony Lau,3,0.033684549538316795,1,2
+Electronic Equipment,Charles Shi,7,0.03492540833284519,2,2
+Electronic Equipment,James Kelleher,9,0.035452079627442235,2,2
+Electronic Equipment,Jack Zhou,1,0.03574700869718,1,2
+Electronic Equipment,Li Yen Chen,6,0.036311889632266135,1,2
+Electronic Equipment,Jun Xia,2,0.0365782678705899,1,2
+Electronic Equipment,Seung-Woo Lee,1,0.0367127354452054,1,2
+Electronic Equipment,Ling Ji Cao,8,0.036802030618470524,1,2
+Electronic Equipment,Krish Sankar,11,0.036877136318684244,2,2
+Electronic Equipment,Rong Jin,4,0.03785094294647383,1,2
+Electronic Equipment,Felix Hsu,8,0.03791283013038603,1,2
+Electronic Equipment,Matthew Bryson,13,0.03808982473976692,2,2
+Electronic Equipment,Sherman Shang,6,0.03826757193418582,1,2
+Electronic Equipment,Rick Hsu,8,0.038365792925733076,1,2
+Electronic Equipment,Felix Pan,6,0.038653291508433316,1,2
+Electronic Equipment,Robert Sanders,8,0.03865955662518651,1,2
+Electronic Equipment,Stefan Chang,2,0.0387955608043446,1,2
+Electronic Equipment,Tony Shen,7,0.039003051911766784,1,2
+Electronic Equipment,Leping Huang,8,0.039434811439806046,1,2
+Electronic Equipment,Chun Sheng Xie,1,0.0397452418096723,1,2
+Electronic Equipment,Szeho Ng,1,0.0397617787276015,1,2
+Electronic Equipment,Mark Lipacis,5,0.04032997505482936,1,2
+Electronic Equipment,C.J. Muse,5,0.04041065565414676,1,2
+Electronic Equipment,Kevin Wang,8,0.040784784315067484,1,2
+Electronic Equipment,Barney Yao,5,0.04240923531320302,1,2
+Electronic Equipment,Mehdi Hosseini,10,0.042464651391961775,2,2
+Electronic Equipment,Heping Qin,7,0.0430376101471225,1,2
+Electronic Equipment,Melissa Fairbanks,5,0.04307422143895556,1,2
+Electronic Equipment,N. Quinn Bolton,4,0.043266773421311855,1,2
+Electronic Equipment,Jeff Pu,3,0.04372687280235913,1,2
+Electronic Equipment,Colin Liu,5,0.044078885622469914,1,2
+Electronic Equipment,Pierre Ferragu,5,0.04427333633390914,1,2
+Electronic Equipment,Parth Talsania,2,0.045187151243010995,1,2
+Electronic Equipment,Ishan Majumdar,2,0.0456020755307841,1,2
+Electronic Equipment,Ross Seymore,5,0.046842627442259865,1,2
+Electronic Equipment,Jorge Chang,5,0.04704963815224841,1,2
+Electronic Equipment,Warren Lau,5,0.04863011255738262,1,2
+Electronic Equipment,Alex Bai,3,0.05052297394313913,1,2
+Electronic Equipment,Blayne Curtis,2,0.05298083750615255,1,2
+Electronic Equipment,Chih Sheng Tsai,1,0.0531525416190113,1,2
+Measuring and Control Equipment,Srini Pajjuri,2,0.02308042594941465,1,1
+Measuring and Control Equipment,James Kelleher,3,0.023326047994297935,1,1
+Measuring and Control Equipment,C.J. Muse,2,0.023604402167953648,1,1
+Measuring and Control Equipment,Chandler B. Converse,2,0.024483167504228402,1,1
+Measuring and Control Equipment,Brian Chin,2,0.0246441805708187,1,1
+Measuring and Control Equipment,Krish Sankar,4,0.025672792600097274,1,1
+Measuring and Control Equipment,Blayne Curtis,3,0.026743030742203435,1,1
+Measuring and Control Equipment,Pierre Ferragu,4,0.0271680340396896,1,1
+Measuring and Control Equipment,Charles Shi,3,0.027246248913632,1,1
+Measuring and Control Equipment,Mehdi Hosseini,2,0.02872205237661975,1,1
+Measuring and Control Equipment,Joe Quatrochi,6,0.0310463862600336,1,1
+Measuring and Control Equipment,Edward H. Yang,7,0.031498776973330915,1,1
+Measuring and Control Equipment,Melissa Weathers,6,0.03202042036295651,1,1
+Measuring and Control Equipment,Steve Barger,8,0.03414835627929923,1,1
+Retail,Alicia Reese,1,0.0022707231040564,1,1
+Retail,Michael Pachter,3,0.0063591735864195675,1,1
+Trading,Chris Allen,1,0.0303883623394207,1,3
+Trading,Patrick Moley,6,0.03254226141166745,1,3
+Trading,Kevin Heal,5,0.032975781932137314,1,3
+Trading,Ashish Sabadra,7,0.03335475954076357,1,3
+Trading,Owen Lau,4,0.0344172311578661,1,3
+Trading,Patrick O'Shaughnessy,11,0.03680221736430767,1,3
+Trading,Bill Katz,11,0.04438308676439041,2,3
+Trading,Peng Rui Huang,1,0.0477333134053232,1,3
+Trading,Brian Bedell,19,0.04859097123921789,2,3
+Trading,Kyle Voigt,14,0.04863980453347071,2,3
+Trading,Daniel T. Fannon,22,0.049192908221562144,3,3
+Trading,Alec Huang,1,0.0500444823663253,1,3
+Trading,Mikhail Paramonov,4,0.0502863896724626,1,3
+Trading,Christopher McGratty,4,0.051777683648229426,1,3
+Trading,Brian McKenna,5,0.05338824517552924,1,3
+Trading,Pei Feng Li,5,0.054046568340529,1,3
+Trading,Chris Kotowski,12,0.055557375456294356,2,3
+Trading,Steve Biggar,9,0.055630155694680675,2,3
+Trading,Gerard Cassidy,6,0.05602553239344532,1,3
+Trading,Glenn Schorr,11,0.05615499178773346,2,3
+Trading,Jim Mitchell,6,0.05628521396667818,1,3
+Trading,Brennan Hawken,2,0.056955635105660554,1,3
+Trading,Devin Ryan,6,0.0577949271350738,1,3
+Trading,John Barnidge,4,0.05923797050434851,1,3
+Trading,Matthew O'Connor,7,0.06099524849798028,1,3
+Trading,Wilma Burdis,4,0.06174207696595683,1,3
+Trading,Etienne Ricard,4,0.06443933043491887,1,3
+Trading,Kazuya Nishimura,9,0.06653792842832419,1,3
+Trading,Mike Mayo,9,0.06941270141224484,1,3
+Trading,David Konrad,3,0.07170177994095538,1,3
+Trading,Parth Talsania,1,0.0717061256076032,1,3
+Trading,James Fotheringham,2,0.0747372303412535,1,3
+Trading,Michael C. Brown,6,0.07957529568677893,1,3
+Utilities,Durgesh Chopra,1,0.0426042428675932,1,1
+Utilities,Xiang Li,1,0.0460274852298998,1,1
+Utilities,Neil Kalton,4,0.05341040531145243,1,1
+Utilities,James West,3,0.05492667592459797,1,1
+Utilities,Nicholas Amicucci,1,0.0582941176470588,1,1
+Utilities,Andrew Weisel,3,0.058867502903867,1,1
+Utilities,J.R. Weston,4,0.061036800370905114,1,1
+Utilities,Shahriar Pourreza,6,0.06349189904660123,1,1
+Utilities,Julien Dumoulin-Smith,7,0.06560988081233966,1,1
+Utilities,James M. Thalacker,10,0.08247045513757023,1,1
+Utilities,Angie Storozynski,12,0.09915184354314488,1,1
