@@ -1,4 +1,3 @@
-
 """
 Export Smart Consensus outputs to a separate Excel workbook.
 
@@ -30,6 +29,8 @@ OUTPUT_DIR = Path("outputs")
 PREDICTIONS = OUTPUT_DIR / "smart_consensus_predictions.csv"
 WEIGHTS = OUTPUT_DIR / "smart_consensus_analyst_weights.csv"
 SUMMARY = OUTPUT_DIR / "smart_consensus_summary.csv"
+ANALYST_AGGREGATE = OUTPUT_DIR / "smart_consensus_analyst_aggregate.csv"
+SECTOR_LEADERBOARD = OUTPUT_DIR / "smart_consensus_sector_leaderboard.csv"
 DEFAULT_XLSX = OUTPUT_DIR / "Smart_Consensus_Model.xlsx"
 
 NAVY = "1F4E78"
@@ -98,8 +99,21 @@ def load_csvs() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     )
 
 
+def load_sector_csvs() -> tuple[pd.DataFrame, pd.DataFrame]:
+    """
+    Analyst Aggregate and Sector Leaderboard are newer, optional outputs
+    (added after the original three) -- older smart_consensus.py runs
+    won't have written them yet. Missing files degrade to empty sheets
+    with a note, rather than crashing the whole export.
+    """
+    analyst_aggregate = pd.read_csv(ANALYST_AGGREGATE) if ANALYST_AGGREGATE.exists() else pd.DataFrame()
+    sector_lb = pd.read_csv(SECTOR_LEADERBOARD) if SECTOR_LEADERBOARD.exists() else pd.DataFrame()
+    return analyst_aggregate, sector_lb
+
+
 def build_workbook(output_path: Path) -> Path:
     predictions, weights, summary = load_csvs()
+    analyst_aggregate, sector_lb = load_sector_csvs()
 
     # Build a readable analyst contribution summary for each firm-quarter.
     if not weights.empty and {"firm", "quarter", "analyst", "final_weight"}.issubset(weights.columns):
@@ -374,6 +388,80 @@ def build_workbook(output_path: Path) -> Path:
                 col = list(weights.columns).index(col_name) + 1
                 for row in range(2, ws.max_row + 1):
                     ws.cell(row, col).number_format = "0.0000"
+
+    # ------------------------------------------------------------
+    # Analyst Aggregate -- every analyst's FULL track record pooled
+    # across every ticker she covers in this pull, not per-firm. This is
+    # a plain in-sample summary (mean absolute forecast error over her
+    # whole history) -- easier to scan than the out-of-sample Analyst
+    # Weights sheet above, which only shows the weight she actually
+    # earned for each specific prediction.
+    # ------------------------------------------------------------
+    ws = wb.create_sheet("Analyst Aggregate")
+    ws.sheet_view.showGridLines = False
+    ws["A1"] = "Analyst Aggregate -- full track record across every ticker covered"
+    ws["A1"].font = Font(size=16, bold=True, color=WHITE)
+    ws["A1"].fill = PatternFill("solid", fgColor=NAVY)
+    ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=max(8, len(analyst_aggregate.columns) if not analyst_aggregate.empty else 8))
+    ws["A2"] = (
+        "avg_abs_fe: lower is better (mean absolute forecast error across ALL her observations, every ticker). "
+        "n_times_smart_weighted / avg_weight_when_smart_weighted: how much real influence she earned in the "
+        "out-of-sample Smart Consensus blend above -- 0 means she never had enough prior history to be used."
+    )
+    ws.merge_cells(start_row=2, start_column=1, end_row=2, end_column=max(8, len(analyst_aggregate.columns) if not analyst_aggregate.empty else 8))
+    ws["A2"].alignment = Alignment(wrap_text=True)
+    if analyst_aggregate.empty:
+        ws["A4"] = "No data -- run smart_consensus.py (this repo's newer version) to produce smart_consensus_analyst_aggregate.csv."
+        ws["A4"].font = Font(italic=True, color="C00000")
+    else:
+        write_dataframe(ws, analyst_aggregate, start_row=4)
+        if "avg_abs_fe" in analyst_aggregate.columns:
+            col = list(analyst_aggregate.columns).index("avg_abs_fe") + 1
+            for row in range(5, ws.max_row + 1):
+                ws.cell(row, col).number_format = "0.0000"
+        if "avg_weight_when_smart_weighted" in analyst_aggregate.columns:
+            col = list(analyst_aggregate.columns).index("avg_weight_when_smart_weighted") + 1
+            for row in range(5, ws.max_row + 1):
+                ws.cell(row, col).number_format = "0.0%"
+    autofit(ws)
+
+    # ------------------------------------------------------------
+    # Sector Leaderboard -- analysts ranked WITHIN their industry
+    # (Fama-French 48 group, resolved from SIC code) instead of across
+    # the whole universe. n_tickers_in_sector tells you honestly whether
+    # a given sector's ranking means anything yet (1 ticker = not a real
+    # sector comparison, it's just that ticker's own leaderboard).
+    # ------------------------------------------------------------
+    ws = wb.create_sheet("Sector Leaderboard")
+    ws.sheet_view.showGridLines = False
+    ws["A1"] = "Sector Leaderboard -- best analysts WITHIN each industry"
+    ws["A1"].font = Font(size=16, bold=True, color=WHITE)
+    ws["A1"].fill = PatternFill("solid", fgColor=NAVY)
+    ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=max(8, len(sector_lb.columns) if not sector_lb.empty else 8))
+    ws["A2"] = (
+        "Check n_tickers_in_sector before trusting a ranking as a real sector comparison: a sector with only 1 "
+        "ticker pulled so far is just that ticker's own analysts wearing a sector label, not a true peer comparison. "
+        "As you pull more tickers per industry, these become genuinely comparative."
+    )
+    ws.merge_cells(start_row=2, start_column=1, end_row=2, end_column=max(8, len(sector_lb.columns) if not sector_lb.empty else 8))
+    ws["A2"].alignment = Alignment(wrap_text=True)
+    if sector_lb.empty:
+        ws["A4"] = "No data -- run smart_consensus.py (this repo's newer version) to produce smart_consensus_sector_leaderboard.csv."
+        ws["A4"].font = Font(italic=True, color="C00000")
+    else:
+        write_dataframe(ws, sector_lb, start_row=4)
+        if "avg_abs_fe" in sector_lb.columns:
+            col = list(sector_lb.columns).index("avg_abs_fe") + 1
+            for row in range(5, ws.max_row + 1):
+                ws.cell(row, col).number_format = "0.0000"
+        # Flag thin (1-ticker) sectors so nobody mistakes them for a real comparison.
+        if "n_tickers_in_sector" in sector_lb.columns:
+            col = list(sector_lb.columns).index("n_tickers_in_sector") + 1
+            for row in range(5, ws.max_row + 1):
+                cell = ws.cell(row, col)
+                if cell.value == 1:
+                    cell.fill = PatternFill("solid", fgColor=ORANGE)
+    autofit(ws)
 
     # ------------------------------------------------------------
     # Consensus Detail
