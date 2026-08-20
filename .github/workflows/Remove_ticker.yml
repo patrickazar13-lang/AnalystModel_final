@@ -1,0 +1,95 @@
+name: Remove Ticker(s)
+
+on:
+  workflow_dispatch:
+    inputs:
+      tickers_to_remove:
+        description: "Ticker(s) to delete, comma-separated, WITH the exchange suffix (e.g. NBIS-US,GME-US)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Print current portfolio (before)
+        run: |
+          echo "=== Current portfolio (before removal) ==="
+          TICKERS=$(ls outputs/live_*_raw_forecast_errors.csv 2>/dev/null \
+            | sed -E 's#outputs/live_(.*)_raw_forecast_errors\.csv#\1#' \
+            | tr '_' '-' | sort)
+          if [ -z "$TICKERS" ]; then
+            echo "(no tickers found)"
+          else
+            echo "$TICKERS" | nl
+          fi
+
+      - name: Delete the requested ticker(s)
+        run: |
+          # Every file for a ticker is named live_<TICKER>_<something>.csv
+          # (raw_forecast_errors, raw_estimates, run_info, analyst_scores,
+          # partial_leaderboard, factor_adjusted_scores, broker filters,
+          # the .xlsx model, everything) -- this glob catches all of it,
+          # not just the one file used to detect the ticker exists.
+          IFS=',' read -ra REMOVE <<< "${{ inputs.tickers_to_remove }}"
+          for TICKER in "${REMOVE[@]}"; do
+            TICKER=$(echo "$TICKER" | xargs)  # trim whitespace
+            SAFE=$(echo "$TICKER" | tr '-' '_')
+            MATCHES=$(ls outputs/live_${SAFE}_* 2>/dev/null)
+            if [ -z "$MATCHES" ]; then
+              echo "No files found for '$TICKER' (looked for outputs/live_${SAFE}_*) -- skipping."
+              continue
+            fi
+            echo "Removing $TICKER:"
+            echo "$MATCHES" | sed 's/^/  /'
+            rm -f outputs/live_${SAFE}_*
+          done
+
+      - name: Print current portfolio (after)
+        id: portfolio_after
+        run: |
+          echo "=== Current portfolio (after removal) ==="
+          TICKERS=$(ls outputs/live_*_raw_forecast_errors.csv 2>/dev/null \
+            | sed -E 's#outputs/live_(.*)_raw_forecast_errors\.csv#\1#' \
+            | tr '_' '-' | sort)
+          if [ -z "$TICKERS" ]; then
+            echo "(no tickers left)"
+            echo "list=" >> "$GITHUB_OUTPUT"
+          else
+            echo "$TICKERS" | nl
+            echo "list=$(echo "$TICKERS" | paste -sd, -)" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Refresh the combined Smart Consensus outputs to match the new portfolio
+        if: steps.portfolio_after.outputs.list != ''
+        run: |
+          # Without this, master_*.csv / smart_consensus_*.csv would still
+          # contain the removed ticker's analysts until the next time
+          # someone happens to run the Smart Consensus workflow. Refreshing
+          # here means "removed" actually means removed everywhere, not
+          # just from this one folder view.
+          python master_pipeline.py --from-outputs --tickers "${{ steps.portfolio_after.outputs.list }}" --factor-adjusted --min-factor-obs 6
+          python smart_consensus.py
+          python export_smart_consensus.py
+
+      - name: Save the removal back to the repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A outputs/ 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "Remove ticker(s): ${{ inputs.tickers_to_remove }}"
+          git push || true
