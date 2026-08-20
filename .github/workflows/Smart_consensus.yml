@@ -42,7 +42,13 @@ jobs:
 
       - name: Combine all tickers (0 FactSet/API calls)
         run: |
-          python master_pipeline.py --from-outputs --tickers "${{ steps.tickers.outputs.list }}" --factor-adjusted
+          # --min-factor-obs 6 is the lowest this can go: the FF3+MOM factor
+          # regression needs at least 6 quarterly observations (4 factors +
+          # intercept) to run at all -- below 6 it's mathematically
+          # unsolvable, not just "not enough evidence yet". Even at 6, treat
+          # any resulting factor_alpha as noisy -- check its t-stat column
+          # (also in the output) before trusting the number.
+          python master_pipeline.py --from-outputs --tickers "${{ steps.tickers.outputs.list }}" --factor-adjusted --min-factor-obs 6
 
       - name: Build Smart Consensus (0 FactSet/API calls)
         run: |
