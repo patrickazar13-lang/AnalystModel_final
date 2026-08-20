@@ -33,7 +33,7 @@ jobs:
           FACTSET_CLIENT_ID: ${{ secrets.FACTSET_CLIENT_ID }}
           FACTSET_CLIENT_SECRET: ${{ secrets.FACTSET_CLIENT_SECRET }}
         run: |
-          python master_pipeline.py --live --ticker "${{ inputs.ticker }}" --quarters "${{ inputs.quarters }}"
+          python master_pipeline.py --live --ticker "${{ inputs.ticker }}" --quarters "${{ inputs.quarters }}" --factor-adjusted
 
       - name: Build Excel workbook
         run: |
