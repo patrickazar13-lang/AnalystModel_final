@@ -31,6 +31,7 @@ WEIGHTS = OUTPUT_DIR / "smart_consensus_analyst_weights.csv"
 SUMMARY = OUTPUT_DIR / "smart_consensus_summary.csv"
 ANALYST_AGGREGATE = OUTPUT_DIR / "smart_consensus_analyst_aggregate.csv"
 SECTOR_LEADERBOARD = OUTPUT_DIR / "smart_consensus_sector_leaderboard.csv"
+BROKER_AGGREGATE = OUTPUT_DIR / "smart_consensus_broker_aggregate.csv"
 DEFAULT_XLSX = OUTPUT_DIR / "Smart_Consensus_Model.xlsx"
 
 NAVY = "1F4E78"
@@ -99,21 +100,23 @@ def load_csvs() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     )
 
 
-def load_sector_csvs() -> tuple[pd.DataFrame, pd.DataFrame]:
+def load_sector_csvs() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """
-    Analyst Aggregate and Sector Leaderboard are newer, optional outputs
-    (added after the original three) -- older smart_consensus.py runs
-    won't have written them yet. Missing files degrade to empty sheets
-    with a note, rather than crashing the whole export.
+    Analyst Aggregate, Sector Leaderboard, and Broker Aggregate are newer,
+    optional outputs (added after the original three) -- older
+    smart_consensus.py runs won't have written them yet. Missing files
+    degrade to empty sheets with a note, rather than crashing the whole
+    export.
     """
     analyst_aggregate = pd.read_csv(ANALYST_AGGREGATE) if ANALYST_AGGREGATE.exists() else pd.DataFrame()
     sector_lb = pd.read_csv(SECTOR_LEADERBOARD) if SECTOR_LEADERBOARD.exists() else pd.DataFrame()
-    return analyst_aggregate, sector_lb
+    broker_aggregate = pd.read_csv(BROKER_AGGREGATE) if BROKER_AGGREGATE.exists() else pd.DataFrame()
+    return analyst_aggregate, sector_lb, broker_aggregate
 
 
 def build_workbook(output_path: Path) -> Path:
     predictions, weights, summary = load_csvs()
-    analyst_aggregate, sector_lb = load_sector_csvs()
+    analyst_aggregate, sector_lb, broker_aggregate = load_sector_csvs()
 
     # Build a readable analyst contribution summary for each firm-quarter.
     if not weights.empty and {"firm", "quarter", "analyst", "final_weight"}.issubset(weights.columns):
@@ -457,6 +460,45 @@ def build_workbook(output_path: Path) -> Path:
         # Flag thin (1-ticker) sectors so nobody mistakes them for a real comparison.
         if "n_tickers_in_sector" in sector_lb.columns:
             col = list(sector_lb.columns).index("n_tickers_in_sector") + 1
+            for row in range(5, ws.max_row + 1):
+                cell = ws.cell(row, col)
+                if cell.value == 1:
+                    cell.fill = PatternFill("solid", fgColor=ORANGE)
+    autofit(ws)
+
+    # ------------------------------------------------------------
+    # Broker Aggregate -- rank BROKERAGE FIRMS, not individuals, pooling
+    # every analyst at that house across every ticker (not sector-specific).
+    # Answers "which house's research is actually most accurate" as a firm-
+    # level question, e.g. is KeyBanc's semiconductor/industrials coverage
+    # genuinely more reliable across the board than BMO's.
+    # ------------------------------------------------------------
+    ws = wb.create_sheet("Broker Aggregate")
+    ws.sheet_view.showGridLines = False
+    ws["A1"] = "Broker Aggregate -- how good is each brokerage firm, full stop"
+    ws["A1"].font = Font(size=16, bold=True, color=WHITE)
+    ws["A1"].fill = PatternFill("solid", fgColor=NAVY)
+    ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=max(8, len(broker_aggregate.columns) if not broker_aggregate.empty else 8))
+    ws["A2"] = (
+        "avg_abs_fe: lower is better, pooled across every analyst at that broker and every ticker they cover -- "
+        "not sector-specific. Check n_analysts before trusting a broker's rank: n_analysts=1 is really just one "
+        "person's track record wearing the firm's name, while 5+ is a genuine house-wide signal."
+    )
+    ws.merge_cells(start_row=2, start_column=1, end_row=2, end_column=max(8, len(broker_aggregate.columns) if not broker_aggregate.empty else 8))
+    ws["A2"].alignment = Alignment(wrap_text=True)
+    if broker_aggregate.empty:
+        ws["A4"] = "No data -- run smart_consensus.py (this repo's newer version) to produce smart_consensus_broker_aggregate.csv."
+        ws["A4"].font = Font(italic=True, color="C00000")
+    else:
+        write_dataframe(ws, broker_aggregate, start_row=4)
+        if "avg_abs_fe" in broker_aggregate.columns:
+            col = list(broker_aggregate.columns).index("avg_abs_fe") + 1
+            for row in range(5, ws.max_row + 1):
+                ws.cell(row, col).number_format = "0.0000"
+        # Flag single-analyst brokers so nobody mistakes one person's track
+        # record for a firm-wide result.
+        if "n_analysts" in broker_aggregate.columns:
+            col = list(broker_aggregate.columns).index("n_analysts") + 1
             for row in range(5, ws.max_row + 1):
                 cell = ws.cell(row, col)
                 if cell.value == 1:
