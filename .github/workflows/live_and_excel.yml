@@ -4,9 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       ticker:
-        description: "Ticker"
+        description: "Ticker (needs the exchange suffix, e.g. RGTI-US)"
         required: true
         default: "LH-US"
+      quarters:
+        description: "How many trailing quarters of data to pull"
+        required: true
+        default: "12"
 
 permissions:
   contents: write
@@ -29,14 +33,30 @@ jobs:
           FACTSET_CLIENT_ID: ${{ secrets.FACTSET_CLIENT_ID }}
           FACTSET_CLIENT_SECRET: ${{ secrets.FACTSET_CLIENT_SECRET }}
         run: |
-          python master_pipeline.py --live --ticker "${{ inputs.ticker }}"
+          python master_pipeline.py --live --ticker "${{ inputs.ticker }}" --quarters "${{ inputs.quarters }}"
 
       - name: Build Excel workbook
         run: |
           python export_to_excel.py --ticker "${{ inputs.ticker }}"
 
-      - name: Upload outputs
+      - name: Save the pulled CSVs back to the repo (so you don't have to re-pull next time)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add outputs/*.csv outputs/**/*.csv 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "Update outputs from Live Model + Excel run (${{ inputs.ticker }})"
+          git push || true
+
+      - name: Work out this ticker's Excel filename
+        id: xlsx
+        run: |
+          SAFE=$(echo "${{ inputs.ticker }}" | tr '-' '_')
+          echo "path=outputs/live_${SAFE}_model.xlsx" >> "$GITHUB_OUTPUT"
+
+      - name: Upload just the Excel file
         uses: actions/upload-artifact@v4
         with:
-          name: outputs-${{ github.run_id }}
-          path: outputs/
+          name: model-${{ inputs.ticker }}
+          path: ${{ steps.xlsx.outputs.path }}
+          retention-days: 30
+          overwrite: true
