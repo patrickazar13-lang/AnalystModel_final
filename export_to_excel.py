@@ -348,10 +348,41 @@ def build_workbook(ticker: str) -> str:
     # ---------------------------------------------------------------
     if not factor_adjusted.empty:
         _fa = factor_adjusted.copy()
+
+        # Confidence label -- with FF3+MOM's 4 factors + intercept, a
+        # regression needs >=6 quarterly observations just to run at all
+        # (see src/factors.py's compute_analyst_factor_alpha docstring); at
+        # 6-7 the alpha is barely more than a coin flip's worth of evidence,
+        # and it only gets meaningfully sturdier as observations climb. This
+        # column exists specifically so a low-observation alpha can't be
+        # read at a glance as being as trustworthy as a well-supported one
+        # -- the same idea as Analyst Decision's "Limited/Moderate/Good
+        # history" flag, applied here to the factor regression specifically.
+        def _factor_confidence(n, has_alpha):
+            # Only label rows that actually got a factor_alpha -- below the
+            # 6-observation floor the regression didn't run at all (n_factor_obs
+            # is just a raw count of how much data existed, not evidence a
+            # number was computed), so those stay blank same as their alpha.
+            if not has_alpha or pd.isna(n):
+                return ""
+            n = int(n)
+            if n < 8:
+                return "Very low (6-7 obs)"
+            if n < 10:
+                return "Low (8-9 obs)"
+            if n < 14:
+                return "Moderate (10-13 obs)"
+            return "Good (14+ obs)"
+
+        _has_alpha = _fa.get("factor_alpha").notna() if "factor_alpha" in _fa.columns else pd.Series(False, index=_fa.index)
         _fa_display = pd.DataFrame({
             "Analyst": _fa.get("analyst"),
             "Quarterly obs (accuracy)": _fa.get("n_observations"),
             "Quarterly obs (factor regression)": _fa.get("n_factor_obs"),
+            "Confidence": [
+                _factor_confidence(n, has_alpha)
+                for n, has_alpha in zip(_fa.get("n_factor_obs", pd.Series(dtype=float)), _has_alpha)
+            ] if "n_factor_obs" in _fa.columns else "",
             "Factor alpha (%/quarter)": _fa.get("factor_alpha"),
             "Factor alpha t-stat": _fa.get("factor_alpha_tstat"),
             "Factor alpha (annualized %)": _fa.get("factor_alpha_annualized"),
@@ -365,8 +396,17 @@ def build_workbook(ticker: str) -> str:
         ws_fa = _write_raw_input_sheet(
             "Factor-Adjusted Score", _fa_display,
             f"{ticker} -- factor-adjusted analyst score (Fama-French: is she skilled, or just riding the market?){_title_suffix}",
-            {1: 22, 2: 14, 3: 16, 4: 16, 5: 14, 6: 16, 7: 16, 8: 16},
+            {1: 22, 2: 14, 3: 16, 4: 18, 5: 16, 6: 14, 7: 16, 8: 16, 9: 16},
         )
+        # Flag low-confidence rows so a thin, noisy alpha doesn't read the
+        # same as a well-supported one at a glance.
+        if "Confidence" in _fa_display.columns:
+            conf_col = list(_fa_display.columns).index("Confidence") + 1
+            for _r, _conf in enumerate(_fa_display["Confidence"], start=4):
+                if _conf.startswith("Very low"):
+                    ws_fa.cell(_r, conf_col).fill = PatternFill("solid", fgColor="FCE4D6")
+                elif _conf.startswith("Low"):
+                    ws_fa.cell(_r, conf_col).fill = PatternFill("solid", fgColor="FFF2CC")
         n_with_alpha = int(_fa["factor_alpha"].notna().sum()) if "factor_alpha" in _fa.columns else 0
         note_row = len(_fa_display) + 5
         if n_with_alpha == 0:
