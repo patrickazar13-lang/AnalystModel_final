@@ -52,8 +52,16 @@ jobs:
           echo "--- New/changed files git can see under outputs/ before staging ---"
           git status --porcelain outputs/ || echo "(git status itself failed -- see above)"
 
-          echo "--- Running git add (errors NOT hidden this time) ---"
-          git add outputs/*.csv outputs/**/*.csv
+          echo "--- Running git add ---"
+          # Just outputs/*.csv -- every CSV this project writes lives flat
+          # in outputs/, never nested in a subfolder, so a "**" pathspec
+          # was never needed. It's also actively harmful: git add fails
+          # ATOMICALLY across every pathspec it's given -- if outputs/**/*.csv
+          # matches nothing (which it never will, no CSV is ever nested),
+          # git add stages NOTHING AT ALL, not even the files outputs/*.csv
+          # matched just fine. That silent all-or-nothing failure, masked by
+          # the old "2>/dev/null || true", is why tickers stopped saving.
+          git add outputs/*.csv
 
           echo "--- What actually got staged ---"
           git status --porcelain --untracked-files=no outputs/
