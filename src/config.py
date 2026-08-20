@@ -106,8 +106,22 @@ K_PER_LEG = 5
 # multi-ticker universe supplies industry-level market caps.
 STRATEGY_WEIGHTS = "equal"
 
-# Minimum monthly observations for per-analyst factor regression.
-# ~60 months (5 years) needed for stable 4-6 factor OLS.
-# Analysts with fewer monthly obs get NaN factor alpha and are excluded
-# from the factor-alpha z-mean (same handling as missing freshness_score).
-MIN_FACTOR_OBS = 60
+# Minimum QUARTERLY observations for per-analyst factor regression (see
+# compute_analyst_factor_alpha() in src/factors.py). This used to require 60
+# MONTHLY observations (5 years) by forward-filling each quarterly residual
+# into 3 identical monthly copies -- a real methodological problem, not just
+# a data-availability one: forward-filling manufactures 3 fully-correlated,
+# non-independent "observations" out of 1 real one, which deflates the
+# regression's standard errors and can make a factor-alpha look more
+# statistically significant than the data actually supports. Fixed by
+# regressing directly at the natural quarterly frequency instead (one real,
+# independent observation per analyst per quarter, against quarter-compounded
+# factor returns) -- so this constant is now a genuine "how many actual
+# quarters of history" bar, not an artificially-inflated monthly count.
+# Set to 10 to match CREDIBILITY_PRIOR_OBS/MIN_TRAINING_OBS above (this
+# project's one consistent "minimum history before we trust a number"
+# threshold) -- still thin for a 4-6 factor OLS (10 obs - 4 factors - 1
+# intercept = 5 degrees of freedom for FF3+MOM), so factor_alpha_tstat is
+# reported alongside factor_alpha specifically so a thin, noisy regression is
+# visible rather than hidden. Override per-run with --min-factor-obs.
+MIN_FACTOR_OBS = 10
