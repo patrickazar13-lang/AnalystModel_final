@@ -197,6 +197,29 @@ def build_workbook(ticker: str) -> str:
     run_info = pd.read_csv(run_info_path) if os.path.exists(run_info_path) else pd.DataFrame()
     factor_adjusted = pd.read_csv(factor_adjusted_path) if os.path.exists(factor_adjusted_path) else pd.DataFrame()
 
+    # A single ticker rarely gives any one analyst the MIN_FACTOR_OBS
+    # quarters of history the factor regression needs (see src/config.py),
+    # so the single-ticker file above is very often all-blank. If so, fall
+    # back to the POOLED multi-ticker factor-adjusted file (written by
+    # master_pipeline.py --from-outputs --factor-adjusted, e.g. via the
+    # "Smart Consensus (all tickers)" workflow, which pools every analyst's
+    # history across every ticker she covers) -- filtered down to just the
+    # analysts who actually cover THIS ticker, so the sheet still reads as
+    # "this ticker's analysts", just scored using their full cross-ticker
+    # track record instead of only what happened on this one company.
+    factor_adjusted_is_pooled = False
+    if factor_adjusted.empty or (
+        "factor_alpha" in factor_adjusted.columns and factor_adjusted["factor_alpha"].isna().all()
+    ):
+        master_factor_path = f"{outdir}/master_partial_leaderboard_factor_adjusted.csv"
+        if os.path.exists(master_factor_path):
+            pooled = pd.read_csv(master_factor_path)
+            this_tickers_analysts = set(raw["analyst"].dropna().unique()) if "analyst" in raw.columns else set()
+            pooled_for_ticker = pooled[pooled["analyst"].isin(this_tickers_analysts)] if "analyst" in pooled.columns else pd.DataFrame()
+            if not pooled_for_ticker.empty:
+                factor_adjusted = pooled_for_ticker
+                factor_adjusted_is_pooled = True
+
 
     # Order analysts by the SAME logic as simple_accuracy_leaderboard() in
     # master_pipeline.py, just to decide ROW ORDER -- the actual numbers in
@@ -338,9 +361,10 @@ def build_workbook(ticker: str) -> str:
         _fa_display = _fa_display.sort_values(
             "Score, factor-adjusted", ascending=False, na_position="last"
         ).reset_index(drop=True)
+        _title_suffix = " -- pooled across every ticker each analyst covers" if factor_adjusted_is_pooled else ""
         ws_fa = _write_raw_input_sheet(
             "Factor-Adjusted Score", _fa_display,
-            f"{ticker} -- factor-adjusted analyst score (Fama-French: is she skilled, or just riding the market?)",
+            f"{ticker} -- factor-adjusted analyst score (Fama-French: is she skilled, or just riding the market?){_title_suffix}",
             {1: 22, 2: 14, 3: 16, 4: 16, 5: 14, 6: 16, 7: 16, 8: 16},
         )
         n_with_alpha = int(_fa["factor_alpha"].notna().sum()) if "factor_alpha" in _fa.columns else 0
@@ -349,10 +373,23 @@ def build_workbook(ticker: str) -> str:
             ws_fa.cell(
                 row=note_row, column=1,
                 value=(
-                    "No analyst covering this single ticker had enough quarterly history "
-                    "for a factor regression this run -- blanks above are expected, not an "
-                    "error. Run master_pipeline.py --from-outputs across multiple tickers "
-                    "with --factor-adjusted to populate real factor_alpha values."
+                    "No analyst covering this ticker had enough quarterly history for a factor "
+                    "regression this run -- blanks above are expected, not an error. This checked "
+                    "both this ticker alone AND the pooled multi-ticker file; run the "
+                    "\"Smart Consensus (all tickers)\" workflow (or master_pipeline.py --from-outputs "
+                    "--factor-adjusted) across more tickers to build up more analyst history over time."
+                ),
+            ).font = Font(name="Arial", italic=True)
+        elif factor_adjusted_is_pooled:
+            ws_fa.cell(
+                row=note_row, column=1,
+                value=(
+                    f"{n_with_alpha} of {len(_fa_display)} analyst(s) had enough history for a real "
+                    "factor alpha -- but only once pooled across ALL the tickers they cover, not just "
+                    f"{ticker} alone (this ticker's own history wasn't enough by itself). Quarterly obs "
+                    "columns above reflect that pooled history too. A positive alpha means her forecast "
+                    "errors beat what the market/size/value/momentum factors alone would predict -- "
+                    "genuine skill, not just a factor tailwind."
                 ),
             ).font = Font(name="Arial", italic=True)
         else:
