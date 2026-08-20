@@ -1,0 +1,69 @@
+name: Smart Consensus (all tickers)
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Find every ticker already pulled into this repo
+        id: tickers
+        run: |
+          # Every ticker that has a live_<TICKER>_raw_forecast_errors.csv file
+          # gets automatically included -- no list to type by hand, so this
+          # can never accidentally leave a ticker out the way a manually
+          # typed --tickers list can.
+          TICKERS=$(ls outputs/live_*_raw_forecast_errors.csv 2>/dev/null \
+            | sed -E 's#outputs/live_(.*)_raw_forecast_errors\.csv#\1#' \
+            | tr '_' '-' \
+            | paste -sd, -)
+          if [ -z "$TICKERS" ]; then
+            echo "No live_<TICKER>_raw_forecast_errors.csv files found under outputs/ -- nothing to combine."
+            exit 1
+          fi
+          echo "Found tickers: $TICKERS"
+          echo "list=$TICKERS" >> "$GITHUB_OUTPUT"
+
+      - name: Combine all tickers (0 FactSet/API calls)
+        run: |
+          python master_pipeline.py --from-outputs --tickers "${{ steps.tickers.outputs.list }}" --factor-adjusted
+
+      - name: Build Smart Consensus (0 FactSet/API calls)
+        run: |
+          python smart_consensus.py
+
+      - name: Export Smart Consensus Excel workbook
+        run: |
+          python export_smart_consensus.py
+
+      - name: Save the combined outputs back to the repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add outputs/master_*.csv outputs/smart_consensus_*.csv 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "Update Smart Consensus outputs (${{ steps.tickers.outputs.list }})"
+          git push || true
+
+      - name: Upload the Smart Consensus Excel workbook
+        uses: actions/upload-artifact@v4
+        with:
+          name: smart-consensus-model
+          path: outputs/Smart_Consensus_Model.xlsx
+          retention-days: 30
+          overwrite: true
