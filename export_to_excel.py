@@ -33,8 +33,9 @@ Produces outputs/live_AAPL_US_model.xlsx with the raw, scoring, chart, rollup, t
   Quarterly    -- the firm-level consensus forecast error per quarter
                   (from run_pipeline()'s consensus/industry output) with a
                   line chart showing the trend over time.
-  Analyst Charts -- ONLY the analyst bubble map: accuracy vs. consistency,
-                  bubble size = n_observations. No other analyst charts are added.
+  (The analyst bubble map -- accuracy vs. consistency, bubble size =
+  n_observations -- lives on the Analyst Decision sheet itself, below its
+  table and notes, rather than on its own tab.)
   Broker Rollup -- one row per brokerage, REAL FORMULAS (COUNTIF/AVERAGEIF)
                   averaging the Leaderboard's scores by current_broker, with
                   a bar chart -- which HOUSES field the more reliable
@@ -676,15 +677,12 @@ def build_workbook(ticker: str) -> str:
 
 
     # ---------------------------------------------------------------
-    # Sheet 4: Analyst Charts -- keep ONLY the analyst bubble map.
-    # This is the clearest view of accuracy vs. consistency, while bubble
-    # size shows the amount of evidence behind each analyst.
+    # Analyst bubble map (accuracy vs. consistency, bubble size = amount
+    # of evidence) -- built here (Leaderboard's cells exist by now) but
+    # NOT put on its own tab. It gets attached to the Analyst Decision
+    # sheet once that sheet is built below, so the score table and its
+    # chart are one thing to look at instead of two separate tabs.
     # ---------------------------------------------------------------
-    ws_charts = wb.create_sheet("Analyst Charts")
-    ws_charts["A1"] = f"{ticker} -- analyst bubble map (accuracy vs. consistency; bubble size = observations)"
-    ws_charts["A1"].font = Font(name="Arial", bold=True, size=12)
-
-
     bubble = BubbleChart()
     bx = Reference(ws_lb, min_col=lb_col["accuracy_score"], min_row=first_data_row, max_row=last_row)
     by = Reference(ws_lb, min_col=lb_col["consistency_score"], min_row=first_data_row, max_row=last_row)
@@ -694,7 +692,6 @@ def build_workbook(ticker: str) -> str:
     bubble.x_axis.title = "Accuracy score (higher = smaller average error)"
     bubble.y_axis.title = "Consistency score (higher = steadier)"
     bubble.width, bubble.height = 24, 14
-    ws_charts.add_chart(bubble, "A3")
 
 
     # ---------------------------------------------------------------
@@ -943,6 +940,10 @@ def build_workbook(ticker: str) -> str:
     ws_ad.conditional_formatting.add(f"M{ad_first}:M{ad_last}", ColorScaleRule(start_type="min", start_color="F8696B", mid_type="num", mid_value=50, mid_color="FFEB84", end_type="max", end_color="63BE7B"))
     ws_ad.conditional_formatting.add(f"O{ad_first}:O{ad_last}", CellIsRule(operator="equal", formula=['"Limited history"'], fill=PatternFill("solid", fgColor="FCE4D6")))
 
+    # Attach the accuracy-vs-consistency bubble map below the notes, on
+    # this same sheet, instead of a separate "Analyst Charts" tab.
+    ws_ad.add_chart(bubble, f"A{ad_last + 3 + len(notes) + 2}")
+
 
     # ---------------------------------------------------------------
     # Sheet 9: Broker Decision -- direct aggregation from Raw Data, not
@@ -1030,7 +1031,7 @@ def build_workbook(ticker: str) -> str:
     # ---------------------------------------------------------------
     # FF5 strategy outputs -- populated when master_pipeline.py was run
     # with --factor-model FF5 --factor-backtest. These are separate from
-    # the analyst bubble map and do not add any chart to Analyst Charts.
+    # the analyst bubble map and do not add any additional chart.
     # ---------------------------------------------------------------
     ff_factors_path = f"{outdir}/live_{safe}_ff_factors.csv"
     strategy_returns_path = f"{outdir}/live_{safe}_strategy_returns.csv"
@@ -1206,7 +1207,16 @@ def build_workbook(ticker: str) -> str:
     # adjusted). Hide rather than delete, so the formulas keep working;
     # unhide any time via Excel's right-click "Unhide" on the sheet tabs.
     # ---------------------------------------------------------------
-    for _redundant_sheet in ("Leaderboard", "Broker Rollup"):
+    # Raw Estimates/Actuals/Prices/Data are the audit trail proving where
+    # the numbers came from -- useful to have, rarely something a coworker
+    # opens day to day. Analyst Trends duplicates FE Heatmap's data as a
+    # line chart instead of a color grid; keeping one view visible avoids
+    # showing the same forecast-error-by-quarter numbers twice.
+    for _redundant_sheet in (
+        "Leaderboard", "Broker Rollup",
+        "Raw Estimates", "Raw Actuals", "Raw Prices", "Raw Data",
+        "Analyst Trends",
+    ):
         if _redundant_sheet in wb.sheetnames:
             wb[_redundant_sheet].sheet_state = "hidden"
 
