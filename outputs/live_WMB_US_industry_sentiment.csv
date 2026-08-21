@@ -1,0 +1,11 @@
+industry,quarter,industry_fe,industry_nn_predicted_fe,industry_linear_predicted_fe,n_firms,industry_sentiment
+Utilities,2023Q4,0.04573797583945435,,,1,
+Utilities,2024Q1,0.04084444645628557,,,1,
+Utilities,2024Q2,0.04158811704266249,,,1,
+Utilities,2024Q3,0.032602870813397127,,,1,
+Utilities,2024Q4,0.03422917043195373,,,1,
+Utilities,2025Q1,0.031123316796598154,,,1,
+Utilities,2025Q2,0.03413661581137309,,,1,
+Utilities,2025Q3,0.028744053282588007,,,1,
+Utilities,2025Q4,0.026223274282223576,,,1,
+Utilities,2026Q1,0.0226385559159498,,,1,
