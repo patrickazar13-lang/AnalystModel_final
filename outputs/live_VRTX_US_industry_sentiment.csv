@@ -1,0 +1,13 @@
+industry,quarter,industry_fe,industry_nn_predicted_fe,industry_linear_predicted_fe,n_firms,industry_sentiment
+Pharmaceutical Products,2023Q2,0.04366120675246532,,,1,
+Pharmaceutical Products,2023Q3,0.04209650220312244,,,1,
+Pharmaceutical Products,2023Q4,0.038005725841266956,,,1,
+Pharmaceutical Products,2024Q1,0.04092968593718743,,,1,
+Pharmaceutical Products,2024Q2,0.06997930836679506,,,1,
+Pharmaceutical Products,2024Q3,0.03599029471438432,,,1,
+Pharmaceutical Products,2024Q4,0.03822023970442462,,,1,
+Pharmaceutical Products,2025Q1,0.036876780030155806,,,1,
+Pharmaceutical Products,2025Q2,0.03585770682021419,,,1,
+Pharmaceutical Products,2025Q3,0.03816797900262466,,,1,
+Pharmaceutical Products,2025Q4,0.03243588126471577,,,1,
+Pharmaceutical Products,2026Q1,0.0339377977139214,,,1,
