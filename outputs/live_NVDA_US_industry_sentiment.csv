@@ -1,0 +1,13 @@
+industry,quarter,industry_fe,industry_nn_predicted_fe,industry_linear_predicted_fe,n_firms,industry_sentiment
+Electronic Equipment,2023Q2,0.03221395187813744,,,1,
+Electronic Equipment,2023Q3,0.03471824035343328,,,1,
+Electronic Equipment,2023Q4,0.03699053582811601,,,1,
+Electronic Equipment,2024Q1,0.03380971226712399,,,1,
+Electronic Equipment,2024Q2,0.031269079325753214,,,1,
+Electronic Equipment,2024Q3,0.02986534552845528,,,1,
+Electronic Equipment,2024Q4,0.02926035299773367,,,1,
+Electronic Equipment,2025Q1,0.03355271084337349,,,1,
+Electronic Equipment,2025Q2,0.037459401216039405,,,1,
+Electronic Equipment,2025Q3,0.026835178148576465,,,1,
+Electronic Equipment,2025Q4,0.02799344295886481,,,1,
+Electronic Equipment,2026Q1,0.031725893709557654,,,1,
