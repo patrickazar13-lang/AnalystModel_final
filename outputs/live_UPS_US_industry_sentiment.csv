@@ -1,0 +1,13 @@
+industry,quarter,industry_fe,industry_nn_predicted_fe,industry_linear_predicted_fe,n_firms,industry_sentiment
+Transportation,2023Q2,0.0626065298608479,,,1,
+Transportation,2023Q3,0.07709164628652337,,,1,
+Transportation,2023Q4,0.0651155604197515,,,1,
+Transportation,2024Q1,0.06981005512386267,,,1,
+Transportation,2024Q2,0.07205764075067024,,,1,
+Transportation,2024Q3,0.06293285155073772,,,1,
+Transportation,2024Q4,0.06383082293873067,,,1,
+Transportation,2025Q1,0.07290463160028378,,,1,
+Transportation,2025Q2,0.06451949161056968,,,1,
+Transportation,2025Q3,0.066271748958953,,,1,
+Transportation,2025Q4,0.0463334259002129,,,1,
+Transportation,2026Q1,0.05893722146870761,,,1,
