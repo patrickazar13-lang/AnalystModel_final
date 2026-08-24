@@ -1,0 +1,11 @@
+industry,quarter,industry_fe,industry_nn_predicted_fe,industry_linear_predicted_fe,n_firms,industry_sentiment
+Computers,2023Q4,0.13412150089338892,,,1,
+Computers,2024Q1,0.17305006587615285,,,1,
+Computers,2024Q2,0.15906610960924059,,,1,
+Computers,2024Q3,0.05558096378329841,,,1,
+Computers,2024Q4,0.07866984316061149,,,1,
+Computers,2025Q1,0.6182806324110672,,,1,
+Computers,2025Q2,0.17200605778191985,,,1,
+Computers,2025Q3,0.05979227776114936,,,1,
+Computers,2025Q4,0.06725613057940744,,,1,
+Computers,2026Q1,0.0980467062546902,,,1,
