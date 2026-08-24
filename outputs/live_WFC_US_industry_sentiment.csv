@@ -1,0 +1,10 @@
+industry,quarter,industry_fe,industry_nn_predicted_fe,industry_linear_predicted_fe,n_firms,industry_sentiment
+Banking,2024Q1,0.08880262249827467,,,1,
+Banking,2024Q2,0.08871473354231973,,,1,
+Banking,2024Q3,0.08700178890876566,,,1,
+Banking,2024Q4,0.07415707996023294,,,1,
+Banking,2025Q1,0.07724289149809026,,,1,
+Banking,2025Q2,0.06414128806789815,,,1,
+Banking,2025Q3,0.060762347888332145,,,1,
+Banking,2025Q4,0.05769377584561552,,,1,
+Banking,2026Q1,0.0709140625,,,1,
