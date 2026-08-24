@@ -1,0 +1,7 @@
+industry,quarter,industry_fe,industry_nn_predicted_fe,industry_linear_predicted_fe,n_firms,industry_sentiment
+Machinery,2024Q4,0.07111563367252544,,,1,
+Machinery,2025Q1,0.10782769610362908,,,1,
+Machinery,2025Q2,0.06808917442873416,,,1,
+Machinery,2025Q3,0.06913841710788696,,,1,
+Machinery,2025Q4,0.06186105017650025,,,1,
+Machinery,2026Q1,0.04600159372927916,,,1,
