@@ -1,0 +1,13 @@
+industry,quarter,industry_fe,industry_nn_predicted_fe,industry_linear_predicted_fe,n_firms,industry_sentiment
+"Restaurants, Hotels, Motels",2023Q2,0.033391136801541425,,,1,
+"Restaurants, Hotels, Motels",2023Q3,0.03483399952597422,,,1,
+"Restaurants, Hotels, Motels",2023Q4,0.02984913989887244,,,1,
+"Restaurants, Hotels, Motels",2024Q1,0.022421427513736814,,,1,
+"Restaurants, Hotels, Motels",2024Q2,0.02199565437392796,,,1,
+"Restaurants, Hotels, Motels",2024Q3,0.021371008192609932,,,1,
+"Restaurants, Hotels, Motels",2024Q4,0.023622775800711746,,,1,
+"Restaurants, Hotels, Motels",2025Q1,0.026552849064810792,,,1,
+"Restaurants, Hotels, Motels",2025Q2,0.019967822667143368,,,1,
+"Restaurants, Hotels, Motels",2025Q3,0.02549197988987311,,,1,
+"Restaurants, Hotels, Motels",2025Q4,0.024399934615384616,,,1,
+"Restaurants, Hotels, Motels",2026Q1,0.02565704964539007,,,1,

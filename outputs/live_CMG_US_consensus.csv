@@ -1,0 +1,13 @@
+firm,quarter,consensus_fe,consensus_nn_predicted_fe,consensus_linear_predicted_fe,market_cap,sic_code,industry
+CMG-US,2023Q2,0.033391136801541425,,,57276.508,5812,"Restaurants, Hotels, Motels"
+CMG-US,2023Q3,0.03483399952597422,,,49483.348,5812,"Restaurants, Hotels, Motels"
+CMG-US,2023Q4,0.02984913989887244,,,63721.563,5812,"Restaurants, Hotels, Motels"
+CMG-US,2024Q1,0.022421427513736814,,,81322.69,5812,"Restaurants, Hotels, Motels"
+CMG-US,2024Q2,0.02199565437392796,,,80066.305,5812,"Restaurants, Hotels, Motels"
+CMG-US,2024Q3,0.021371008192609932,,,81908.36,5812,"Restaurants, Hotels, Motels"
+CMG-US,2024Q4,0.023622775800711746,,,76577.73,5812,"Restaurants, Hotels, Motels"
+CMG-US,2025Q1,0.026552849064810792,,,62318.395,5812,"Restaurants, Hotels, Motels"
+CMG-US,2025Q2,0.019967822667143368,,,75371.54,5812,"Restaurants, Hotels, Motels"
+CMG-US,2025Q3,0.02549197988987311,,,56008.766,5812,"Restaurants, Hotels, Motels"
+CMG-US,2025Q4,0.024399934615384616,,,51568.84,5812,"Restaurants, Hotels, Motels"
+CMG-US,2026Q1,0.02565704964539007,,,45910.41,5812,"Restaurants, Hotels, Motels"
