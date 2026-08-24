@@ -1,0 +1,2 @@
+ticker,quarters_requested,quarters_pulled,earliest_quarter,latest_quarter,n_analysts,n_observations,run_timestamp
+TSLA-US,12,12,2023Q2,2026Q1,48,319,2026-08-24T13:00:46

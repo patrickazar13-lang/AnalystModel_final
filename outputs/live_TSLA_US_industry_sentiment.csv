@@ -1,0 +1,13 @@
+industry,quarter,industry_fe,industry_nn_predicted_fe,industry_linear_predicted_fe,n_firms,industry_sentiment
+Automobiles and Trucks,2023Q2,0.02149815916171056,,,1,
+Automobiles and Trucks,2023Q3,0.028718410170010714,,,1,
+Automobiles and Trucks,2023Q4,0.018720633299284983,,,1,
+Automobiles and Trucks,2024Q1,0.013891722748510442,,,1,
+Automobiles and Trucks,2024Q2,0.008507130593483845,,,1,
+Automobiles and Trucks,2024Q3,0.004667190954888418,,,1,
+Automobiles and Trucks,2024Q4,0.008860631748915127,,,1,
+Automobiles and Trucks,2025Q1,0.015155386000257192,,,1,
+Automobiles and Trucks,2025Q2,0.008741009192916047,,,1,
+Automobiles and Trucks,2025Q3,0.005196038204654767,,,1,
+Automobiles and Trucks,2025Q4,0.004334749552772808,,,1,
+Automobiles and Trucks,2026Q1,0.00555047341587764,,,1,
