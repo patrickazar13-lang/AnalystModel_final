@@ -203,6 +203,77 @@ Measuring and Control Equipment,Joe Quatrochi,6,0.0310463862600336,1,1
 Measuring and Control Equipment,Edward H. Yang,7,0.031498776973330915,1,1
 Measuring and Control Equipment,Melissa Weathers,6,0.03202042036295651,1,1
 Measuring and Control Equipment,Steve Barger,8,0.03414835627929923,1,1
+Retail,Jeffrey Wlodarczak,1,0.0181798792756539,1,1
+Retail,Benjamin Black,1,0.0196285714285714,1,1
+Retail,Andrew Cheng,1,0.0199505030181086,1,1
+Retail,Simeon Siegel,1,0.0200309859154929,1,1
+Retail,Yong-Jei Jeong,4,0.02058153276706835,1,1
+Retail,Jia Qing Dong,1,0.0208760563380281,1,1
+Retail,Bo Tao Yu,1,0.0210370221327967,1,1
+Retail,Shyam Patil,5,0.02146941490713744,1,1
+Retail,Helena Wang,4,0.021789016763133752,1,1
+Retail,Brian J. Pitz,10,0.022834652163803263,1,1
+Retail,Ivan Feinseth,1,0.0228881287726358,1,1
+Retail,Lloyd Walmsley,3,0.023005092238706365,1,1
+Retail,Dylan Carden,5,0.023037415020888158,1,1
+Retail,Brent Thill,6,0.024014346703560018,1,1
+Retail,Mark Kelley,7,0.02403063256336923,1,1
+Retail,Brian J. White,5,0.024111006561992637,1,1
+Retail,Tom Forte,9,0.024236720373668235,1,1
+Retail,Justin Patterson,3,0.024253561308362603,1,1
+Retail,Andrew Boone,4,0.0242903785909481,1,1
+Retail,Dan Zhao,1,0.0243938492906295,1,1
+Retail,Kadambari Daptardar,5,0.02479384303999716,1,1
+Retail,Irene Weng,6,0.025054634199192405,1,1
+Retail,Daniel L. Kurnos,5,0.02514062362587068,1,1
+Retail,Alice Tang,2,0.02523075448652205,1,1
+Retail,Siyu Cai,2,0.02547003767546635,1,1
+Retail,Rob Sanderson,6,0.025750585827936216,1,1
+Retail,Laura Martin,6,0.025756525121301985,1,1
+Retail,Joseph Feldman,5,0.025794241659091378,1,1
+Retail,Jun Yun Chen,1,0.0258137748570453,1,1
+Retail,Deepak Mathivanan,7,0.025901599889433375,1,1
+Retail,Tommy Wong,6,0.026003559190472102,1,1
+Retail,Daryl Boehringer,5,0.026119392770902715,1,1
+Retail,Barney Yao,4,0.026145577352501226,1,1
+Retail,Jason Helfstein,7,0.026385645582374755,1,1
+Retail,James Kelleher,5,0.02643762036387008,1,1
+Retail,Egor Tolmachev,1,0.0269799972024059,1,1
+Retail,Mark Mahaney,6,0.027325444244417418,1,1
+Retail,Ye Tao,5,0.0273869951866632,1,1
+Retail,Satoshi Tanaka,9,0.027393078371942565,1,1
+Retail,James Lee,5,0.027422399286413858,1,1
+Retail,Nathaniel Schindler,6,0.02753377781215917,1,1
+Retail,Scott Bender,7,0.027724575651133704,1,1
+Retail,Lee Horowitz,7,0.027889093711471358,1,1
+Retail,Josh J. Beck,10,0.02804443355992698,1,1
+Retail,Tian Zi Fu,3,0.028264322331928004,1,1
+Retail,Scott Devitt,6,0.02836451376461548,1,1
+Retail,Maria Ripps,9,0.028729417623210678,1,1
+Retail,Aaron Kessler,3,0.028788752805349534,1,1
+Retail,Michael Graham,3,0.02901999352570873,1,1
+Retail,Lulu Xia,8,0.029196772119636887,1,1
+Retail,Michael Morton,10,0.02922785681411515,1,1
+Retail,Barton Crockett,5,0.02927367345229186,1,1
+Retail,Gil Luria,5,0.02932750249475604,1,1
+Retail,Lun Ke Zhang,9,0.02945826460410458,1,1
+Retail,Saiyi He,9,0.02990830285512489,1,1
+Retail,Ella Ji,8,0.03003882240954884,1,1
+Retail,Rong Jin,8,0.030198878218543276,1,1
+Retail,Daniel Salmon,7,0.030510440621835517,1,1
+Retail,Ken Gawrelski,12,0.030986471685122308,1,1
+Retail,Brad Erickson,12,0.03099351390769431,1,1
+Retail,Youssef Squali,12,0.03106779548450953,1,1
+Retail,Thomas Champion,12,0.032165825553591064,1,1
+Retail,Parth Talsania,2,0.03237257513347905,1,1
+Retail,Louis Ng,1,0.0330585670854127,1,1
+Retail,John Blackledge,12,0.033106411019145306,1,1
+Retail,Ishan Majumdar,2,0.0333788672422929,1,1
+Retail,Thiago Alves Kapulskis,5,0.033392089790749986,1,1
+Retail,Megan Tao,1,0.0356398783915562,1,1
+Retail,Curtis A Shauger,1,0.0387374519589284,1,1
+Retail,Craig Moffett,1,0.0412174110179097,1,1
+Retail,Heping Qin,1,0.0492166703032947,1,1
 Trading,Chris Allen,1,0.0303883623394207,1,3
 Trading,Patrick Moley,6,0.03254226141166745,1,3
 Trading,Kevin Heal,5,0.032975781932137314,1,3
@@ -236,14 +307,28 @@ Trading,David Konrad,3,0.07170177994095538,1,3
 Trading,Parth Talsania,1,0.0717061256076032,1,3
 Trading,James Fotheringham,2,0.0747372303412535,1,3
 Trading,Michael C. Brown,6,0.07957529568677893,1,3
-Utilities,Durgesh Chopra,1,0.0426042428675932,1,1
-Utilities,Xiang Li,1,0.0460274852298998,1,1
-Utilities,Neil Kalton,4,0.05341040531145243,1,1
-Utilities,James West,3,0.05492667592459797,1,1
-Utilities,Nicholas Amicucci,1,0.0582941176470588,1,1
-Utilities,Andrew Weisel,3,0.058867502903867,1,1
-Utilities,J.R. Weston,4,0.061036800370905114,1,1
-Utilities,Shahriar Pourreza,6,0.06349189904660123,1,1
-Utilities,Julien Dumoulin-Smith,7,0.06560988081233966,1,1
-Utilities,James M. Thalacker,10,0.08247045513757023,1,1
-Utilities,Angie Storozynski,12,0.09915184354314488,1,1
+Utilities,Gabe Daoud,1,0.0227795797489775,1,2
+Utilities,Elvira Scotto,3,0.02544780512260067,1,2
+Utilities,Ameet Thakkar,3,0.026441134468867162,1,2
+Utilities,Jason Gabelman,3,0.0276991867335072,1,2
+Utilities,Sunil K. Sibal,7,0.02835754550853033,1,2
+Utilities,Robert Catellier,6,0.028824182854294434,1,2
+Utilities,Brandon Bingham,6,0.029023456396231665,1,2
+Utilities,Bin Yang,2,0.0291035890357197,1,2
+Utilities,William Selesky,5,0.029412351260750362,1,2
+Utilities,James Carreker,9,0.03154609040521303,1,2
+Utilities,Praneeth Satish,9,0.032918479803161246,1,2
+Utilities,Selman Akyol,8,0.03326709360662439,1,2
+Utilities,Gabriel Moreen,8,0.03355143643043201,1,2
+Utilities,Tristan J. Richardson,3,0.041261307458237834,1,2
+Utilities,Durgesh Chopra,1,0.0426042428675932,1,2
+Utilities,Xiang Li,1,0.0460274852298998,1,2
+Utilities,Neil Kalton,4,0.05341040531145243,1,2
+Utilities,Julien Dumoulin-Smith,10,0.05358763838308776,2,2
+Utilities,James West,3,0.05492667592459797,1,2
+Utilities,Nicholas Amicucci,1,0.0582941176470588,1,2
+Utilities,Andrew Weisel,3,0.058867502903867,1,2
+Utilities,J.R. Weston,4,0.061036800370905114,1,2
+Utilities,Shahriar Pourreza,6,0.06349189904660123,1,2
+Utilities,James M. Thalacker,10,0.08247045513757023,1,2
+Utilities,Angie Storozynski,12,0.09915184354314488,1,2
