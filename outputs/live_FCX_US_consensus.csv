@@ -1,0 +1,13 @@
+firm,quarter,consensus_fe,consensus_nn_predicted_fe,consensus_linear_predicted_fe,market_cap,sic_code,industry
+FCX-US,2023Q2,0.0666209443418623,,,54335.883,1000,Non-Metallic and Industrial Metal Mining
+FCX-US,2023Q3,0.08675859579474768,,,50707.69,1000,Non-Metallic and Industrial Metal Mining
+FCX-US,2023Q4,0.05232613908872902,,,59796.855,1000,Non-Metallic and Industrial Metal Mining
+FCX-US,2024Q1,0.04027095516569201,,,73585.18,1000,Non-Metallic and Industrial Metal Mining
+FCX-US,2024Q2,0.047594488188976374,,,72973.69,1000,Non-Metallic and Industrial Metal Mining
+FCX-US,2024Q3,0.05330109075941552,,,69816.85,1000,Non-Metallic and Industrial Metal Mining
+FCX-US,2024Q4,0.0547812622612287,,,55666.582,1000,Non-Metallic and Industrial Metal Mining
+FCX-US,2025Q1,0.06106698280972139,,,48486.844,1000,Non-Metallic and Industrial Metal Mining
+FCX-US,2025Q2,0.038806755867514794,,,65476.367,1000,Non-Metallic and Industrial Metal Mining
+FCX-US,2025Q3,0.03758485338259063,,,62183.383,1000,Non-Metallic and Industrial Metal Mining
+FCX-US,2025Q4,0.04033513513513513,,,79694.15,1000,Non-Metallic and Industrial Metal Mining
+FCX-US,2026Q1,0.03603762227238526,,,95502.05,1000,Non-Metallic and Industrial Metal Mining
