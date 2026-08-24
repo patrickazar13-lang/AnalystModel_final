@@ -1,0 +1,12 @@
+firm,quarter,consensus_fe,consensus_nn_predicted_fe,consensus_linear_predicted_fe,market_cap,sic_code,industry
+MLM-US,2023Q2,0.0336496157487944,,,28141.873,1400,Non-Metallic and Industrial Metal Mining
+MLM-US,2023Q3,0.045571103211909623,,,25606.102,1400,Non-Metallic and Industrial Metal Mining
+MLM-US,2024Q1,0.019093474900880314,,,36799.203,1400,Non-Metallic and Industrial Metal Mining
+MLM-US,2024Q2,0.0399007385200351,,,33719.65,1400,Non-Metallic and Industrial Metal Mining
+MLM-US,2024Q3,0.03208346470485199,,,34891.727,1400,Non-Metallic and Industrial Metal Mining
+MLM-US,2024Q4,0.03425811351511559,,,32993.973,1400,Non-Metallic and Industrial Metal Mining
+MLM-US,2025Q1,0.039291453762148085,,,30242.572,1400,Non-Metallic and Industrial Metal Mining
+MLM-US,2025Q2,0.027689013483764444,,,35052.35,1400,Non-Metallic and Industrial Metal Mining
+MLM-US,2025Q3,0.023976208407828742,,,38115.926,1400,Non-Metallic and Industrial Metal Mining
+MLM-US,2025Q4,0.026465096965689064,,,39213.51,1400,Non-Metallic and Industrial Metal Mining
+MLM-US,2026Q1,-0.008996513043192211,,,36506.703,1400,Non-Metallic and Industrial Metal Mining

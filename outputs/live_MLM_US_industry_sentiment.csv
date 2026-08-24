@@ -1,0 +1,12 @@
+industry,quarter,industry_fe,industry_nn_predicted_fe,industry_linear_predicted_fe,n_firms,industry_sentiment
+Non-Metallic and Industrial Metal Mining,2023Q2,0.0336496157487944,,,1,
+Non-Metallic and Industrial Metal Mining,2023Q3,0.045571103211909623,,,1,
+Non-Metallic and Industrial Metal Mining,2024Q1,0.019093474900880314,,,1,
+Non-Metallic and Industrial Metal Mining,2024Q2,0.0399007385200351,,,1,
+Non-Metallic and Industrial Metal Mining,2024Q3,0.03208346470485199,,,1,
+Non-Metallic and Industrial Metal Mining,2024Q4,0.03425811351511559,,,1,
+Non-Metallic and Industrial Metal Mining,2025Q1,0.039291453762148085,,,1,
+Non-Metallic and Industrial Metal Mining,2025Q2,0.027689013483764444,,,1,
+Non-Metallic and Industrial Metal Mining,2025Q3,0.023976208407828742,,,1,
+Non-Metallic and Industrial Metal Mining,2025Q4,0.026465096965689064,,,1,
+Non-Metallic and Industrial Metal Mining,2026Q1,-0.008996513043192211,,,1,
