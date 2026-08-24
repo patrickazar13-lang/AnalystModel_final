@@ -1,0 +1,13 @@
+industry,quarter,industry_fe,industry_nn_predicted_fe,industry_linear_predicted_fe,n_firms,industry_sentiment
+Construction,2023Q2,0.07983320234040694,,,1,
+Construction,2023Q3,0.09177483867913591,,,1,
+Construction,2023Q4,0.07107352294586425,,,1,
+Construction,2024Q1,0.0707119702780441,,,1,
+Construction,2024Q2,0.04738569866692241,,,1,
+Construction,2024Q3,0.03468055009823183,,,1,
+Construction,2024Q4,0.04226453341055528,,,1,
+Construction,2025Q1,0.0553589983817392,,,1,
+Construction,2025Q2,0.03292008835022937,,,1,
+Construction,2025Q3,0.029533923303834808,,,1,
+Construction,2025Q4,0.024443186535340958,,,1,
+Construction,2026Q1,0.02129837493717541,,,1,
